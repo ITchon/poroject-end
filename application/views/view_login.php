@@ -14,7 +14,7 @@
 									<span class="grey" id="id-text2">CONTROL SYSTEM</span>
 								</h1>
 
-								<h4 class="blue" id="id-company-text">&copy; TBKK</h4>
+								<h4 class="blue" id="id-company-text"></h4>
 							</div>
 
 							<div class="space-6"></div>
