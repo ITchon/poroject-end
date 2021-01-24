@@ -1,18 +1,19 @@
-<body   style="background-color:#E4E6E9">
+<body   style="background-color:#F8F8FF">
 		
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
 						<div class="login-container">
 							<div class="center">
 							<br><br><br>
-							<img class="nav-user-photo" src="<?php echo base_url(); ?>themes/ace_admin/img/box_icon.png" alt="Box icon" height="150" width="150"/>
+							<img class="nav-user-photo" src="<?php echo base_url(); ?>themes/ace_admin/img/logoo.png" alt="Box icon" height="180" width="180"/>
 							
 							<!-- <img class="nav-user-photo" src="<?php echo base_url(); ?>themes/smartadmin/img/box_icon2.png" alt="Box icon" height="150" width="150"/> -->
-								<h1>
+								<h3>
 									<!-- <i class="ace-icon fa fa-leaf green"></i> -->
-									<span class="red">BOX</span>
-									<span class="grey" id="id-text2">CONTROL SYSTEM</span>
-								</h1>
+									<!--<span class="red">BOX</span>-->
+									<span class="red" id="id-text2">ระบบสารสนเทศการฝึกงานฝึก-อาชีพ วิทยาลัยเทคนิคชลบุรี</span>
+								</h3>
+
 
 								<h4 class="blue" id="id-company-text"></h4>
 							</div>
@@ -24,8 +25,8 @@
 									<div class="widget-body">
 										<div class="widget-main" style="padding: 16px 36px 36px;padding-bottom: 16px; box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0px 0px 4px 0px #212529">
 											<h4 class="header blue lighter bigger">
-												<i class="ace-icon fa fa-coffee green"></i>
-												Please Enter Your Information
+												
+												Sign in to access your account
 											</h4>
 
 											<div class="space-6"></div>
@@ -56,14 +57,14 @@
 														</label> -->
 														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">Login</span>
+															<span class="bigger-110">Sing in</span>
 														</button>
 
 														<div>
-															<u><a href="company/registerindex">Register Company</a></u>
+															<a href="company/registerindex">Register Company</a>
 														</div>
 														<div>
-															<u><a href="teacher/registerindex">Register Teacher</a></u>
+															<a href="teacher/registerindex">Register Teacher</a>
 														</div>
 
 														<input type="hidden" name="action" value="<?php echo base64_encode('login');?>"/>
@@ -113,9 +114,7 @@
 									</div><!-- /.widget-body -->
 								</div><!-- /.login-box -->
 
-								<div align="right">
-									<h5>(Version 1.0)</h5>
-								</div>
+								
 								
 <!-- 
 								<div id="forgot-box" class="forgot-box widget-box no-border">
