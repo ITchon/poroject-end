@@ -1,11 +1,18 @@
-<body   style="background-color:#F8F8FF">
+<body id=grad1>
+<style>
+#grad1 {
+
+  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(213, 117, 72, 1) 100%);
+}
+</style>
+
 		
 				<div class="row">
 					<div class="col-sm-10 col-sm-offset-1">
 						<div class="login-container">
 							<div class="center">
 							<br><br><br>
-							<img class="nav-user-photo" src="<?php echo base_url(); ?>themes/ace_admin/img/logoo.png" alt="Box icon" height="180" width="180"/>
+							<img class="nav-user-photo" src="<?php echo base_url(); ?>themes/ace_admin/img/logochpng.png" alt="Box icon" height="180" width="180"/>
 							
 							<!-- <img class="nav-user-photo" src="<?php echo base_url(); ?>themes/smartadmin/img/box_icon2.png" alt="Box icon" height="150" width="150"/> -->
 								<h3>
@@ -23,7 +30,7 @@
 							<div class="position-relative">
 								<div id="login-box" class="login-box visible widget-box no-border" style="background-color: #BCC6CF;">
 									<div class="widget-body">
-										<div class="widget-main" style="padding: 16px 36px 36px;padding-bottom: 16px; box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0px 0px 4px 0px #212529">
+										<div class="widget-main" style="padding: 16px 36px 36px;padding-bottom: 20px; box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0px 0px 4px 0px #212529">
 											<h4 class="header blue lighter bigger">
 												
 												Sign in to access your account
@@ -57,7 +64,7 @@
 														</label> -->
 														<button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
 															<i class="ace-icon fa fa-key"></i>
-															<span class="bigger-110">Sing in</span>
+															<span class="bigger-110">เข้าสู่ระบบ</span>
 														</button>
 
 														<div>
@@ -253,6 +260,7 @@
 					</div><!-- /.col -->
 				</div><!-- /.row -->
 			</div><!-- /.main-content -->
+			
 		</body><!-- /.main-container -->
 
 

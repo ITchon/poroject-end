@@ -1,3 +1,10 @@
+<body id=grad1>
+<style>
+#grad1 {
+
+  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(213, 117, 72, 1) 100%);
+}
+</style>
 <div class="main-content">
 				<div class="main-content-inner">
 					<div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -344,3 +351,4 @@
 					</div><!-- /.page-content -->
 				</div>
 			</div><!-- /.main-content -->
+			</body>
