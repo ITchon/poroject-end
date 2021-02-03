@@ -3,6 +3,14 @@
 
 class Model extends CI_Model
 {
+  public function chk_sessionadmin() {  
+    if($this->session->userdata('user_group')!="admin") {
+      echo "<script>alert('Please Login')</script>";
+      redirect('login','refresh');
+      return FALSE;
+
+    }else{    return TRUE;    }
+}
 
   public function chk_sessioncpn() {  
     if($this->session->userdata('cpn_id')=="") {

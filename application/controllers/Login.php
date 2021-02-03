@@ -50,6 +50,8 @@ class Login extends CI_Controller {
 					echo "you are student";
 				}else if($data['user_group'] == "bilateral"){
 					echo "you are bilateral ";
+				}else if($data['user_group'] == "admin"){
+					redirect('admin');
 				}
                 
              }

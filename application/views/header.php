@@ -52,7 +52,7 @@
 		<script src="assets/js/html5shiv.min.js"></script>
 		<script src="assets/js/respond.min.js"></script>
 		<![endif]-->
-<script src="<?php echo base_url() . $js_url; ?>jquery-2.1.4.min.js"></script>
+		<script src="<?php echo base_url() . $js_url; ?>jquery-2.1.4.min.js"></script>
 
         <script type="text/javascript">
 			if('ontouchstart' in document.documentElement) document.write("<script src='<?php echo base_url() . $js_url; ?>jquery.mobile.custom.min.js'>"+"<"+"/script>");
@@ -101,7 +101,4 @@
 		<!-- ace scripts -->
 		<script src="<?php echo base_url() . $js_url; ?>ace-elements.min.js"></script>
 		<script src="<?php echo base_url() . $js_url; ?>ace.min.js"></script>
-
-
-
 	</head>
