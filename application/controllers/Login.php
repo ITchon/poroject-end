@@ -60,7 +60,7 @@ class Login extends CI_Controller {
 			×
 		</button>
 		<i class="fa-fw fa fa-times"></i>
-		<strong>Error!</strong><br />รหัสผ่านไม่ถูกต้อง กรุณาทำการตรวจสอบข้อมูลอีกครั้งค่ะ <br />Invalid Account : Please check your account correctly.</div>');
+		<strong>Error!</strong><br />รหัสผ่านไม่ถูกต้อง กรุณาทำการตรวจสอบข้อมูลอีกครั้งค่ะ <br /></div>');
         redirect('Login');  
      
 	 }
