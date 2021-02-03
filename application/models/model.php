@@ -12,6 +12,16 @@ class Model extends CI_Model
     }else{    return TRUE;    }
 }
 
+
+public function chk_sessionstudent() {  
+  if($this->session->userdata('user_group')!="student") {
+    echo "<script>alert('Please Login')</script>";
+    redirect('login','refresh');
+    return FALSE;
+
+  }else{    return TRUE;    }
+}
+
   public function chk_sessioncpn() {  
     if($this->session->userdata('cpn_id')=="") {
       echo "<script>alert('Please Login')</script>";

@@ -47,11 +47,11 @@ class Login extends CI_Controller {
 				 }else if($data['user_group'] == "company"){
 					redirect('company'); 
 				 }else if($data['user_group'] == "student"){
-					echo "you are student";
+					redirect('student'); 
 				}else if($data['user_group'] == "bilateral"){
 					echo "you are bilateral ";
 				}else if($data['user_group'] == "admin"){
-					redirect('admin');
+					redirect('admin');	
 				}
                 
              }
