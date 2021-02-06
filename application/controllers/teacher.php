@@ -8,9 +8,10 @@ class Teacher extends CI_Controller {
 public function __construct()
     {
         parent::__construct();
-        $this->load->view('header');
+        $this->load->view('header2');
         $this->load->model('model');
-        
+        $this->load->view('head');
+        $this->load->view('sidebar');
         
 
     }
@@ -18,7 +19,7 @@ public function __construct()
  public function index(){
     
     
-    $this->load->view('tch_menu');
+    $this->load->view('admin_menu');
     $this->model->chk_sessiontch();
     
  }

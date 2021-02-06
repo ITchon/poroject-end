@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Login Form</title>
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link href='//fonts.googleapis.com/css?family=Source+Sans+Pro|Open+Sans+Condensed:300|Raleway' rel='stylesheet' type='text/css'>
-</head>
-<body>
-
 <div id="main">
 <div id="login">
 <?php echo @$error; ?>
@@ -24,5 +15,3 @@
 </form>
 </div>
 </div>
-</body>
-</html>

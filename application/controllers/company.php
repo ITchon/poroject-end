@@ -8,14 +8,15 @@ class Company extends CI_Controller {
 public function __construct()
     {
         parent::__construct();
-        $this->load->view('header');
+        $this->load->view('header2');
         $this->load->model('model');
-        
+        $this->load->view('head');
+        $this->load->view('sidebar');
     }
  
  public function index(){
     
-    $this->load->view('cpn_menu');
+    $this->load->view('admin_menu');
     $this->model->chk_sessioncpn();
     
  }
