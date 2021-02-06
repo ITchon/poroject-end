@@ -2,7 +2,7 @@
 <style>
 #grad1 {
 
-  background-image: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(213, 117, 72, 1) 100%);
+  background-image: linear-gradient(1deg, rgba(2,0,36,1) 0%, rgba(255,255,255,1) 0%, rgba(213, 117, 72, 1) 100%);
 }
 </style>
 
