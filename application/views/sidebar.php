@@ -22,9 +22,11 @@
                   </a>
                   <ul class="sidenav-subnav collapse">
                     <li class="sidenav-subheading">Dashboards</li>
-                    <li class="active"><a href="dashboard-1.html">Dashboard 1</a></li>
-                    <li><a href="dashboard-2.html">Dashboard 2</a></li>
-                    <li><a href="dashboard-3.html">Dashboard 3</a></li>
+                    <li><a href="<?php echo base_url();?>admin/show_user_index">SHOW - USER</a></li>
+                    <li><a href="<?php echo base_url();?>admin/show_student_index">SHOW - STUDENT</a></li>
+                    <li><a href="<?php echo base_url();?>admin/show_company_index">SHOW - COMPANY</a></li>
+                    <li><a href="<?php echo base_url();?>admin/show_teacher_index">SHOW - TEACHER</a></li>
+                    
                   </ul>
                 </li>
                 <li class="sidenav-item">
