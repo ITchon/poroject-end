@@ -3,6 +3,54 @@
 
 class Model extends CI_Model
 {
+
+  public function insert_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id)
+        {
+            $sql ="INSERT INTO student (
+                        cls_id,
+                        title,
+                        std_fname,
+                        std_lname,
+                        std_address,
+                        std_code,
+                        std_birthday,
+                        std_age,
+                        std_sex
+                        )
+                VALUES ('$cls_id','$title','$std_fname','$std_lname','$std_address','$std_code','$std_birthday','$std_age','$std_sex');";          
+                $query = $this->db->query($sql);  
+                if($query)
+                {
+                return $this->db->insert_id();
+                }
+                else{
+                return false;
+                } 
+        }
+   public function edit_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id ,$std_id)
+        {
+            $sql ="UPDATE `student` SET  
+                                         cls_id ='$cls_id' ,
+                                         title ='$title' ,
+                                         std_fname ='$std_fname' ,
+                                         std_lname ='$std_lname' ,
+                                         std_address ='$std_address' ,
+                                         std_code ='$std_code' ,
+                                         std_birthday ='$std_birthday' ,
+                                         std_age ='$std_age' ,
+                                         std_sex ='$std_sex' 
+                                        WHERE std_id = '$std_id';";          
+                $exc_teacher = $this->db->query($sql);
+                if ($exc_teacher)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
+
   public function chk_sessionadmin() {  
     if($this->session->userdata('user_group')!="admin") {
       echo "<script>alert('Please Login')</script>";
@@ -241,6 +289,20 @@ public function CheckSession()
    }
     else{    return TRUE;    }
 }
+public function del_std_p($std_id)
+{
+
+  $sqlEdt = "DELETE FROM student WHERE std_id = '$std_id';";
+
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
 
 // public function CheckSession()        
 // {
@@ -252,7 +314,28 @@ public function CheckSession()
 //   }else{    return TRUE;    }
   
 // }
+ public function del_user($id)
+ {
+  $sqlEdt = "DELETE FROM user WHERE id = '$id';";
 
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+ }
+
+ public function selectOnestudent($id)
+ {
+  $sql="SELECT * FROM student WHERE std_id = '$id' ";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
 
 }
 

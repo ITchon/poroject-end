@@ -40,11 +40,107 @@ public function show_teacher_index(){
 }
 
 public function show_student_index(){
-   $qry_inp =  "SELECT * FROM `student_detail`" ;
+   $qry_inp =  "SELECT student.std_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_address,student.std_code,
+   student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name
+   FROM student
+   INNER JOIN class AS c on student.cls_id = c.cls_id
+   INNER JOIN department on department.dpm_id = c.dpm_id
+   INNER JOIN teacher on teacher.tch_id = c.tch_id";
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
    $this->load->view('show_student',$data);
 }
+
+public function insert_student_index(){
+   $qry_inp =  "SELECT * FROM class" ;
+   $query = $this->db->query($qry_inp); 
+   $data['result'] = $query->result();
+   $this->load->view('insert_student',$data);
+}
+
+public function insert_student()
+	{
+		   $title    = $this->input->post('title'); 
+         $std_fname    = $this->input->post('std_fname');
+         $std_lname    = $this->input->post('std_lname');
+         $std_address   = $this->input->post('std_address');
+         $std_code      = $this->input->post('std_code');
+         $std_birthday    = $this->input->post('std_birthday');
+         $std_sex    = $this->input->post('std_sex');
+		   $std_age  = $this->input->post('std_age');
+		   $cls_id   = $this->input->post('cls_id');
+         // $dpm_name = $this->input->post('dpm_name');
+         // $tch_name = $this->input->post('tch_name');
+         $id = $this->model->insert_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id);
+
+
+
+
+
+        ########################
+        $user_name = $std_code;
+        $user_pass = $std_birthday;
+        $user_group = "student";
+        
+        $this->model->insert_user($user_name,$user_pass,$user_group,$id);
+        ########################
+        redirect('Admin/show_student_index');
+	}
+
+   public function edit_student()
+   {
+         $id = $this->uri->segment('3'); 
+        $data['result'] = $this->model->selectOnestudent($id);
+        $qry_inp =  "SELECT * FROM class";
+        $query = $this->db->query($qry_inp); 
+        $data['result_cls'] = $query->result();
+		$this->load->view('edit_student',$data);
+   }
+   public function edit_student_p()
+	{
+		   $title    = $this->input->post('title'); 
+         $std_fname    = $this->input->post('std_fname');
+         $std_lname    = $this->input->post('std_lname');
+         $std_address   = $this->input->post('std_address');
+         $std_code      = $this->input->post('std_code');
+         $std_birthday    = $this->input->post('std_birthday');
+         $std_sex    = $this->input->post('std_sex');
+		   $std_age  = $this->input->post('std_age');
+		   $cls_id   = $this->input->post('cls_id');
+         $std_id = $this->input->post('std_id');
+         $id = $this->model->edit_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id , $std_id);
+
+
+
+
+
+        ########################
+      //   $user_name = $std_code;
+      //   $user_pass = $std_birthday;
+      //   $user_group = "student";
+        
+      //   $this->model->edit_user($user_name,$user_pass,$user_group,$id);
+        ########################
+        redirect('Admin/show_student_index');
+	}
+
+   public function delete_student($std_id)
+   {
+
+      $result = $this->model->del_std_p($std_id);
+
+      $id = $std_id;
+      $result = $this->model->del_user($id);
+		if($result!=FALSE)
+		{
+            redirect('Admin/show_student_index','refresh');
+		}
+		else
+		{
+		    echo "<script>alert('Something wrong')</script>";
+        	redirect('manage_student','refresh');
+		}
+   }
 
 }
 ?>

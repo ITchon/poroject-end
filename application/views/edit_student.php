@@ -1,77 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
   
-  <body class="layout layout-header-fixed">
-  <br><br>
-  
-            <div class="col-xs-10">
-              
-              <div class="card">
-                
-                <div class="card-header">
-                  <div class="card-actions">
-                    <button type="button" class="card-action card-toggler" title="Collapse"></button>
-                    <button type="button" class="card-action card-reload" title="Reload"></button>
-                    <button type="button" class="card-action card-remove" title="Remove"></button>
-                    
-                  </div>
-                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
-                </div>
-                <div class="card-body">
-        <div class="panel-body collapse in">      
-        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_student_index">เพิ่ม</a>
-              <div class="table-responsive">
-                <div class="card-body ">
-                  <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
-                    <thead>
-                      <tr>
-                        <!-- <th>รหัส</th> -->
-                        <th>คำนำหน้า</th>
-                        <th>ชื่อ</th>
-                        <th>นามสกุล</th>
-                        <th>ที่อยู่</th>
-                        <th>รหัสนักเรียน</th>
-                        <th>วันเกิด</th>
-                        <th>อายุ</th>
-                        <th>เพศ</th>
-                        <th>ชื่อห้อง</th>
-                        <th>แผนก</th>
-                        <!-- <th>คุณครู</th> -->
-                        <th>manage</th>
+<body class="layout layout-header-fixed">
+ 
+<div class="layout-content">
+        <div class="layout-content-body">
+        <h2>เพิ่มข้อมูลนักเรียน</h2>
+            <div class="row card">
+                <br>
+                <div class="col-md-8">
+                    <div class="demo-form-wrapper">
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_student_p" method="POST">
+                        <input id="form-control-1" name="std_id" class="form-control" type="hidden" value="<?php echo $result[0]->std_id ?>" hidden>
+                            <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form-control-1">คำนำหน้า</label>
+                                <div class="col-sm-2 col-sm-offset-0">
+                                    <select name="title" class="custom-select">
+                                        <!-- <option value="" selected="">--Default--</option>
+                                        <option value="นาย">นาย</option>
+                                        <option value="นางสาว">นางสาว</option> -->
+                                        <option value="นาย" <?php if($result[0]->std_sex == 'นาย'){echo "selected";} ?>>นาย</option>
+                                        <option value="นางสาว" <?php if($result[0]->std_sex == 'นางสาว'){echo "selected";} ?>>นางสาว</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อ</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="std_fname" class="form-control" type="text" value="<?php echo $result[0]->std_fname ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">นามสกุล</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="std_lname" class="form-control" type="text" value="<?php echo $result[0]->std_lname ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="std_address" class="form-control" type="text" value="<?php echo $result[0]->std_address ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">รหัสนักเรียน</label>
+                                <div class="col-sm-9">
+                                    <input id="form-control-1" name="std_code" class="form-control" type="text" value="<?php echo $result[0]->std_code ?>">
+                                </div>
+                            </div>
                         
+                            <label class="col-sm-3 control-label" for="form-control-1">วันเกิด</label>
+                            <div class="col-sm-4 form-group" >
+                                <div class="col-sm-12">
+                                    <div class="input-with-icon">
+                                    <input name="std_birthday" class="form-control" type="date" value="<?php echo $result[0]->std_birthday ?>" >
+                                    <!-- <span class="icon icon-calendar input-icon"></span> -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                            <label class="col-sm-1 control-label" for="form-control-1">เพศ</label>
+                                <div class="col-sm-3 col-sm-offset-0">
+                                    <select name="std_sex" class="custom-select">
+                                        <!-- <option value="" selected="">--Default--</option> -->
+                                        <option value="ชาย" <?php if($result[0]->std_sex == 'ชาย'){echo "selected";} ?>>ชาย</option>
+                                        <option value="หญิง" <?php if($result[0]->std_sex == 'หญิง'){echo "selected";} ?>>หญิง</option>
+                                    </select>
+                                </div>
+                            </div>
+                       
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">อายุ</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="std_age" class="form-control" type="text"  value="<?php echo $result[0]->std_age ?>">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อห้อง</label>
+                                <div class="col-sm-9">
+                                <select name="cls_id" class="form-control">
+                                               
+                                                <?php foreach ($result_cls as $cl) {
+                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name." ".$cl->class_group." </option> ";
+                                                                                 }
+                                                ?>
+                                            </select>
+                                <!-- <input id="form-control-1" name="cls_name" class="form-control" type="text"> -->
+                                </div>
+                            </div>
+                            <!-- <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="dpm_name" class="form-control" type="text">
+                                </div>
+                            </div> -->
+                            <!-- <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">คุณครู</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="tch_name" class="form-control" type="text">
+                                </div>
+                            </div> -->
                         
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach($result as $res){ ?>
-                          <tr>
-                            <!-- <td><?php echo $res->std_id ?></td> -->
-                            <td><?php echo $res->title ?></td>
-                            <td><?php echo $res->std_fname ?></td>
-                            <td><?php echo $res->std_lname ?></td>
-                            <td><?php echo $res->std_address ?></td>
-                            <td><?php echo $res->std_code ?></td>
-                            <td><?php echo $res->std_birthday ?></td>
-                            <td><?php echo $res->std_age ?></td>
-                            <td><?php echo $res->std_sex ?></td>
-                            <td><?php echo $res->cls_name ?></td>
-                            <td><?php echo $res->dpm_name ?></td>
-                            <!-- <td><?php echo $res->tch_name ?></td> -->
-                            <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_student/' . $res->std_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."admin/delete_student/".$res->std_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
-                                        </td>
-                            </tr>
-                            <?php  } ?> 
-                           
-                    </tbody>                
-                  </table>
-                </div>  
-              </div>                              
-        </div>
-        </div>
-      </div>
-      
+                    </div>       
+                </div> 
+            </div>
+            <input type="submit" class="btn btn-success" value="ยืนยัน">
+            &nbsp;&nbsp;
+            </form>   
+            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_student_index">ยกเลิก</a>
+        </div>   
+</div>
     <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">
@@ -236,7 +275,6 @@
     </div>
     
   </body>
-
     <script src="<?php echo base_url()?>asset/js/vendor.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/elephant.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/application.min.js"></script>                                   
@@ -249,4 +287,4 @@
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
     </script>
-</html>
+</html> 
