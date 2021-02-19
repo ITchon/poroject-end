@@ -51,6 +51,26 @@ class Model extends CI_Model
                 }
         }
 
+
+        public function insert_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber)
+        {
+            $sql ="INSERT INTO company (
+                        cpn_name,
+                        cpn_address,
+                        cpn_email,
+                        cpn_phnumber,
+
+                        )
+                VALUES ('$cpn_name','$cpn_address','$cpn_email','$cpn_phnumber');";          
+                $query = $this->db->query($sql);  
+                if($query)
+                {
+                return $this->db->insert_id();
+                }
+                else{
+                return false;
+                } 
+        }
   public function chk_sessionadmin() {  
     if($this->session->userdata('user_group')!="admin") {
       echo "<script>alert('Please Login')</script>";
@@ -293,6 +313,20 @@ public function del_std_p($std_id)
 {
 
   $sqlEdt = "DELETE FROM student WHERE std_id = '$std_id';";
+
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
+public function del_cpn_p($cpn_id)
+{
+
+  $sqlEdt = "DELETE FROM company WHERE cpn_id = '$cpn_id';";
 
 
   $exc_teacher = $this->db->query($sqlEdt);

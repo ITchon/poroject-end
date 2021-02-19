@@ -87,6 +87,8 @@ public function insert_student()
         redirect('Admin/show_student_index');
 	}
 
+
+
    public function edit_student()
    {
          $id = $this->uri->segment('3'); 
@@ -142,5 +144,41 @@ public function insert_student()
 		}
    }
 
+
+   public function insert_company_index(){
+      $qry_inp =  "SELECT * FROM class" ;
+      $query = $this->db->query($qry_inp); 
+      $data['result'] = $query->result();
+      $this->load->view('insert_company',$data);
+   }
+   public function insert_company()
+	{
+         
+         $cpn_name    = $this->input->post('cpn_name');
+         $cpn_address   = $this->input->post('cpn_address');
+         $cpn_email      = $this->input->post('cpn_email');
+         $cpn_phnumber    = $this->input->post('cpn_phnumber');
+         $id = $this->model->insert_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber);
+
+        redirect('Admin/show_company_index');
+	}
+
+   public function delete_company($cpn_id)
+   {
+
+      $result = $this->model->del_cpn_p($cpn_id);
+
+      $id = $cpn_id;
+      $result = $this->model->del_user($id);
+		if($result!=FALSE)
+		{
+            redirect('Admin/show_company_index','refresh');
+		}
+		else
+		{
+		    echo "<script>alert('Something wrong')</script>";
+        	redirect('manage_student','refresh');
+		}
+   }
 }
 ?>

@@ -2,11 +2,26 @@
 <html lang="en">
   
   <body class="layout layout-header-fixed">
-    
-        <div class="panel-body collapse in">
-                           
-              <div class="table-responsive">
+  <br><br>
+  
+            <div class="col-xs-10">
+              
+              <div class="card">
+                
+                <div class="card-header">
+                  <div class="card-actions">
+                    <button type="button" class="card-action card-toggler" title="Collapse"></button>
+                    <button type="button" class="card-action card-reload" title="Reload"></button>
+                    <button type="button" class="card-action card-remove" title="Remove"></button>
+                    
+                  </div>
+                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
+                </div>
                 <div class="card-body">
+        <div class="panel-body collapse in">      
+        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_student_index">เพิ่ม</a>
+              <div class="table-responsive">
+                <div class="card-body ">
                   <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
@@ -31,7 +46,7 @@
                 </div>  
               </div>                              
         </div>
-    <div class="theme">
+        <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">
           <button class="theme-panel-toggler" title="Expand theme panel ( ] )" type="button">
@@ -195,6 +210,7 @@
     </div>
     
   </body>
+
     <script src="<?php echo base_url()?>asset/js/vendor.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/elephant.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/application.min.js"></script>                                   
@@ -206,5 +222,5 @@
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
-    </script>>
+    </script>
 </html>
