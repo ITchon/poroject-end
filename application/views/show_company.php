@@ -43,7 +43,7 @@
                             <td><?php echo $res->cpn_email ?></td>
                             <td><?php echo $res->cpn_phnumber ?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_student/' . $res->cpn_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_company/' . $res->cpn_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
                                             <?php echo "<a type='button' href='".base_url()."admin/delete_company/".$res->cpn_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
                                         </td>
                             </tr>

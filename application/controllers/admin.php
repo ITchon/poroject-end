@@ -162,6 +162,26 @@ public function insert_student()
 
         redirect('Admin/show_company_index');
 	}
+   public function edit_company()
+   {
+         $id = $this->uri->segment('3'); 
+        $data['result'] = $this->model->selectOnecompany($id);
+        $qry_inp =  "SELECT * FROM class";
+        $query = $this->db->query($qry_inp); 
+        $data['result_cls'] = $query->result();
+		$this->load->view('edit_company',$data);
+   }
+   public function edit_company_p()
+	{
+      $cpn_id    = $this->input->post('cpn_id');
+      $cpn_name    = $this->input->post('cpn_name');
+      $cpn_address   = $this->input->post('cpn_address');
+      $cpn_email      = $this->input->post('cpn_email');
+      $cpn_phnumber    = $this->input->post('cpn_phnumber');
+         $id = $this->model->edit_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber,$cpn_id);
+
+        redirect('Admin/show_company_index');
+	}
 
    public function delete_company($cpn_id)
    {

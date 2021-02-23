@@ -5,7 +5,7 @@
  
 <div class="layout-content">
         <div class="layout-content-body">
-        <h2>เพิ่มข้อมูลนักเรียน</h2>
+        <h2>เพิ่มข้อมูลสถานประกอบการ</h2>
             <div class="row card">
                 <br>
                 <div class="col-md-8">

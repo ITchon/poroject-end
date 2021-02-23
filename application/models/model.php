@@ -52,13 +52,13 @@ class Model extends CI_Model
         }
 
 
-        public function insert_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber)
+ public function insert_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber)
         {
             $sql ="INSERT INTO company (
                         cpn_name,
                         cpn_address,
                         cpn_email,
-                        cpn_phnumber,
+                        cpn_phnumber
 
                         )
                 VALUES ('$cpn_name','$cpn_address','$cpn_email','$cpn_phnumber');";          
@@ -71,6 +71,28 @@ class Model extends CI_Model
                 return false;
                 } 
         }
+
+
+        public function edit_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber ,$cpn_id )
+        {
+            $sql ="UPDATE `company` SET  
+                                         cpn_name ='$cpn_name' ,
+                                         cpn_address ='$cpn_address' ,
+                                         cpn_email ='$cpn_email' ,
+                                         cpn_phnumber ='$cpn_phnumber' 
+                                        
+                                        WHERE cpn_id = '$cpn_id';";          
+                $exc_teacher = $this->db->query($sql);
+                if ($exc_teacher)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
+
   public function chk_sessionadmin() {  
     if($this->session->userdata('user_group')!="admin") {
       echo "<script>alert('Please Login')</script>";
@@ -370,7 +392,16 @@ public function del_cpn_p($cpn_id)
 
   return $data;
  }
+ public function selectOnecompany($id)
+ {
+  $sql="SELECT * FROM company WHERE cpn_id = '$id' ";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
 
 }
+
 
 ?>
