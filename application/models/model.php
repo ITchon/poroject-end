@@ -132,6 +132,27 @@ class Model extends CI_Model
                 }
         }
 
+
+        public function edit_passwd($user_pass ,$user_id )
+        {
+            $sql ="UPDATE `user` SET  
+                                         user_pass ='$user_pass' 
+                                          
+                                         
+                                         
+                                        
+                                        WHERE user_id = '$user_id';";          
+                $exc_teacher = $this->db->query($sql);
+                if ($exc_teacher)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
+
   public function chk_sessionadmin() {  
     if($this->session->userdata('user_group')!="admin") {
       echo "<script>alert('Please Login')</script>";
@@ -459,6 +480,15 @@ public function del_tch_p($tch_id)
  public function selectOneteacher($id)
  {
   $sql="SELECT * FROM teacher WHERE tch_id = '$id' ";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
+
+ public function selectOnepass($id)
+ {
+  $sql="SELECT * FROM user WHERE user_id = '$id' ";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
 
