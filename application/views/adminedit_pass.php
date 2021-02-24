@@ -1,3 +1,8 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="layout layout-header-fixed">
+
 <div class="layout-content">
         <div class="layout-content-body">
         <h2>แก้ไขข้อมูลสถานประกอบการ</h2>
@@ -17,8 +22,8 @@
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="user_pass" class="form-control" type="text" value="<?php echo $result[0]->user_pass ?>">
                                 </div>
-                                
-                               
+
+
                                 </div>       
                 </div> 
             </div>
@@ -190,7 +195,7 @@
         </div>
       </div>
     </div>
-    
+
   </body>
     <script src="<?php echo base_url()?>asset/js/vendor.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/elephant.min.js"></script>
@@ -204,4 +209,4 @@
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
     </script>
-</html> 
+</html>  

@@ -126,6 +126,29 @@ public function insert_student()
         redirect('Admin/show_student_index');
 	}
 
+
+   public function edit_passwd()
+   {
+         $id = $this->uri->segment('3'); 
+        $data['result'] = $this->model->selectOnepass($id);
+        $qry_inp =  "SELECT * FROM class";
+        $query = $this->db->query($qry_inp); 
+        $data['result_cls'] = $query->result();
+		$this->load->view('adminedit_pass',$data);
+   }
+   public function edit_passwd_p()
+	{
+
+      $user_id   = $this->input->post('user_id');
+      $user_pass   = $this->input->post('user_pass');
+
+
+         $id = $this->model->edit_passwd($user_pass ,$user_id );
+
+        redirect('Admin/show_user_index');
+	}
+
+
    public function delete_student($std_id)
    {
 
