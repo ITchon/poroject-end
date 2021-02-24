@@ -15,7 +15,6 @@
                         <th>USERPASS</th>
                         <th>USERGROUP</th>
                         <th>status</th>
-                        <th>manage</th>
                         
                         
                       </tr>
@@ -28,10 +27,7 @@
                             <td><?php echo $res->user_pass ?></td>
                             <td><?php echo $res->user_group ?></td>
                             <td><?php echo $res->status ?></td>
-                            <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_passwd/' . $res->user_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
-                                        </td>
+                            
                             
                             </tr>
                             <?php  } ?> 
