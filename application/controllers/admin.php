@@ -279,5 +279,15 @@ public function insert_student()
         	redirect('manage_student','refresh');
 		}
    }
+
+   
+   
+
+
+   
+
+
+   
+   
 }
 ?>
