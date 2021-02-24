@@ -24,9 +24,9 @@
 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#0288d1">
 <meta name="theme-color" content="#ffffff">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400italic,500,700">
-<link rel="stylesheet" href="css/vendor.min.css">
-<link rel="stylesheet" href="css/elephant.min.css">
-<link rel="stylesheet" href="css/landing-page.min.css">
+<link rel="stylesheet" href="<?php echo base_url()?>asset/css/vendor.min.css">
+<link rel="stylesheet" href="<?php echo base_url()?>asset/css/elephant.min.css">
+<link rel="stylesheet" href="<?php echo base_url()?>asset/css/landing-page.min.css">
 </head>
 <body class="spinner spinner-primary spinner-lg">
 <div class="navbar navbar-default">

@@ -12,12 +12,12 @@ public function __construct()
         $this->load->model('model');
         $this->model->chk_sessionstudent();
         $this->load->view('head');
-        $this->load->view('sidebar');
+        $this->load->view('sidebar_std');
     }
  
  public function index(){
     
-    $this->load->view('admin_menu');
+    $this->load->view('student_menu');
     
  }
 
