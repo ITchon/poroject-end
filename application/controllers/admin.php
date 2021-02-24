@@ -200,5 +200,61 @@ public function insert_student()
         	redirect('manage_student','refresh');
 		}
    }
+
+
+   public function insert_teacher_index(){
+      $qry_inp =  "SELECT * FROM class" ;
+      $query = $this->db->query($qry_inp); 
+      $data['result'] = $query->result();
+      $this->load->view('insert_teacher',$data);
+   }
+   public function insert_teacher()
+	{
+         
+         $tch_name    = $this->input->post('tch_name');
+         $tch_tel   = $this->input->post('tch_tel');
+         $tch_code      = $this->input->post('tch_code');
+         $id = $this->model->insert_teacher($tch_name ,$tch_tel ,$tch_code);
+
+        redirect('Admin/show_teacher_index');
+	}
+   public function edit_teacher()
+   {
+         $id = $this->uri->segment('3'); 
+        $data['result'] = $this->model->selectOneteacher($id);
+        $qry_inp =  "SELECT * FROM class";
+        $query = $this->db->query($qry_inp); 
+        $data['result_cls'] = $query->result();
+		$this->load->view('edit_teacher',$data);
+   }
+   public function edit_teacher_p()
+	{
+      $tch_id    = $this->input->post('tch_id');
+      $tch_name    = $this->input->post('tch_name');
+      $tch_tel    = $this->input->post('tch_tel');
+      $tch_code   = $this->input->post('tch_code');
+
+         $id = $this->model->edit_teacher($tch_name ,$tch_tel ,$tch_code,$tch_id);
+
+        redirect('Admin/show_teacher_index');
+	}
+
+   public function delete_teacher($tch_id)
+   {
+
+      $result = $this->model->del_tch_p($tch_id);
+
+      $id = $tch_id;
+      $result = $this->model->del_user($id);
+		if($result!=FALSE)
+		{
+            redirect('Admin/show_teacher_index','refresh');
+		}
+		else
+		{
+		    echo "<script>alert('Something wrong')</script>";
+        	redirect('manage_student','refresh');
+		}
+   }
 }
 ?>

@@ -92,6 +92,45 @@ class Model extends CI_Model
                 return false;
                 }
         }
+        public function insert_teacher($tch_name ,$tch_tel ,$tch_code)
+        {
+            $sql ="INSERT INTO teacher (
+                        tch_name,
+                        tch_tel,
+                        tch_code
+
+                        )
+                VALUES ('$tch_name','$tch_tel','$tch_code');";          
+                $query = $this->db->query($sql);  
+                if($query)
+                {
+                return $this->db->insert_id();
+                }
+                else{
+                return false;
+                } 
+        }
+
+
+        public function edit_teacher($tch_name ,$tch_tel ,$tch_code,$tch_id)
+        {
+            $sql ="UPDATE `teacher` SET  
+                                         tch_name ='$tch_name' ,
+                                         tch_tel ='$tch_tel' ,
+                                         tch_code ='$tch_code' 
+                                         
+                                        
+                                        WHERE tch_id = '$tch_id';";          
+                $exc_teacher = $this->db->query($sql);
+                if ($exc_teacher)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
 
   public function chk_sessionadmin() {  
     if($this->session->userdata('user_group')!="admin") {
@@ -360,6 +399,21 @@ public function del_cpn_p($cpn_id)
   }else{  return false; }
 }
 
+
+public function del_tch_p($tch_id)
+{
+
+  $sqlEdt = "DELETE FROM teacher WHERE tch_id = '$tch_id';";
+
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
 // public function CheckSession()        
 // {
 //   if($this->session->userdata('fname')=="") {
@@ -401,6 +455,15 @@ public function del_cpn_p($cpn_id)
   return $data;
  }
 
+
+ public function selectOneteacher($id)
+ {
+  $sql="SELECT * FROM teacher WHERE tch_id = '$id' ";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
 }
 
 

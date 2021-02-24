@@ -1,57 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
   
-  <body class="layout layout-header-fixed">
-  <br><br>
-  
-            <div class="col-xs-10">
-              
-              <div class="card">
-                
-                <div class="card-header">
-                  <div class="card-actions">
-                    <button type="button" class="card-action card-toggler" title="Collapse"></button>
-                    <button type="button" class="card-action card-reload" title="Reload"></button>
-                    <button type="button" class="card-action card-remove" title="Remove"></button>
-                    
-                  </div>
-                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
-                </div>
-                <div class="card-body">
-        <div class="panel-body collapse in">      
-        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_teacher_index">เพิ่ม</a>
-              <div class="table-responsive">
-                <div class="card-body ">
-                  <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
-                    <thead>
-                      <tr>
-                        <th>รหัสอาจารย์</th>
-                        <th>ชื่ออาจารย์</th>
-                        <th>เบอร์โทรศัพท์</th>
-                        <th>รหัสประจำตัว</th>
-                        <th>manage</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach($result as $res){ ?>
-                          <tr>
-                            <td><?php echo $res->tch_id ?></td>
-                            <td><?php echo $res->tch_name ?></td>
-                            <td><?php echo $res->tch_tel ?></td>
-                            <td><?php echo $res->tch_code ?></td>
-                            <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_teacher/' . $res->tch_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."admin/delete_teacher/".$res->tch_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
-                                        </td>
-                            </tr>
-                            <?php  } ?> 
-                           
-                    </tbody>                
-                  </table>
-                </div>  
-              </div>                              
-        </div>
-        <div class="theme">
+<body class="layout layout-header-fixed">
+ 
+<div class="layout-content">
+        <div class="layout-content-body">
+        <h2>เพิ่มข้อมูลอาจารย์</h2>
+            <div class="row card">
+                <br>
+                <div class="col-md-8">
+                    <div class="demo-form-wrapper">
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/insert_teacher" method="POST">
+                               
+    
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่ออาจารย์</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="tch_name" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">เบอร์โทรศัพท์</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="tch_tel" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">รหัสประจำตัว</label>
+                                <div class="col-sm-9">
+                                    <input id="form-control-1" name="tch_code" class="form-control" type="text">
+                                </div>
+                            </div>
+
+                            
+                            </div>
+                            <!-- <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="dpm_name" class="form-control" type="text">
+                                </div>
+                            </div> -->
+                            <!-- <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">คุณครู</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="tch_name" class="form-control" type="text">
+                                </div>
+                            </div> -->
+                        
+                    </div>       
+                </div> 
+            </div>
+            <input type="submit" class="btn btn-success" value="ยืนยัน">
+            &nbsp;&nbsp;
+            </form>   
+            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_teacher_index">ยกเลิก</a>
+        </div>   
+</div>
+    <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">
           <button class="theme-panel-toggler" title="Expand theme panel ( ] )" type="button">
@@ -215,7 +220,6 @@
     </div>
     
   </body>
-
     <script src="<?php echo base_url()?>asset/js/vendor.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/elephant.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/application.min.js"></script>                                   
@@ -228,4 +232,4 @@
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
     </script>
-</html>
+</html> 
