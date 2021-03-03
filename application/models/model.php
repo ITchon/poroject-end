@@ -4,6 +4,9 @@
 class Model extends CI_Model
 {
 
+  
+
+
   public function insert_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id)
         {
             $sql ="INSERT INTO student (
@@ -93,6 +96,25 @@ class Model extends CI_Model
                 } 
         }
 
+        public function show_main_menu($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber ,$cpn_id )
+        {
+            $sql ="UPDATE `company` SET  
+                                         cpn_name ='$cpn_name' ,
+                                         cpn_address ='$cpn_address' ,
+                                         cpn_email ='$cpn_email' ,
+                                         cpn_phnumber ='$cpn_phnumber' 
+                                        
+                                        WHERE cpn_id = '$cpn_id';";          
+                $exc_teacher = $this->db->query($sql);
+                if ($exc_teacher)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
 
         public function edit_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber ,$cpn_id )
         {
@@ -495,7 +517,38 @@ public function del_tch_p($tch_id)
   return $data;
  }
 
+ public function select_main_data($id)
+ {
+  $sql="SELECT * FROM company WHERE cpn_id = '$id' ";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
+
+ public function save_new_pass($pass1,$id) {  
+  $sql ="update user set user_pass = '$pass1', status = 1 where user_id = '$id'";
+  $query = $this->db->query($sql);
+  if($query) {
+    return true;  
+    }
+  else{       
+    return false;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+}
+
 
 
 ?>

@@ -110,7 +110,7 @@
                             <td><?php echo $res->cpn_email ?></td>
                             <td><?php echo $res->cpn_phnumber ?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'main/main_data/' . $res->cpn_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'main/index2/' . $res->cpn_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
                             </td>
                             </tr>
                             <?php  } ?> 

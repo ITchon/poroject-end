@@ -20,6 +20,29 @@ class Login extends CI_Controller {
 					
 	}
 
+	public function save_new_pass()
+	{
+        $pass1 = $this->input->post('password1');
+		$pass2 = $this->input->post('password2');
+		if($pass1 == $pass2){
+			$id = $this->session->userdata('user_id');
+			$this->model->save_new_pass($pass1,$id);
+			$this->session->set_flashdata
+			('success','<div class="alert alert-success">
+									<span>  
+						<b> กรุณากรอกรหัสใหม่เพื่อเข้าสู่ระบบ !!</b> </span> 
+			</div>');
+			  redirect('login');  
+		}else{
+			$this->session->set_flashdata
+			('failed','<div class="alert alert-danger">
+									<span>  
+						<b> รหัสผิดพลาด !!</b> - กรุณาตรวจสอบรหัสไหม่ </span> 
+			</div>');
+			redirect('Login');  
+		}
+	}
+
 	public function Account()
 	{
 		$username =  $this->input->post('user_name');
@@ -29,18 +52,13 @@ class Login extends CI_Controller {
 		
 		if($data==true) {
             $arrData = array('status'=> $data['status'],'user_pass'=> $data['user_pass'],'user_name'=> $data['user_name'],
-             'user_group'=> $data['user_group'],'tch_id'=> $data['id'],'cpn_id'=> $data['id']);	
+             'user_group'=> $data['user_group'],'tch_id'=> $data['id'],'cpn_id'=> $data['id'],'user_id'=> $data['user_id']);	
              $this->session->set_userdata($arrData);
              $username = $this->session->userdata('username');
 
              if($data['status'] != 1){
-				$this->session->set_flashdata('msg_error','<div class="alert alert-danger fade in">
-				<button class="close" data-dismiss="alert">
-					×
-				</button>
-				<i class="fa-fw fa fa-times"></i>
-				<strong>Error!</strong><br />แอคเคาท์นี้ถูกระงับ<br />Account is baned.</div>');
-                redirect('login');  
+				redirect('main2'); 
+                 
              } else{
 				 if($data['user_group'] == "teacher"){
 					redirect('teacher'); 

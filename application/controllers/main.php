@@ -23,6 +23,11 @@ public function __construct()
     $data['result'] = $query->result();
     $this->load->view('main_menu',$data);
  }
+ public function index2(){  
+         $id = $this->uri->segment('3'); 
+        $data['result'] = $this->model->select_main_data($id);
+      $this->load->view('main_data');
+ }
 
  
 

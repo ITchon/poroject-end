@@ -2,10 +2,12 @@
 <html lang="en">
   
   <body class="layout layout-header-fixed">
-    
+    <br>
+    <div class="col-xs-10">
         <div class="panel-body collapse in">
                            
               <div class="table-responsive">
+              <div class="card">
                 <div class="card-body">
                   <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable " cellspacing="0" width="100%">
                     <thead>
@@ -30,7 +32,7 @@
                             <td><?php echo $res->status ?></td>
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_passwd/' . $res->user_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
+                                            <?php echo "<a type='button' href='".base_url()."admin/delete_student/".$res->user_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
                                         </td>
                             
                             </tr>
@@ -38,9 +40,11 @@
                            
                     </tbody>                
                   </table>
+                  </div>
                 </div>  
               </div>                              
         </div>
+      </div>
     <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">

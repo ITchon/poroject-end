@@ -18,10 +18,12 @@
                 <li class="sidenav-item has-subnav active">
                   <a href="dashboard-1.html" aria-haspopup="true">
                     <span class="sidenav-icon icon icon-home"></span>
-                    <span class="sidenav-label">Dashboards</span>
+                    <span class="sidenav-label">เมนูหลัก
+                    </span>
                   </a>
                   <ul class="sidenav-subnav collapse">
-                    <li class="sidenav-subheading">Dashboards</li>
+                    <li class="sidenav-subheading">เมนูหลัก
+                    </li>
                     <li><a href="<?php echo base_url();?>admin/show_user_index">SHOW - USER</a></li>
                     <li><a href="<?php echo base_url();?>admin/show_student_index">SHOW - STUDENT</a></li>
                     <li><a href="<?php echo base_url();?>admin/show_company_index">SHOW - COMPANY</a></li>
