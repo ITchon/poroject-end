@@ -24,11 +24,11 @@
                   <ul class="sidenav-subnav collapse">
                     <li class="sidenav-subheading">เมนูหลัก
                     </li>
-                    <li><a href="<?php echo base_url();?>admin/show_user_index">SHOW - USER</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_student_index">SHOW - STUDENT</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_company_index">SHOW - COMPANY</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_teacher_index">SHOW - TEACHER</a></li>
-                    
+                    <li><a href="<?php echo base_url();?>admin/show_user_index">แสดงข้อมูลสมาชิก</a></li>
+                    <li><a href="<?php echo base_url();?>admin/show_student_index">แสดงข้อมูลนักเรียน</a></li>
+                    <li><a href="<?php echo base_url();?>admin/show_company_index">แสดงข้อมูลบริษัท</a></li>
+                    <li><a href="<?php echo base_url();?>admin/show_teacher_index">แสดงข้อมูลอาจารย์</a></li>
+                    <li><a href="<?php echo base_url();?>admin/show_class_index">แสดงข้อมูลห้องเรียน</a></li>
                   </ul>
                 </li>
                  

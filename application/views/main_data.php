@@ -47,9 +47,9 @@
                 </div>
                     <?php foreach($result as $res){ ?>   
                       <div class="form-group">
-                                <label class="col-sm-9 control-label" for="form-control-1">รหัสนักเรียน</label>
+                                <h3 class="col-sm-9 control-label" for="form-control-1">ชื่อบริษัท</h3>
                                 <div class="col-sm-9">
-                                    <h4><?php echo $res->cpn_name ?></h4>
+                                    <h4 ><?php echo $res->cpn_name ?></h4  >
                                 </div>
                         </div>
                         <div class="form-group">

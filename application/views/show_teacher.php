@@ -25,20 +25,26 @@
                   <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th>รหัสอาจารย์</th>
+                        <th>ลำดับ</th>
                         <th>ชื่ออาจารย์</th>
                         <th>เบอร์โทรศัพท์</th>
-                        <th>รหัสประจำตัว</th>
+                        <th>E-mail</th>
+                        <th>รหัสประจำตัวประชาชน</th>
                         <th>manage</th>
                       </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($result as $res){ ?>
+                    <?php $c = 0; ?>
+                    <?php foreach($result as $res){ 
+                      $c++;
+                      ?>
+                      
                           <tr>
-                            <td><?php echo $res->tch_id ?></td>
+                            <td><?php echo $c ?></td>
                             <td><?php echo $res->tch_name ?></td>
                             <td><?php echo $res->tch_tel ?></td>
-                            <td><?php echo $res->tch_code ?></td>
+                            <td><?php echo $res->tch_email ?></td>
+                            <td><?php echo $res->tch_card ?></td>
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_teacher/' . $res->tch_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
                                             <?php echo "<a type='button' href='".base_url()."admin/delete_teacher/".$res->tch_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 

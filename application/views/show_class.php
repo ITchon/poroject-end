@@ -2,50 +2,56 @@
 <html lang="en">
   
   <body class="layout layout-header-fixed">
-    <br>
-    <div class="col-xs-10">
-        <div class="panel-body collapse in">
-                           
-              <div class="table-responsive">
+  <br><br>
+  
+            <div class="col-xs-10">
+              
               <div class="card">
+                
+                <div class="card-header">
+                  <div class="card-actions">
+                    <button type="button" class="card-action card-toggler" title="Collapse"></button>
+                    <button type="button" class="card-action card-reload" title="Reload"></button>
+                    <button type="button" class="card-action card-remove" title="Remove"></button>
+                    
+                  </div>
+                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
+                </div>
                 <div class="card-body">
-                  <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable " cellspacing="0" width="100%">
+        <div class="panel-body collapse in">      
+        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_teacher_index">เพิ่ม</a>
+              <div class="table-responsive">
+                <div class="card-body ">
+                  <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th>USER_ID</th>
-                        <th>USERNAME</th>
-                        <th>USERPASS</th>
-                        <th>USERGROUP</th>
-                        <th>status</th>
-                        <th>manage</th>
-                        
+                        <th>ชื่อห้อง</th>
+                        <th>กลุ่ม</th>
+                        <th>ชื่อแผนก</th>
+                        <th>ชื่ออาจารย์</th>
                         
                       </tr>
                     </thead>
                     <tbody>
                     <?php foreach($result as $res){ ?>
                           <tr>
-                            <td><?php echo $res->user_id ?></td>
-                            <td><?php echo $res->user_name ?></td>
-                            <td><?php echo $res->user_pass ?></td>
-                            <td><?php echo $res->user_group ?></td>
-                            <td><?php echo $res->status ?></td>
+                            <td><?php echo $res->cls_name ?></td>
+                            <td><?php echo $res->cls_group ?></td>
+                            <td><?php echo $res->dpm_name ?></td>
+                            <td><?php echo $res->tch_name ?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_passwd/' . $res->user_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."admin/delete_user/".$res->user_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_class/' . $res->cls_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
+                                            <?php echo "<a type='button' href='".base_url()."admin/delete_class/".$res->cls_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
                                         </td>
-                            
                             </tr>
                             <?php  } ?> 
                            
                     </tbody>                
                   </table>
-                  </div>
                 </div>  
               </div>                              
         </div>
-      </div>
-    <div class="theme">
+        <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">
           <button class="theme-panel-toggler" title="Expand theme panel ( ] )" type="button">
@@ -209,6 +215,7 @@
     </div>
     
   </body>
+
     <script src="<?php echo base_url()?>asset/js/vendor.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/elephant.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/application.min.js"></script>                                   
@@ -220,5 +227,5 @@
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
-    </script>>
+    </script>
 </html>

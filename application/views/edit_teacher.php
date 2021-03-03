@@ -22,10 +22,14 @@
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="tch_tel" class="form-control" type="text" value="<?php echo $result[0]->tch_tel ?>">
                                 </div>
-                                <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">รหัสประจำตัว</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">E-mail</label>
                                 <div class="col-sm-9">
-                                <input id="form-control-1" name="tch_code" class="form-control" type="text" value="<?php echo $result[0]->tch_code ?>">
+                                <input id="form-control-1" name="tch_email" class="form-control" type="text" value="<?php echo $result[0]->tch_email ?>">
+                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">รหัสประจำตัวประชาชน</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="tch_card" class="form-control" type="text" value="<?php echo $result[0]->tch_card ?>">
                                 </div>
                                 
                                 </div>       

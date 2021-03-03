@@ -34,7 +34,8 @@
 											<div class="space-6"></div>
 
 							<?php echo form_open("login/save_new_pass", array('id'=>'login-form'));?>
-							<?php  	if ($this->session->flashdata('msg_error') != ''){ echo $this->session->flashdata('msg_error'); }  ?>
+							<?php if ($this->session->flashdata('msg_error') != ''){ echo $this->session->flashdata('msg_error'); } ?>
+							<?php echo $this->session->flashdata("failed"); ?>
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">

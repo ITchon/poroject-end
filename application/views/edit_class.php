@@ -1,50 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
   
-  <body class="layout layout-header-fixed">
-    <br>
-    <div class="col-xs-10">
-        <div class="panel-body collapse in">
-                           
-              <div class="table-responsive">
-              <div class="card">
-                <div class="card-body">
-                  <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable " cellspacing="0" width="100%">
-                    <thead>
-                      <tr>
-                        <th>USER_ID</th>
-                        <th>USERNAME</th>
-                        <th>USERPASS</th>
-                        <th>USERGROUP</th>
-                        <th>status</th>
-                        <th>manage</th>
-                        
-                        
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach($result as $res){ ?>
-                          <tr>
-                            <td><?php echo $res->user_id ?></td>
-                            <td><?php echo $res->user_name ?></td>
-                            <td><?php echo $res->user_pass ?></td>
-                            <td><?php echo $res->user_group ?></td>
-                            <td><?php echo $res->status ?></td>
-                            <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_passwd/' . $res->user_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."admin/delete_user/".$res->user_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
-                                        </td>
-                            
-                            </tr>
-                            <?php  } ?> 
-                           
-                    </tbody>                
-                  </table>
-                  </div>
-                </div>  
-              </div>                              
-        </div>
-      </div>
+<body class="layout layout-header-fixed">
+ 
+<div class="layout-content">
+        <div class="layout-content-body">
+        <h2>แก้ไขข้อมูลอาจารย์</h2>
+            <div class="row card">
+                <br>
+                <div class="col-md-8">
+                    <div class="demo-form-wrapper">
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_class_p" method="POST">
+                        <input id="form-control-1" name="cls_id" class="form-control" type="hidden" value="<?php echo $result[0]->cls_id ?>" hidden>
+                        <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อห้องเรียน</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="cls_name" class="form-control" type="text" value="<?php echo $result[0]->cls_name ?>">
+                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">กลุ่ม</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="cls_group" class="form-control" type="text" value="<?php echo $result[0]->cls_group ?>">
+                                </div>
+                                
+
+                                </div>       
+                </div> 
+            </div>
+            <input type="submit" class="btn btn-success" value="ยืนยัน">
+            &nbsp;&nbsp;
+            </form>   
+            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_teacher_index">ยกเลิก</a>
+        </div>   
+</div>
     <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">
@@ -220,5 +208,5 @@
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
-    </script>>
-</html>
+    </script>
+</html> 

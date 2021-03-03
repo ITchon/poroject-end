@@ -33,7 +33,7 @@ public function show_company_index(){
 }
 
 public function show_teacher_index(){
-   $qry_inp =  "SELECT `tch_id`,`tch_name`, `tch_tel`, `tch_code` FROM `teacher`" ;
+   $qry_inp =  "SELECT `tch_id`,`tch_name`, `tch_tel`, `tch_email`, `tch_card` FROM `teacher`" ;
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
    $this->load->view('show_teacher',$data);
@@ -140,8 +140,7 @@ public function insert_student()
 	{
 
       $user_id   = $this->input->post('user_id');
-      $user_pass   = $this->input->post('user_pass');
-
+      $user_pass = $this->input->post('user_pass');
 
          $id = $this->model->edit_passwd($user_pass ,$user_id );
 
@@ -151,11 +150,12 @@ public function insert_student()
 
    public function delete_student($std_id)
    {
-
+      
       $result = $this->model->del_std_p($std_id);
+      
 
-      $id = $std_id;
-      $result = $this->model->del_user($id);
+      
+
 		if($result!=FALSE)
 		{
             redirect('Admin/show_student_index','refresh');
@@ -164,6 +164,20 @@ public function insert_student()
 		{
 		    echo "<script>alert('Something wrong')</script>";
         	redirect('manage_student','refresh');
+		}
+   }
+
+   public function delete_user($user_id)
+   {
+      $result = $this->model->del_user($user_id);
+		if($result!=FALSE)
+		{
+            redirect('Admin/show_user_index','refresh');
+		}
+		else
+		{
+		    echo "<script>alert('Something wrong')</script>";
+        	redirect('show_user_index','refresh');
 		}
    }
 
@@ -211,8 +225,7 @@ public function insert_student()
 
       $result = $this->model->del_cpn_p($cpn_id);
 
-      $id = $cpn_id;
-      $result = $this->model->del_user($id);
+      
 		if($result!=FALSE)
 		{
             redirect('Admin/show_company_index','refresh');
@@ -236,9 +249,15 @@ public function insert_student()
          
          $tch_name    = $this->input->post('tch_name');
          $tch_tel   = $this->input->post('tch_tel');
-         $tch_code      = $this->input->post('tch_code');
-         $id = $this->model->insert_teacher($tch_name ,$tch_tel ,$tch_code);
-
+         $tch_email      = $this->input->post('tch_email');
+         $tch_card      = $this->input->post('tch_card');
+         $id = $this->model->insert_teacher($tch_name ,$tch_tel ,$tch_email,$tch_card);
+         $user_name = $tch_email;
+         $user_pass = $tch_card;
+         $user_group = "teacher";
+        
+        $this->model->insert_user($user_name,$user_pass,$user_group,$id);
+        ########################
         redirect('Admin/show_teacher_index');
 	}
    public function edit_teacher()
@@ -255,9 +274,10 @@ public function insert_student()
       $tch_id    = $this->input->post('tch_id');
       $tch_name    = $this->input->post('tch_name');
       $tch_tel    = $this->input->post('tch_tel');
-      $tch_code   = $this->input->post('tch_code');
+      $tch_email   = $this->input->post('tch_email');
+      $tch_card   = $this->input->post('tch_card');
 
-         $id = $this->model->edit_teacher($tch_name ,$tch_tel ,$tch_code,$tch_id);
+         $id = $this->model->edit_teacher($tch_id,$tch_name ,$tch_tel ,$tch_email,$tch_card);
 
         redirect('Admin/show_teacher_index');
 	}
@@ -267,8 +287,7 @@ public function insert_student()
 
       $result = $this->model->del_tch_p($tch_id);
 
-      $id = $tch_id;
-      $result = $this->model->del_user($id);
+      
 		if($result!=FALSE)
 		{
             redirect('Admin/show_teacher_index','refresh');
@@ -281,7 +300,37 @@ public function insert_student()
    }
 
    
+   public function show_class_index()
+   {
+
+      $qry_inp =  "SELECT c.cls_id,c.cls_name,c.cls_group,department.dpm_name,teacher.tch_name
+      FROM class AS c
+      INNER JOIN teacher on teacher.tch_id = c.tch_id
+      INNER JOIN department on department.dpm_id = c.dpm_id";
+   $query = $this->db->query($qry_inp); 
+   $data['result'] = $query->result();
+   $this->load->view('show_class',$data);
+   }
    
+   public function edit_class()
+   {
+         $id = $this->uri->segment('3'); 
+        $data['result'] = $this->model->selectOneclass($id);
+        $qry_inp =  "SELECT * FROM class";
+        $query = $this->db->query($qry_inp); 
+        $data['result_cls'] = $query->result();
+		$this->load->view('edit_class',$data);
+   }
+   public function edit_class_p()
+	{
+      $cls_id    = $this->input->post('cls_id');
+      $cls_name    = $this->input->post('cls_name');
+      $cls_group    = $this->input->post('cls_group');
+      
+         $id = $this->model->edit_class($cls_id ,$cls_name ,$cls_group);
+
+        redirect('Admin/show_class_index');
+	}
 
 
    

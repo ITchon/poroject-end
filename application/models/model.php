@@ -30,6 +30,24 @@ class Model extends CI_Model
                 return false;
                 } 
         }
+
+        public function edit_class($cls_id ,$cls_name ,$cls_group)
+        {
+            $sql ="UPDATE class SET  
+                                        cls_name ='$cls_name' ,
+                                        cls_group ='$cls_group' 
+                                        WHERE cls_id = '$cls_id';";          
+                $exc = $this->db->query($sql);
+                if ($exc)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
+
    public function edit_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id ,$std_id)
         {
             $sql ="UPDATE `student` SET  
@@ -135,15 +153,15 @@ class Model extends CI_Model
                 return false;
                 }
         }
-        public function insert_teacher($tch_name ,$tch_tel ,$tch_code)
+        public function insert_teacher($tch_name ,$tch_tel ,$tch_email,$tch_card)
         {
             $sql ="INSERT INTO teacher (
                         tch_name,
                         tch_tel,
-                        tch_code
-
+                        tch_email,
+                        tch_card
                         )
-                VALUES ('$tch_name','$tch_tel','$tch_code');";          
+                VALUES ('$tch_name','$tch_tel','$tch_email','$tch_card');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -155,13 +173,13 @@ class Model extends CI_Model
         }
 
 
-        public function edit_teacher($tch_name ,$tch_tel ,$tch_code,$tch_id)
+        public function edit_teacher($tch_id,$tch_name ,$tch_tel ,$tch_email,$tch_card)
         {
             $sql ="UPDATE `teacher` SET  
                                          tch_name ='$tch_name' ,
                                          tch_tel ='$tch_tel' ,
-                                         tch_code ='$tch_code' 
-                                         
+                                         tch_email ='$tch_email',
+                                         tch_card ='$tch_card'
                                         
                                         WHERE tch_id = '$tch_id';";          
                 $exc_teacher = $this->db->query($sql);
@@ -279,7 +297,7 @@ if($query) {
 public function insert_user($user_name,$user_pass,$user_group,$id){ 
   // $pass = base64_encode(trim($pass));
   $sql ="INSERT INTO `user`(`user_name`,`user_pass`,`user_group`,`status`,id) 
-  VALUES ('$user_name','$user_pass','$user_group','1','$id')";
+  VALUES ('$user_name','$user_pass','$user_group','0','$id')";
 $query = $this->db->query($sql);
 if($query) {
     return true;  
@@ -413,6 +431,23 @@ public function CheckSession()
    }
     else{    return TRUE;    }
 }
+
+public function del_user_p($user_id)
+{
+
+  $sqlEdt = "DELETE FROM user WHERE id = '$user_id';";
+
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
+
+
 public function del_std_p($std_id)
 {
 
@@ -469,18 +504,43 @@ public function del_tch_p($tch_id)
 // }
  public function del_user($id)
  {
-  $sqlEdt = "DELETE FROM user WHERE id = '$id';";
-
-
-  $exc_teacher = $this->db->query($sqlEdt);
+  $sql = "SELECT * FROM user WHERE user_id = '$id';";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+  $data[0]->user_group;
+  if($data[0]->user_group == "student"){
+    $std_id = $data[0]->id;
+    $sqlEdt = "DELETE FROM student WHERE std_id = '$std_id';";
+  }else if($data[0]->user_group == "teacher"){
+    $tch_id = $data[0]->id;
+    $sqlEdt = "DELETE FROM teacher WHERE tch_id = '$tch_id';";
+  }else if($data[0]->user_group == "company"){
+    $cpn_id = $data[0]->id;
+    $sqlEdt = "DELETE FROM company WHERE cpn_id = '$cpn_id';";
+  }else{
+    echo "ข้อมูลผิดพลาด";
+    exit;
+  }
+  $exc = $this->db->query($sqlEdt);
+  $sql = "DELETE FROM user WHERE user_id = '$id';";
+  $exc = $this->db->query($sql);
  
-  if ($exc_teacher ){
+  if ($exc){
     
     return true;  
     
   }else{  return false; }
  }
 
+ public function selectOneclass($id)
+ {
+  $sql="SELECT * FROM class WHERE cls_id = '$id' ";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
+ 
  public function selectOnestudent($id)
  {
   $sql="SELECT * FROM student WHERE std_id = '$id' ";

@@ -26,11 +26,18 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">รหัสประจำตัว</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">E-mail</label>
                                 <div class="col-sm-9">
-                                    <input id="form-control-1" name="tch_code" class="form-control" type="text">
+                                <input id="form-control-1" name="tch_email" class="form-control" type="text">
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">รหัสประจำตัวประชาชน</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="tch_card" class="form-control" type="text">
+                                </div>
+                            </div>
+                            
 
                             
                             </div>
