@@ -62,12 +62,12 @@
 															<span class="bigger-110">เข้าสู่ระบบ</span>
 														</button>
 
-														<div>
+														<!-- <div>
 															<a href="company/registerindex">Register Company</a>
 														</div>
 														<div>
 															<a href="teacher/registerindex">Register Teacher</a>
-														</div>
+														</div> -->
 
 														<input type="hidden" name="action" value="<?php echo base64_encode('login');?>"/>
 													</div>

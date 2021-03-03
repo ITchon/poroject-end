@@ -39,7 +39,7 @@ class Login extends CI_Controller {
 									<span>  
 						<b> รหัสผิดพลาด !!</b> - กรุณาตรวจสอบรหัสไหม่ </span> 
 			</div>');
-			redirect('Login');  
+			redirect('main2');  
 		}
 	}
 

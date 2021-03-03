@@ -42,19 +42,30 @@
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_company_p" method="POST">      
+                              
                     </div> 
                 </div>
-                    <?php foreach($result as $res){ ?>
-                            
-                            <?php echo $res->cpn_id ?>
+                    <?php foreach($result as $res){ ?>   
+                      <div class="form-group">
+                                <label class="col-sm-9 control-label" for="form-control-1">รหัสนักเรียน</label>
+                                <div class="col-sm-9">
+                                    <h4><?php echo $res->cpn_name ?></h4>
+                                </div>
+                        </div>
+                        <div class="form-group">
+                                <label class="col-sm-9 control-label" for="form-control-1">ที่อยู่</label>
+                                <div class="col-sm-9">
+                                    <label><?php echo $res->cpn_address ?></label>
+                                </div>
+                        </div>
+                      
                             <?php echo $res->cpn_name ?>
                             <?php echo $res->cpn_address ?>
                             <?php echo $res->cpn_email ?>
                             <?php echo $res->cpn_phnumber ?>
                             
                             <?php  } ?> 
-                        </form>   
+                          
                         &nbsp;&nbsp;<a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_company_index">ยกเลิก</a>
                     </div> 
                 
