@@ -73,10 +73,6 @@ public function insert_student()
          // $tch_name = $this->input->post('tch_name');
          $id = $this->model->insert_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id);
 
-
-
-
-
         ########################
         $user_name = $std_code;
         $user_pass = $std_birthday;

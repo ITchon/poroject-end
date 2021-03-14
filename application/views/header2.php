@@ -70,6 +70,14 @@
   text-align: center;
 }
 
+.polaroid {
+  width: 450px;
+  box-shadow: 0 15px 22px 0 rgba(0, 0, 0, 0.2), 0 15px 22px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
+}
+
+
+
 
 </style>
   </head>

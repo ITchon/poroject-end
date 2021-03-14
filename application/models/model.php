@@ -18,9 +18,10 @@ class Model extends CI_Model
                         std_code,
                         std_birthday,
                         std_age,
-                        std_sex
+                        std_sex,
+                        std_status
                         )
-                VALUES ('$cls_id','$title','$std_fname','$std_lname','$std_address','$std_code','$std_birthday','$std_age','$std_sex');";          
+                VALUES ('$cls_id','$title','$std_fname','$std_lname','$std_address','$std_code','$std_birthday','$std_age','$std_sex','0');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -192,6 +193,14 @@ class Model extends CI_Model
                 return false;
                 }
         }
+      //   public function chk_sessionadmin() {  
+      //     if($this->session->userdata('user_group')!="admin") {
+      //       echo "<script>alert('Please Login')</script>";
+      //       redirect('login','refresh');
+      //       return FALSE;
+      
+      //     }else{    return TRUE;    }
+      // }      
 
   public function chk_sessionadmin() {  
     if($this->session->userdata('user_group')!="admin") {
@@ -579,7 +588,9 @@ public function del_tch_p($tch_id)
 
  public function select_main_data($id)
  {
-  $sql="SELECT * FROM company WHERE cpn_id = '$id' ";
+  $sql="SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_address,company.cpn_email,company.cpn_phnumber,req.req_number
+  FROM company
+  INNER JOIN req on req.cpn_id = company.cpn_id WHERE company.cpn_id = $id";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
 
@@ -597,8 +608,60 @@ public function del_tch_p($tch_id)
     }
 }
 
+public function chk_insert_req($req_id ,$real_id )
+        {
+            $sql ="SELECT * FROM accept_req WHERE req_id = '$req_id' AND std_id ='$real_id' ";          
+                $query = $this->db->query($sql);
+                $data  = $query->result(); 
+                if($query)
+                {
+                return $data;
+                }
+                else{
+                return false;
+                } 
+        }
 
 
+public function insert_req($req_id ,$real_id )
+        {
+            $sql ="INSERT INTO accept_req (
+                        std_id,
+                        req_id,
+                        ac_status
+
+                        )
+                VALUES ('$real_id','$req_id','0');";          
+                $query = $this->db->query($sql);
+                
+                
+                if($query)
+                {
+                return true;
+                }
+                else{
+                return false;
+                } 
+        }
+
+        public function accept_std($std_id)
+        {
+          
+            $sql ="UPDATE student SET  
+
+                                        std_status ='1'
+                                         
+                                        WHERE std_id = '$std_id'";          
+                $exc = $this->db->query($sql);
+                if ($exc)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
 
 
 

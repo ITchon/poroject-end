@@ -18,7 +18,7 @@ public function __construct()
  public function index(){
     
     
-    $qry_inp =  "SELECT `cpn_id`,`cpn_name`, `cpn_address`, `cpn_email`, `cpn_phnumber` FROM `company`" ;
+    $qry_inp =  "SELECT `cpn_id`,`cpn_name`, `cpn_address`, `cpn_email`, `cpn_phnumber`, `cpn_img` FROM `company`" ;
     $query = $this->db->query($qry_inp); 
     $data['result'] = $query->result();
     $this->load->view('main_menu',$data);

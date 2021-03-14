@@ -33,7 +33,8 @@
             
             <br><br>
             <div class="col-xs-12">
-              
+            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("success"); ?> 
+            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("failed"); ?>    
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
@@ -87,7 +88,15 @@
                                 <td><h5><?php echo $res->cpn_phnumber ?></h5></td>
                                 </div>
                         </div>
-                      </tr>       
+                      </tr> 
+                      <tr>
+                      <div class="form-group">
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ต้องการนักศึกษา</h4></th>
+                                <div class="col-sm-9">
+                                <td><h5><?php echo $res->req_number ?></h5></td>
+                                </div>
+                        </div>
+                    </tr>      
                             <?php  } ?> 
                     </table>
                     </div>                
@@ -95,29 +104,14 @@
         </div>     
         <br>
         
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success " data-toggle="modal" data-target="#warningModalAlert" >สมัครเข้าฝึกงาน</a>
+        <?php if($this->session->userdata('std_status') == 1){?>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'student/req/' . $res->req_id;  ?>';">สมัครเข้าฝึกงาน</a>
+        <?php } ?>
         &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>Main/index">กลับหน้าหลัก</a>
         
     </div>
-    <br><br><br>
-    <div id="warningModalAlert" tabindex="-1" role="dialog" class="modal fade">
-      <div class="modal-dialog polaroid ">
-        <div class="modal-content">
-          <div class="modal-body ">
-            <div class="text-center">
-              <span class="text-warning icon icon-exclamation-triangle icon-5x"></span>
-              <h3 class="text-warning">คำเตือน</h3>
-              <h1>กรุณา Login ก่อนค่ะ</h1>
-              <div class="m-t-lg">
-              <a class="btn btn-success "  href="<?php echo base_url(); ?>Login/index">Login</a>
-                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer"></div>
-        </div>
-      </div>
-    </div>
+    
+    
 
   </body>
   

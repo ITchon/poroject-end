@@ -18,21 +18,29 @@
                 <li class="sidenav-item has-subnav active">
                   <a href="dashboard-1.html" aria-haspopup="true">
                     <span class="sidenav-icon icon icon-home"></span>
-                    <span class="sidenav-label">เมนูหลัก
-                    </span>
+                    <span class="sidenav-label">Dashboards</span>
                   </a>
                   <ul class="sidenav-subnav collapse">
-                    <li class="sidenav-subheading">เมนูหลัก
-                    </li>
-                    <li><a href="<?php echo base_url();?>admin/show_user_index">แสดงข้อมูลสมาชิก</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_student_index">แสดงข้อมูลนักเรียน</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_company_index">แสดงข้อมูลบริษัท</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_teacher_index">แสดงข้อมูลอาจารย์</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_class_index">แสดงข้อมูลห้องเรียน</a></li>
+                    <li class="sidenav-subheading">Dashboards</li>
+                    <li><a href="<?php echo base_url();?>admin/show_user_index">SHOW - USER</a></li>
+                  
+                    
                   </ul>
                 </li>
-                 
-              </ul>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>admin/show_user_index">
+                    
+                    <span class="sidenav-icon icon icon-th"></span>
+                    <span class="sidenav-label" >แก้ไขข้อมูลบริษัท</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                  <a href="page-layouts.html">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">Page layouts</span>
+                  </a>
+                </li>
+                
             </nav>
           </div>
         </div>

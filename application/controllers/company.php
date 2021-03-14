@@ -5,43 +5,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Company extends CI_Controller {
  
  
-public function __construct()
-    {
-        parent::__construct();
-        $this->load->view('header2');
-        $this->load->model('model');
-        $this->load->view('head');
-        $this->load->view('sidebar');
-    }
+   public function __construct()
+   {
+       parent::__construct();
+       $this->load->view('header2');
+       $this->load->model('model');
+       $this->load->view('head_main');
+       $this->load->view('cpn_sidebar');
+       
+   }
+
+public function index(){
+   
+   
+   $qry_inp =  "SELECT company.cpn_id,company.cpn_name,company.cpn_address,company.cpn_email,company.cpn_phnumber,department.dpm_name,req.req_number
+   FROM company
+   INNER JOIN req on req.cpn_id = company.cpn_id
+   INNER JOIN department on department.dpm_id = req.dpm_id" ;
+   $query = $this->db->query($qry_inp); 
+   $data['result'] = $query->result();
+   $this->load->view('main_menu_cpn',$data);
+}
+
  
- public function index(){
-    
-    $this->load->view('admin_menu');
-    $this->model->chk_sessioncpn();
-    
- }
 
- public function registerindex(){
-    
-    $this->load->view('add_cpn');
-    
-    
- }
-
- public function registercpn(){
-    $user_name =  $this->input->post('cpn_user');
-	$pass_word=  $this->input->post('cpn_pass');
-	$cpn_name =  $this->input->post('cpn_name');
-	$cpn_address=  $this->input->post('cpn_address');
-    $cpn_email =  $this->input->post('cpn_email');
-    $cpn_phnumber=  $this->input->post('cpn_phnumber');
-    $this->model->chk_username_registercpn($user_name);
-    $id = $this->model->insert_registercpn($cpn_name,$cpn_address,$cpn_email,$cpn_phnumber);
-    $data = $this->model->insert_user($user_name,$pass_word,'company',$id);
-    redirect('login');
-     
-
- }
+ 
 
  
  

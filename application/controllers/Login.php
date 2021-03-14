@@ -52,7 +52,7 @@ class Login extends CI_Controller {
 		
 		if($data==true) {
             $arrData = array('status'=> $data['status'],'user_pass'=> $data['user_pass'],'user_name'=> $data['user_name'],
-             'user_group'=> $data['user_group'],'tch_id'=> $data['id'],'cpn_id'=> $data['id'],'user_id'=> $data['user_id']);	
+             'user_group'=> $data['user_group'],'real_id'=> $data['id'],'user_id'=> $data['user_id']);	
              $this->session->set_userdata($arrData);
              $username = $this->session->userdata('username');
 
@@ -65,9 +65,15 @@ class Login extends CI_Controller {
 				 }else if($data['user_group'] == "company"){
 					redirect('company'); 
 				 }else if($data['user_group'] == "student"){
+					 $id = $data['id'];
+					$sql ="SELECT * FROM student WHERE std_id='$id'";
+					$query = $this->db->query($sql);
+					$data_std = $query->row();
+					$this->session->set_userdata('std_status',$data_std->std_status);
+					
 					redirect('student'); 
 				}else if($data['user_group'] == "bilateral"){
-					echo "you are bilateral ";
+					redirect('bilateral');
 				}else if($data['user_group'] == "admin"){
 					redirect('admin');	
 				}
