@@ -74,18 +74,18 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อห้อง</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">ระดับชั้น</label>
                                 <div class="col-sm-9">
                                 <select name="cls_id" class="form-control">
                                                
                                                 <?php foreach ($result as $cl) {
-                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name." ".$cl->class_group." </option> ";
+                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name."  </option> ";
                                                                                  }
                                                 ?>
                                             </select>
-                                <!-- <input id="form-control-1" name="cls_name" class="form-control" type="text"> -->
                                 </div>
                             </div>
+                            
                             <!-- <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
                                 <div class="col-sm-9">

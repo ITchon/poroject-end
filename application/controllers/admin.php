@@ -52,7 +52,9 @@ public function show_student_index(){
 }
 
 public function insert_student_index(){
-   $qry_inp =  "SELECT * FROM class" ;
+   $qry_inp =  "SELECT department.dpm_id ,department.dpm_name,class.cls_id,class.cls_name
+   FROM class
+   INNER JOIN department on department.dpm_id = class.dpm_id";
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
    $this->load->view('insert_student',$data);
@@ -69,6 +71,7 @@ public function insert_student()
          $std_sex    = $this->input->post('std_sex');
 		   $std_age  = $this->input->post('std_age');
 		   $cls_id   = $this->input->post('cls_id');
+         
          // $dpm_name = $this->input->post('dpm_name');
          // $tch_name = $this->input->post('tch_name');
          $id = $this->model->insert_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id);
@@ -192,7 +195,11 @@ public function insert_student()
          $cpn_email      = $this->input->post('cpn_email');
          $cpn_phnumber    = $this->input->post('cpn_phnumber');
          $id = $this->model->insert_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber);
-
+         $user_name = $cpn_email;
+         $user_pass = $cpn_phnumber;
+         $user_group = "company";
+        
+        $this->model->insert_user($user_name,$user_pass,$user_group,$id);
         redirect('Admin/show_company_index');
 	}
    public function edit_company()

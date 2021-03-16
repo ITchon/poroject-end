@@ -596,6 +596,21 @@ public function del_tch_p($tch_id)
 
   return $data;
  }
+ public function select_main_data_std_cnp($std_id)
+ {
+   
+  $sql="SELECT student.std_id,c.cls_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_address,student.std_code,
+  student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name
+  FROM student
+  INNER JOIN class AS c on student.cls_id = c.cls_id
+  INNER JOIN department on department.dpm_id = c.dpm_id
+  INNER JOIN teacher on teacher.tch_id = c.tch_id 
+  WHERE student.std_id = $std_id";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
 
  public function save_new_pass($pass1,$id) {  
   $sql ="update user set user_pass = '$pass1', status = 1 where user_id = '$id'";
@@ -611,6 +626,19 @@ public function del_tch_p($tch_id)
 public function chk_insert_req($req_id ,$real_id )
         {
             $sql ="SELECT * FROM accept_req WHERE req_id = '$req_id' AND std_id ='$real_id' ";          
+                $query = $this->db->query($sql);
+                $data  = $query->result(); 
+                if($query)
+                {
+                return $data;
+                }
+                else{
+                return false;
+                } 
+        }
+        public function chk_cpn_insert_std($std_id)
+        {
+            $sql ="SELECT * FROM accept_req WHERE std_id = '$std_id'";          
                 $query = $this->db->query($sql);
                 $data  = $query->result(); 
                 if($query)
@@ -650,6 +678,24 @@ public function insert_req($req_id ,$real_id )
             $sql ="UPDATE student SET  
 
                                         std_status ='1'
+                                         
+                                        WHERE std_id = '$std_id'";          
+                $exc = $this->db->query($sql);
+                if ($exc)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
+        public function cpn_accept_std($std_id)
+        {
+          
+            $sql ="UPDATE accept_req SET  
+
+                                        ac_status ='1'
                                          
                                         WHERE std_id = '$std_id'";          
                 $exc = $this->db->query($sql);

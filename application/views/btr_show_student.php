@@ -258,8 +258,6 @@
     </script>
 </html>
 <style>
-
-
 .color {
   color: green;
 }
