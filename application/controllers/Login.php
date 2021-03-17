@@ -63,6 +63,20 @@ class Login extends CI_Controller {
 				 if($data['user_group'] == "teacher"){
 					redirect('teacher'); 
 				 }else if($data['user_group'] == "company"){
+					$id = $data['id'];
+					$data =$this->model->select_cpn_data($id);
+					$data[0]->cpn_status;
+					if($data[0]->cpn_status == 0){
+						$this->session->set_flashdata
+						('successcpn','<div class="alert alert-success">
+						<span><b> กรุณารอยืนยันจากเข้าหน้าที่ !!</b></span> 
+						</div>');
+			  			redirect('login'); 
+					}else{
+						redirect('company');  
+					}
+					
+					die;
 					redirect('company'); 
 				 }else if($data['user_group'] == "student"){
 					 $id = $data['id'];

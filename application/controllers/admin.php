@@ -147,6 +147,8 @@ public function insert_student()
 	}
 
 
+   
+
    public function delete_student($std_id)
    {
       

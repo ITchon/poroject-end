@@ -36,6 +36,7 @@
 							<?php echo form_open("login/account", array('id'=>'login-form'));?>
 							<?php  	if ($this->session->flashdata('msg_error') != ''){ echo $this->session->flashdata('msg_error');  }  ?>
 							<?php echo $this->session->flashdata("success"); ?>
+							<?php echo $this->session->flashdata("successcpn"); ?>
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
@@ -51,9 +52,10 @@
 														</span>
 													</label>
 
-													<div class="space"></div>
-
+													<br>
+													
 													<div class="clearfix">
+													<a href="<?php echo base_url(); ?>company/registerindex">ลงทะเบียนบริษัท</a>
 														<!-- <label class="inline">
 															<input type="checkbox" class="ace" />
 															<span class="lbl"> Remember Me</span>

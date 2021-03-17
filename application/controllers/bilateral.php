@@ -66,12 +66,7 @@ class Bilateral extends CI_Controller {
     }
     public function delete_student($std_id)
    {
-      
       $result = $this->model->del_std_p($std_id);
-      
-
-      
-
 		if($result!=FALSE)
 		{
             redirect('bilateral/index','refresh');
@@ -96,8 +91,48 @@ class Bilateral extends CI_Controller {
         	redirect('btr_show_student','refresh');
 		}
    }
-		
 
+
+   public function index2(){
+         $qry_inp =  "SELECT * FROM `company`" ;
+         $query = $this->db->query($qry_inp); 
+         $data['result'] = $query->result();
+         $this->load->view('btr_show_cpn',$data);
+      
+   }
+
+   public function index3(){
+      $cpn_id = $this->uri->segment('3');
+      $data['result'] = $this->model->select_main_btr_cpn_data($cpn_id);
+   $this->load->view('btr_show_cpn_data',$data);
+   
+}
+   public function accept_cpn(){  
+      $cpn_id = $this->uri->segment('3'); 
+      $data  = $this->model->btr_accept_cpn($cpn_id);
+      
+      if($data != null){
+        $this->session->set_flashdata
+           ('failed','<div class="alert alert-warning">
+                             <span>  
+                    <b>คุณได้สมัครเข้าฝึกงานที่นี่แล้ว</span> 
+           </div>');
+           redirect('bilateral/index2','refresh');  
+      }else{
+        $data1 = $this->model->insert_req($req_id,$real_id);
+        $this->session->set_flashdata
+           ('success','<div class="alert alert-success">
+                             <span>  
+                    <b>คุณได้สมัคเข้าฝึกงานเรียบร้อย</span> 
+           </div>');
+           
+           redirect('bilateral/index2','refresh');  
+      }
+      
+      
+        
+  }
+  
 
 
 

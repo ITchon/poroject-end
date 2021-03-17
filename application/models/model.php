@@ -276,17 +276,26 @@ public function chk_login($username,$userpass) {
           }
 }
 
-public function insert_registercpn($cpn_name,$cpn_address,$cpn_email,$cpn_phnumber) {  
-        // $pass = base64_encode(trim($pass));
-        $sql ="INSERT INTO `company` (`cpn_name`,`cpn_address`,`cpn_email`,`cpn_phnumber`) 
-        VALUES ('$cpn_name','$cpn_address','$cpn_email','$cpn_phnumber')";
-      $query = $this->db->query($sql);
-      if($query) {
-          return $this->db->insert_id(); 
-          }else{ 
-          return false;
-          }
-      
+
+
+public function insert_registercpn($cpn_name,$cpn_address,$cpn_email,$cpn_phnumber,$cpn_img) {  
+  // $pass = base64_encode(trim($pass));
+  $sql ="INSERT INTO company (
+    cpn_name,
+    cpn_address,
+    cpn_email,
+    cpn_phnumber,
+    cpn_img,
+    cpn_status
+    )
+VALUES ('$cpn_name','$cpn_address','$cpn_email','$cpn_phnumber','$cpn_img','0');";
+$query = $this->db->query($sql);
+if($query) {
+    return $this->db->insert_id(); 
+    }else{ 
+    return false;
+    }
+
 }
 
 public function insert_registertch($tch_name,$tch_tel,$tch_code) {  
@@ -456,6 +465,20 @@ public function del_user_p($user_id)
   }else{  return false; }
 }
 
+public function del_ac_p($ac_id)
+{
+
+  $sqlEdt = "DELETE FROM accept WHERE ac_id = '$ac_id';";
+
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
 
 public function del_std_p($std_id)
 {
@@ -586,6 +609,15 @@ public function del_tch_p($tch_id)
   return $data;
  }
 
+ public function select_main_btr_cpn_data($cpn_id)
+ {
+  $sql="SELECT * FROM company WHERE cpn_id = '$cpn_id'";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
+
  public function select_main_data($id)
  {
   $sql="SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_address,company.cpn_email,company.cpn_phnumber,req.req_number
@@ -596,9 +628,9 @@ public function del_tch_p($tch_id)
 
   return $data;
  }
+
  public function select_main_data_std_cnp($std_id)
  {
-   
   $sql="SELECT student.std_id,c.cls_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_address,student.std_code,
   student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name
   FROM student
@@ -636,6 +668,7 @@ public function chk_insert_req($req_id ,$real_id )
                 return false;
                 } 
         }
+
         public function chk_cpn_insert_std($std_id)
         {
             $sql ="SELECT * FROM accept_req WHERE std_id = '$std_id'";          
@@ -708,7 +741,35 @@ public function insert_req($req_id ,$real_id )
                 return false;
                 }
         }
+        public function btr_accept_cpn($cpn_id)
+        {
+          
+            $sql ="UPDATE company SET  
 
+                                        cpn_status ='1'
+                                         
+                                        WHERE cpn_id = '$cpn_id'";          
+                $exc = $this->db->query($sql);
+                if ($exc)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
+        
+        public function select_cpn_data($id)
+ {
+  $sql="SELECT company.cpn_status
+  FROM company
+  INNER JOIN user on user.id = company.cpn_id WHERE company.cpn_id = $id";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+  
+  return $data;
+ }
 
 
 

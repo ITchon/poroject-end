@@ -28,10 +28,10 @@
                   </ul>
                 </li>
                 <li class="sidenav-item">
-                <a href="<?php echo base_url();?>admin/show_user_index">
+                <a href="<?php echo base_url();?>bilateral/index2">
                     
                     <span class="sidenav-icon icon icon-th"></span>
-                    <span class="sidenav-label" >แก้ไขข้อมูลบริษัท</span>
+                    <span class="sidenav-label" >จัดการอนุมัติบริษัท</span>
                   </a>
                 </li>
                 <li class="sidenav-item">
