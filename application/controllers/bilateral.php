@@ -109,21 +109,20 @@ class Bilateral extends CI_Controller {
 }
    public function accept_cpn(){  
       $cpn_id = $this->uri->segment('3'); 
-      $data  = $this->model->btr_accept_cpn($cpn_id);
-      
-      if($data != null){
+      $data  = $this->model->chk_btr_insert_cpn($cpn_id);
+      if($data[0]->cpn_status != 0){
         $this->session->set_flashdata
            ('failed','<div class="alert alert-warning">
                              <span>  
-                    <b>คุณได้สมัครเข้าฝึกงานที่นี่แล้ว</span> 
+                    <b>คุณได้อนุมัติบริษัทนี้ไปแล้ว !!</span> 
            </div>');
            redirect('bilateral/index2','refresh');  
       }else{
-        $data1 = $this->model->insert_req($req_id,$real_id);
+         $data1  = $this->model->btr_accept_cpn($cpn_id);
         $this->session->set_flashdata
            ('success','<div class="alert alert-success">
                              <span>  
-                    <b>คุณได้สมัคเข้าฝึกงานเรียบร้อย</span> 
+                    <b>อนุมัติบริษัทสำเร็จ</span> 
            </div>');
            
            redirect('bilateral/index2','refresh');  
@@ -134,7 +133,29 @@ class Bilateral extends CI_Controller {
   }
   
 
+  public function delete_cpn_f($ac_id)
+  {
+     
+     $result = $this->model->del_cpn_p($ac_id);
+     
 
+     
+
+     if($result!=FALSE)
+     {
+         $this->session->set_flashdata
+           ('success_del','<div class="alert alert-success">
+                             <span>  
+                    <b>ลบสำเร็จ</span> 
+           </div>');
+           redirect('bilateral/index2','refresh');
+     }
+     else
+     {
+         echo "<script>alert('Something wrong')</script>";
+          redirect('manage_student','refresh');
+     }
+  }
 
 
  

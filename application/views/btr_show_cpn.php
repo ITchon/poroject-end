@@ -5,7 +5,9 @@
   <br><br>
   
             <div class="col-xs-10">
-              
+            <?php echo $this->session->flashdata("success"); ?>
+            <?php echo $this->session->flashdata("failed"); ?>
+            <?php echo $this->session->flashdata("success_del"); ?>
               <div class="card">
                 
                 <div class="card-header">
@@ -17,6 +19,7 @@
                   </div>
                   <strong>Basic Table (+Bootstrap Responsive Table)</strong>
                 </div>
+                
                 <div class="card-body">
         <div class="panel-body collapse in">      
         <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>bilateral/insert_student_index">เพิ่ม</a>
@@ -53,7 +56,7 @@
                             
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'bilateral/index3/' . $res->cpn_id; ?>';"><i class='btn btn-success'>ดูข้อมูลเพิ่มเติม</i></a> 
-                                            <?php echo "<a type='button' href='".base_url()."bilateral/delete_student/".$res->cpn_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
+                                            <?php echo "<a type='button' href='".base_url()."bilateral/delete_cpn_f/".$res->cpn_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
                             </td>
                             </tr>
                             <?php  } ?> 

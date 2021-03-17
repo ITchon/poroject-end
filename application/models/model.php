@@ -741,6 +741,21 @@ public function insert_req($req_id ,$real_id )
                 return false;
                 }
         }
+
+        public function chk_btr_insert_cpn($cpn_id)
+        {
+            $sql ="SELECT * FROM company WHERE cpn_id = '$cpn_id'";          
+                $query = $this->db->query($sql);
+                $data  = $query->result(); 
+                if($query)
+                {
+                return $data;
+                }
+                else{
+                return false;
+                } 
+        }
+
         public function btr_accept_cpn($cpn_id)
         {
           
