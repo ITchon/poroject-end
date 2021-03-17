@@ -14,25 +14,20 @@
                     </div>
                   </form>
                 </li>
-                <li class="sidenav-heading">Navigation</li>
-                <li class="sidenav-item has-subnav active">
-                  <a href="dashboard-1.html" aria-haspopup="true">
-                    <span class="sidenav-icon icon icon-home"></span>
-                    <span class="sidenav-label">เมนูหลัก
-                    </span>
+                <li class="sidenav-item">
+                <li class="sidenav-item">
+                  <a href="page-layouts.html">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label" >กำหนดการออกฝึกงาน</span>
                   </a>
-                  <ul class="sidenav-subnav collapse">
-                    <li class="sidenav-subheading">เมนูหลัก
-                    </li>
-                    <li><a href="<?php echo base_url();?>admin/show_user_index">แสดงข้อมูลสมาชิก</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_student_index">แสดงข้อมูลนักเรียน</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_company_index">แสดงข้อมูลบริษัท</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_teacher_index">แสดงข้อมูลอาจารย์</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_class_index">แสดงข้อมูลห้องเรียน</a></li>
-                  </ul>
+                  </li>
+                  <li class="sidenav-item">
+                  <a href="page-layouts.html">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label" >การยื่นคำร้อง</span>
+                  </a>
                 </li>
-                 
-              </ul>
+                
             </nav>
           </div>
         </div>
