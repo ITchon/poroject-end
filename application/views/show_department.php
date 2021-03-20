@@ -19,33 +19,31 @@
                 </div>
                 <div class="card-body">
         <div class="panel-body collapse in">      
-        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_class_index">เพิ่ม</a>
+        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_department_index">เพิ่ม</a>
               <div class="table-responsive">
                 <div class="card-body ">
-                  <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
+                <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th>ชื่อกลุ่ม</th>
-                        <th>กลุ่ม</th>
+                        
+                        <th>ลำดับ</th>
                         <th>ชื่อแผนกวิชา</th>
-                        <th>ระดับชั้น</th>
-                        <th>ชื่ออาจารย์</th>
-                        <th>จัดการ</th>
+                        <th>manage</th>
+                        
+                        
                       </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($result as $res){ ?>
+                    <?php $c = 0; ?>
+                    <?php foreach($result as $res){ 
+                    $c++;    
+                    ?>
                           <tr>
-                            <td><?php echo $res->cls_name ?></td>
-                            <td><?php echo $res->cls_group ?></td>
+                            <td><?php echo $c ?></td>
                             <td><?php echo $res->dpm_name ?></td>
-                            <td><?php echo $res->cls_glevel ?></td>
-                            <td><?php echo $res->tch_name ?></td>
-                            
-                            <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_class/' . $res->cls_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."admin/delete_class/".$res->cls_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
-                                        </td>
+                            <td><a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_department/' . $res->dpm_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
+                                            <?php echo "<a type='button' href='".base_url()."admin/delete_department/".$res->dpm_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
+                            </td>
                             </tr>
                             <?php  } ?> 
                            
@@ -54,7 +52,10 @@
                 </div>  
               </div>                              
         </div>
-        <div class="theme">
+        </div>
+      </div>
+      
+    <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">
           <button class="theme-panel-toggler" title="Expand theme panel ( ] )" type="button">

@@ -308,7 +308,7 @@ public function insert_student()
    public function show_class_index()
    {
 
-      $qry_inp =  "SELECT c.cls_id,c.cls_name,c.cls_group,department.dpm_name,teacher.tch_name
+      $qry_inp =  "SELECT c.cls_id,c.cls_name,c.cls_group,department.dpm_name,teacher.tch_name,c.cls_glevel
       FROM class AS c
       INNER JOIN teacher on teacher.tch_id = c.tch_id
       INNER JOIN department on department.dpm_id = c.dpm_id";
@@ -316,6 +316,88 @@ public function insert_student()
    $data['result'] = $query->result();
    $this->load->view('show_class',$data);
    }
+   
+   
+
+   public function show_department_index()
+   {
+      $qry_inp =  "SELECT * FROM department"; 
+      $query = $this->db->query($qry_inp); 
+      $data['result'] = $query->result();
+      $this->load->view('show_department',$data);
+   }
+   public function insert_department_index(){
+      $qry_inp =  "SELECT * FROM department" ;
+      $query = $this->db->query($qry_inp); 
+      $data['result'] = $query->result();
+      $this->load->view('insert_department',$data);
+   }
+
+   public function insert_department()
+	{
+         
+         $dpm_name    = $this->input->post('dpm_name');
+         $id = $this->model->insert_department($dpm_name);
+        redirect('Admin/show_department_index');
+	}
+   public function edit_department()
+   {
+         $id = $this->uri->segment('3'); 
+        $data['result'] = $this->model->selectOnedepartment($id);
+		   $this->load->view('edit_department',$data);
+   }
+   public function edit_department_p()
+	{
+         $dpm_id    = $this->input->post('dpm_id');
+         $dpm_name    = $this->input->post('dpm_name');
+         $this->model->edit_department($dpm_id,$dpm_name);
+
+        redirect('Admin/show_department_index');
+	}
+
+   public function delete_department($dpm_id)
+   {
+
+      $result = $this->model->del_dpm_p($dpm_id);
+
+      
+		if($result!=FALSE)
+		{
+            redirect('Admin/show_department_index','refresh');
+		}
+		else
+		{
+		    echo "<script>alert('Something wrong')</script>";
+        	redirect('manage_student','refresh');
+		}
+   }
+   
+
+
+   public function insert_class_index(){
+      $qry_inp =  "SELECT * FROM class " ;
+      $query = $this->db->query($qry_inp); 
+      $data['result_class'] = $query->result();
+
+      $qry_inp =  "SELECT * FROM department ";
+      $query = $this->db->query($qry_inp); 
+      $data['result_dpm'] = $query->result();
+
+      $qry_inp =  "SELECT * FROM teacher";
+      $query = $this->db->query($qry_inp); 
+      $data['result_tch'] = $query->result();
+      $this->load->view('insert_class',$data);
+   }
+   public function insert_class_p()
+	{
+         
+         $tch_name    = $this->input->post('tch_name');
+         $tch_tel   = $this->input->post('tch_tel');
+         $tch_email      = $this->input->post('tch_email');
+         $tch_card      = $this->input->post('tch_card');
+         $id = $this->model->insert_class($tch_name ,$tch_tel ,$tch_email,$tch_card);
+        redirect('Admin/show_class_index');
+	}
    
    public function edit_class()
    {
@@ -338,7 +420,22 @@ public function insert_student()
 	}
 
 
-   
+   public function delete_class($tch_id)
+   {
+
+      $result = $this->model->del_tch_p($tch_id);
+
+      
+		if($result!=FALSE)
+		{
+            redirect('Admin/show_class_index','refresh');
+		}
+		else
+		{
+		    echo "<script>alert('Something wrong')</script>";
+        	redirect('manage_student','refresh');
+		}
+   }
 
 
    

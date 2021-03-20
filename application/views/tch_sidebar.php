@@ -16,28 +16,17 @@
                 </li>
                 
                 <li class="sidenav-item">
-                <li class="sidenav-item">
-                  <a href="page-layouts.html">
-                    <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label" >ข้อมูลบริษัท</span>
-                  </a>
-                  </li><li class="sidenav-item">
-                <li class="sidenav-item">
-                  <a href="<?php echo base_url();?>company/insert_req_cpn_f">
-                    <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label" >เปิดรับนักศึกษา</span>
-                  </a>
-                  </li>
+                
                   <li class="sidenav-item">
-                  <a href="<?php echo base_url();?>company/show_private_tch">
+                  <a href="<?php echo base_url();?>teacher/show_private_tch">
                     <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label" >จัดการข้อมูลบริษัท</span>
+                    <span class="sidenav-label" >จัดข้อมูลส่วนตัว</span>
                   </a>
                 </li>
                 <li class="sidenav-item">
-                <a href="<?php echo base_url();?>company/index">
+                  <a href="page-layouts.html">
                     <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label">คำร้องนักศึกษาฝึกงาน</span>
+                    <span class="sidenav-label">ข้อมูลวันเวลาออกฝึกงาน</span>
                   </a>
                 </li>
             </nav>

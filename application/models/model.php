@@ -173,6 +173,23 @@ class Model extends CI_Model
                 } 
         }
 
+        public function edit_department($dpm_id,$dpm_name)
+        {
+            $sql ="UPDATE `department` SET
+                                         dpm_name ='$dpm_name'
+                                         
+                                        
+                                        WHERE dpm_id = '$dpm_id';";          
+                $exc_teacher = $this->db->query($sql);
+                if ($exc_teacher)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
 
         public function edit_teacher($tch_id,$tch_name ,$tch_tel ,$tch_email,$tch_card)
         {
@@ -524,6 +541,19 @@ public function del_tch_p($tch_id)
     
   }else{  return false; }
 }
+
+public function del_dpm_p($dpm_id)
+{
+
+  $sqlEdt = "DELETE FROM department WHERE dpm_id = '$dpm_id';";
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
 // public function CheckSession()        
 // {
 //   if($this->session->userdata('fname')=="") {
@@ -562,6 +592,15 @@ public function del_tch_p($tch_id)
     return true;  
     
   }else{  return false; }
+ }
+
+ public function selectOnedepartment($id)
+ {
+  $sql="SELECT * FROM department WHERE dpm_id = '$id' ";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
  }
 
  public function selectOneclass($id)
@@ -632,12 +671,15 @@ public function del_tch_p($tch_id)
  public function select_main_data_std_cnp($std_id)
  {
   $sql="SELECT student.std_id,c.cls_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_address,student.std_code,
-  student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name
+  student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name,company.cpn_name,accept_req.ac_status,student.std_idcard
   FROM student
   INNER JOIN class AS c on student.cls_id = c.cls_id
   INNER JOIN department on department.dpm_id = c.dpm_id
-  INNER JOIN teacher on teacher.tch_id = c.tch_id 
-  WHERE student.std_id = $std_id";
+  INNER JOIN teacher on teacher.tch_id = c.tch_id
+  INNER JOIN req on req.cls_id = c.cls_id
+  INNER JOIN company on company.cpn_id = req.cpn_id
+  INNER JOIN accept_req on accept_req.req_id = req.req_id
+  WHERE student.std_id = $std_id AND accept_req.std_id = $std_id";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
 
@@ -777,7 +819,7 @@ public function insert_req($req_id ,$real_id )
         
         public function select_cpn_data($id)
  {
-  $sql="SELECT company.cpn_status
+  $sql="SELECT company.cpn_status,company.cpn_id
   FROM company
   INNER JOIN user on user.id = company.cpn_id WHERE company.cpn_id = $id";
   $query = $this->db->query($sql); 
@@ -785,6 +827,45 @@ public function insert_req($req_id ,$real_id )
   
   return $data;
  }
+
+ public function insert_req_cpn($dpm_id,$req_number,$cpn_id,$req_sex,$req_glevel)
+ {
+     $sql ="INSERT INTO req (
+                 dpm_id,
+                 req_number,
+                 cpn_id,
+                 req_sex,
+                 req_glevel
+                 )
+         VALUES ('$dpm_id','$req_number','$cpn_id','$req_sex','$req_glevel');";          
+         $query = $this->db->query($sql);  
+         if($query)
+         {
+         return $this->db->insert_id();
+         }
+         else{
+         return false;
+         } 
+ }
+
+
+
+ public function insert_department($dpm_name)
+ {
+     $sql ="INSERT INTO department (
+                 dpm_name
+                 )
+         VALUES ('$dpm_name');";          
+         $query = $this->db->query($sql);  
+         if($query)
+         {
+         return $this->db->insert_id();
+         }
+         else{
+         return false;
+         } 
+ }
+
 
 
 

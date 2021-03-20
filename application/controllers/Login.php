@@ -56,20 +56,26 @@ class Login extends CI_Controller {
              $this->session->set_userdata($arrData);
              $username = $this->session->userdata('username');
 
-             if($data['status'] != 1){
+			 if($data['status'] != 1){
 				redirect('main2'); 
                  
              } else{
 				 if($data['user_group'] == "teacher"){
+					$id = $data['id'];
+					$sql ="SELECT * FROM teacher WHERE tch_id='$id'";
+					$query = $this->db->query($sql);
+					$data = $query->row();
+					$this->session->set_userdata('tch_id',$data->tch_id);
 					redirect('teacher'); 
 				 }else if($data['user_group'] == "company"){
 					$id = $data['id'];
 					$data =$this->model->select_cpn_data($id);
+					$this->session->set_userdata('cpn_id',$data[0]->cpn_id);
 					$data[0]->cpn_status;
 					if($data[0]->cpn_status == 0){
 						$this->session->set_flashdata
 						('successcpn','<div class="alert alert-success">
-						<span><b> กรุณารอยืนยันจากเข้าหน้าที่ !!</b></span> 
+						<span><b> กรุณารอยืนยันจากเจ้าาหน้าที่ !!</b></span> 
 						</div>');
 			  			redirect('login'); 
 					}else{

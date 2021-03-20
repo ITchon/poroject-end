@@ -24,14 +24,72 @@
                   <ul class="sidenav-subnav collapse">
                     <li class="sidenav-subheading">เมนูหลัก
                     </li>
-                    <li><a href="<?php echo base_url();?>admin/show_user_index">ข้อมูลสมาชิก</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_student_index">ข้อมูลนักเรียน</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_company_index">ข้อมูลสถานประกอบการ</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_teacher_index">ข้อมูลอาจารย์</a></li>
-                    <li><a href="<?php echo base_url();?>admin/show_class_index">ข้อมูลกลุ่มการเรียน</a></li>
+                    
+                    
+                    
                   </ul>
                 </li>
-                 
+                
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>admin/show_user_index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label" >จัดการข้อมูลผู้ใช้</span>
+                  </a>
+                  </li><li class="sidenav-item">
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>admin/show_student_index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label" >จัดการข้อมูลนักเรียน</span>
+                  </a>
+                  </li>
+                  <li class="sidenav-item">
+                  <a href="<?php echo base_url();?>admin/show_company_index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label" >จัดการข้อมูลบริษัท</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>admin/show_teacher_index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">จัดการข้อมูลอาจารย์</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>admin/show_class_index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">จัดการข้อมูลกลุ่มการเรียน</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>admin/show_department_index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">จัดการข้อมูลแผนก</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>company/index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">จำนวนนักเรียนที่ออกฝึกงาน</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>company/index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">อนุมัตินักศึกษาออกฝึกงาน</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>company/index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">อนุมัติบริษัท</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>company/index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">พิมพ์เอกสารการออกฝึกงาน</span>
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>

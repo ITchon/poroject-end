@@ -107,7 +107,7 @@
         <?php if($this->session->userdata('std_status') == 1){?>
         &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'student/req/' . $res->req_id;  ?>';">สมัครเข้าฝึกงาน</a>
         <?php } ?>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>Main/index">กลับหน้าหลัก</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>student/index">กลับหน้าหลัก</a>
         
     </div>
     

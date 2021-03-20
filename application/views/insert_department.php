@@ -5,107 +5,31 @@
  
 <div class="layout-content">
         <div class="layout-content-body">
-        <h2>เพิ่มข้อมูลนักเรียน</h2>
+        <h2>เพิ่มข้อมูลอาจารย์</h2>
             <div class="row card">
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/insert_student" method="POST">
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/insert_department" method="POST">
                                
+    
                             <div class="form-group">
-                            <label class="col-sm-3 control-label" for="form-control-1">คำนำหน้า</label>
-                                <div class="col-sm-2 col-sm-offset-0">
-                                    <select name="title" class="custom-select">
-                                        <option value="" selected="">--Default--</option>
-                                        <option value="นาย">นาย</option>
-                                        <option value="นางสาว">นางสาว</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อ</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="std_fname" class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">นามสกุล</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="std_lname" class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="std_address" class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">รหัสนักเรียน</label>
-                                <div class="col-sm-9">
-                                    <input id="form-control-1" name="std_code" class="form-control" type="text">
-                                </div>
-                            </div>
-                            
-                            <label class="col-sm-3 control-label" for="form-control-1">วันเกิด</label>
-                            <div class="col-sm-4 form-group" >
-                                <div class="col-sm-12">
-                                    <div class="input-with-icon">
-                                    <input name="std_birthday" class="form-control" type="date" >
-                                     
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                            <label class="col-sm-3 control-label" for="form-control-1">เพศ</label>
-                                <div class="col-sm-2 col-sm-offset-0">
-                                    <select name="std_sex" class="custom-select">
-                                        <option value="" selected="">--Default--</option>
-                                        <option value="นาย">ชาย</option>
-                                        <option value="นางสาว">หญิง</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">อายุ</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="std_age" class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ระดับชั้น</label>
-                                <div class="col-sm-9">
-                                <select name="cls_id" class="form-control">
-                                               
-                                                <?php foreach ($result as $cl) {
-                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name."  </option> ";
-                                                                                 }
-                                                ?>
-                                            </select>
-                                </div>
-                            </div>
-                            
-                            <!-- <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อแผนกวิชา</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="dpm_name" class="form-control" type="text">
                                 </div>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">คุณครู</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="tch_name" class="form-control" type="text">
-                                </div>
-                            </div> -->
-                        
+                            </div>
+                            
+                            
+                            
+                        </div>
                     </div>       
                 </div> 
             </div>
-            <input type="submit" class="btn btn-success" value="ยืนยัน">
-            &nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="btn btn-success" value="ยืนยัน">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </form>   
-            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_student_index">ยกเลิก</a>
+            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_teacher_index">ยกเลิก</a>
         </div>   
 </div>
     <div class="theme">

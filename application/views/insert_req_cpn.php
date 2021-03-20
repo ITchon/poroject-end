@@ -1,60 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
   
-  <body class="layout layout-header-fixed">
-  <br><br>
-  
-            <div class="col-xs-10">
-              
-              <div class="card">
-                
-                <div class="card-header">
-                  <div class="card-actions">
-                    <button type="button" class="card-action card-toggler" title="Collapse"></button>
-                    <button type="button" class="card-action card-reload" title="Reload"></button>
-                    <button type="button" class="card-action card-remove" title="Remove"></button>
-                    
-                  </div>
-                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
-                </div>
-                <div class="card-body">
-        <div class="panel-body collapse in">      
-        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_class_index">เพิ่ม</a>
-              <div class="table-responsive">
-                <div class="card-body ">
-                  <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
-                    <thead>
-                      <tr>
-                        <th>ชื่อกลุ่ม</th>
-                        <th>กลุ่ม</th>
-                        <th>ชื่อแผนกวิชา</th>
-                        <th>ระดับชั้น</th>
-                        <th>ชื่ออาจารย์</th>
-                        <th>จัดการ</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                    <?php foreach($result as $res){ ?>
-                          <tr>
-                            <td><?php echo $res->cls_name ?></td>
-                            <td><?php echo $res->cls_group ?></td>
-                            <td><?php echo $res->dpm_name ?></td>
-                            <td><?php echo $res->cls_glevel ?></td>
-                            <td><?php echo $res->tch_name ?></td>
+<body class="layout layout-header-fixed">
+ 
+<div class="layout-content">
+        <div class="layout-content-body">
+        <h2>เพิ่มกลุ่มการเรียน</h2>
+        
+            <div class="row card">
+                <br>
+                <div class="col-md-8">
+                    <div class="demo-form-wrapper">
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>company/insert_req_cpn_r" method="POST">
+                               
                             
-                            <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_class/' . $res->cls_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."admin/delete_class/".$res->cls_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
-                                        </td>
-                            </tr>
-                            <?php  } ?> 
-                           
-                    </tbody>                
-                  </table>
-                </div>  
-              </div>                              
-        </div>
-        <div class="theme">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">แผนกวิชา</label>
+                                <div class="col-sm-9">
+                                <select name="dpm_id" class="form-control">
+                                <option value="" selected="">--เลือกแผนกวิชา--</option> 
+                                                <?php foreach ($result1 as $res) {
+                                                        echo " <option value=".$res->dpm_id."> ".$res->dpm_name."  </option> ";
+                                                                                 }
+                                                ?>
+                                            </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">เลือกระดับชั้น</label>
+                                <div class="col-sm-9">
+                                <select name="req_glevel" class="custom-select">
+                                        <option value="" selected="">--เลือกระดับชั้น--</option>
+                                          <option value="ปวช">ปวช</option>
+                                          <option value="ปวส">ปวส</option>
+                                          <option value="ทุกระดับชั้น">ทุกระดับชั้น</option>
+                                      </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">ต้องการนักศึกษาจำนวน</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="req_number" class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form-control-1">เพศ</label>
+                                <div class="col-sm-2 col-sm-offset-0">
+                                    <select name="req_sex" class="custom-select">
+                                        <option value="" selected="">--เลือกเพศ--</option>
+                                          <option value="ชาย">ชาย</option>
+                                          <option value="หญิง">หญิง</option>
+                                          <option value="ทุกเพศ">ทุกเพศ</option>
+                                      </select>
+                                </div>
+                            </div>
+                            
+                            
+                            <!-- <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="dpm_name" class="form-control" type="text">
+                                </div>
+                            </div> -->
+                            <!-- <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">คุณครู</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="tch_name" class="form-control" type="text">
+                                </div>
+                            </div> -->
+                        
+                    </div>       
+                </div> 
+            </div>
+            <input type="submit" class="btn btn-success" value="ยืนยัน">
+            &nbsp;&nbsp;
+            </form>   
+            <a class="btn btn-danger" href="<?php echo base_url(); ?>company/index">ยกเลิก</a>
+        </div>   
+</div>
+    <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">
           <button class="theme-panel-toggler" title="Expand theme panel ( ] )" type="button">
@@ -218,7 +244,6 @@
     </div>
     
   </body>
-
     <script src="<?php echo base_url()?>asset/js/vendor.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/elephant.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/application.min.js"></script>                                   
@@ -231,4 +256,4 @@
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
     </script>
-</html>
+</html> 

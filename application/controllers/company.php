@@ -16,6 +16,7 @@ class Company extends CI_Controller {
    }
 
 public function index(){
+   $cpn_id = $this->session->userdata('cpn_id');
    $qry_inp =  "SELECT student.std_id,student.title,student.std_fname,student.std_lname,student.std_age,student.std_sex
    ,department.dpm_name,accept_req.ac_status,accept_req.ac_id
       FROM accept_req
@@ -23,7 +24,7 @@ public function index(){
       INNER JOIN company on company.cpn_id = req.cpn_id
       INNER JOIN student on student.std_id = accept_req.std_id
       INNER JOIN class on class.cls_id = student.cls_id
-      INNER JOIN department on department.dpm_id = class.dpm_id" ;
+      INNER JOIN department on department.dpm_id = class.dpm_id WHERE company.cpn_id = $cpn_id ";
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
    $this->load->view('head_main');
@@ -60,18 +61,26 @@ public function cpn_accept_std(){
  }
   
 }
-public function insert_req_cpn(){
-   $qry_inp =  "SELECT student.std_id,student.title,student.std_fname,student.std_lname,student.std_age,student.std_sex
-   ,department.dpm_name,accept_req.ac_status,accept_req.ac_id
-      FROM accept_req
-      INNER JOIN req on req.req_id = accept_req.req_id
-      INNER JOIN company on company.cpn_id = req.cpn_id
-      INNER JOIN student on student.std_id = accept_req.std_id
-      INNER JOIN class on class.cls_id = student.cls_id
-      INNER JOIN department on department.dpm_id = class.dpm_id" ;
-   $query = $this->db->query($qry_inp); 
-   $data['result'] = $query->result();
-   $this->load->view('insert_req_cpn_f',$data);
+
+public function insert_req_cpn_f(){
+   
+   $sql="SELECT * FROM department";
+   $query = $this->db->query($sql); 
+   $data['result1'] = $query->result();
+   $this->load->view('head_main');
+   $this->load->view('cpn_sidebar');
+   $this->load->view('insert_req_cpn',$data);
+}
+
+public function insert_req_cpn_r(){
+   $cpn_id =$this->session->userdata('cpn_id');
+   $dpm_id   = $this->input->post('dpm_id');
+   $cls_id   = $this->input->post('cls_id');
+   $req_number   = $this->input->post('req_number');
+   $req_sex      = $this->input->post('req_sex');
+   $req_glevel      = $this->input->post('req_glevel');
+   $id = $this->model->insert_req_cpn($dpm_id,$req_number,$cpn_id,$req_sex,$req_glevel);
+   redirect('company/insert_req_cpn_f','refresh');
 }
 public function delete_ac_f($ac_id)
    {
