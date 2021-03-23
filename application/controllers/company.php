@@ -20,11 +20,11 @@ public function index(){
    $qry_inp =  "SELECT student.std_id,student.title,student.std_fname,student.std_lname,student.std_age,student.std_sex
    ,department.dpm_name,accept_req.ac_status,accept_req.ac_id
       FROM accept_req
-      INNER JOIN req on req.req_id = accept_req.req_id
-      INNER JOIN company on company.cpn_id = req.cpn_id
-      INNER JOIN student on student.std_id = accept_req.std_id
-      INNER JOIN class on class.cls_id = student.cls_id
-      INNER JOIN department on department.dpm_id = class.dpm_id WHERE company.cpn_id = $cpn_id ";
+      left JOIN req on req.req_id = accept_req.req_id
+      left JOIN company on company.cpn_id = req.cpn_id
+      left JOIN student on student.std_id = accept_req.std_id
+      left JOIN class on class.cls_id = student.cls_id
+      left JOIN department on department.dpm_id = req.dpm_id where company.cpn_id = $cpn_id  ";
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
    $this->load->view('head_main');
@@ -59,8 +59,36 @@ public function cpn_accept_std(){
       
       redirect('company');  
  }
+
+ 
   
 }
+
+public function cancel_cpn_accept_std(){   
+   $std_id = $this->uri->segment('3');
+   $data = $this->model->chk_cpn_insert_std($std_id);
+  if($data[0]->ac_status == 0){
+   $this->session->set_flashdata
+      ('failed','<div class="alert alert-warning">
+                        <span>  
+               <b>คุณได้ยกเลิกคำร้องของนักเรียนคนนี้แล้ว !!!</span> 
+      </div>');
+      redirect('company');  
+ }else{
+   $data2 = $this->model->cpn_cancel_accept_std($std_id);
+   $this->session->set_flashdata
+      ('success','<div class="alert alert-success">
+                        <span>  
+               <b>ยกเลิกสำเร็จ</span> 
+      </div>');
+      
+      redirect('company');  
+ }
+
+ 
+  
+}
+
 
 public function insert_req_cpn_f(){
    
@@ -92,7 +120,7 @@ public function delete_ac_f($ac_id)
 
 		if($result!=FALSE)
 		{
-            redirect('Admin/show_student_index','refresh');
+            redirect('company/index','refresh');
 		}
 		else
 		{
@@ -121,4 +149,63 @@ public function delete_ac_f($ac_id)
    }
  
  
+   
+
+   public function index_show_cpn_req(){
+      $cpn_id = $this->session->userdata('cpn_id');
+      $qry_inp =  "SELECT req.req_id,req.req_sex,req.req_glevel,company.cpn_id,company.cpn_name,company.cpn_add,company.cpn_email,company.cpn_phnumber,department.dpm_name,req.req_number
+      FROM company
+      INNER JOIN req on req.cpn_id = company.cpn_id
+      INNER JOIN department on department.dpm_id = req.dpm_id WHERE company.cpn_id = $cpn_id" ;
+      $query = $this->db->query($qry_inp); 
+      $data['result'] = $query->result();
+      $this->load->view('head_main');
+      $this->load->view('cpn_sidebar');
+      $this->load->view('cpn_show_req',$data);
+   }
+   public function index_show_cpn(){
+      $cpn_id = $this->session->userdata('cpn_id');
+      $qry_inp =  "SELECT req.req_id,req.req_sex,req.req_glevel,company.cpn_id,company.cpn_name,company.cpn_add,company.cpn_email,company.cpn_phnumber,department.dpm_name,req.req_number
+      FROM company
+      INNER JOIN req on req.cpn_id = company.cpn_id
+      INNER JOIN department on department.dpm_id = req.dpm_id " ;
+      $query = $this->db->query($qry_inp); 
+      $data['result'] = $query->result();
+      $this->load->view('head_main');
+      $this->load->view('cpn_sidebar');
+      $this->load->view('cpn_show_cpn',$data);
+   }
+   public function index_show_cpn_req_data(){  
+      $id = $this->uri->segment('3');
+     $data['result'] = $this->model->select_main_data($id);
+     $this->load->view('head_main');
+      $this->load->view('cpn_sidebar');
+   $this->load->view('cpn_req_data',$data);
 }
+public function delete_cpn_req_data($req_id)
+{
+ $result = $this->model->del_req_p($req_id);
+ if($result!=FALSE)
+ {
+       redirect('company/index_show_cpn_req','refresh');
+ }
+ else
+ {
+     echo "<script>alert('Something wrong')</script>";
+      redirect('manage_student','refresh');
+ }
+}
+
+public function show_cpn_data(){
+   $id = $this->uri->segment('3');
+     $data['result'] = $this->model->select_main_data($id);
+     $this->load->view('head_main');
+      $this->load->view('cpn_sidebar');
+   $this->load->view('cpn_see_data_cpn',$data);
+}
+
+
+
+
+}
+?>

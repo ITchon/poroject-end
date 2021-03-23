@@ -17,7 +17,7 @@
                 
                 <li class="sidenav-item">
                 <li class="sidenav-item">
-                  <a href="page-layouts.html">
+                <a href="<?php echo base_url();?>company/index_show_cpn">
                     <span class="sidenav-icon icon icon-columns"></span>
                     <span class="sidenav-label" >ข้อมูลบริษัท</span>
                   </a>
@@ -26,6 +26,12 @@
                   <a href="<?php echo base_url();?>company/insert_req_cpn_f">
                     <span class="sidenav-icon icon icon-columns"></span>
                     <span class="sidenav-label" >เปิดรับนักศึกษา</span>
+                  </a>
+                  </li>
+                  <li class="sidenav-item">
+                  <a href="<?php echo base_url();?>company/index_show_cpn_req">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label" >ตรวจสอบการเปิดรับนักศึกษา</span>
                   </a>
                   </li>
                   <li class="sidenav-item">

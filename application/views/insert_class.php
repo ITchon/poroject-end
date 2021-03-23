@@ -10,7 +10,7 @@
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>company/insert_req_cpn_r" method="POST">
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>Admin/insert_class_r" method="POST">
                                
                             
                         <div class="form-group">
@@ -23,10 +23,10 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">เลือกกลุ่มที่</label>
                                 <div class="col-sm-9">
-                                <select name="req_glevel" class="custom-select">
+                                <select name="cls_group" class="form-control">
                                         <option value="" selected="">--เลือกกลุ่มที่--</option>
-                                          <option value="2/1">2/1</option>
-                                          <option value="2/2">2/2</option>
+                                          <option value="1">1</option>
+                                          <option value="2">2</option>
                                       </select>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">เลือกอาจารย์ประจำกลุ่ม</label>
                                 <div class="col-sm-9">
-                                <select name="dpm_id" class="form-control">
+                                <select name="tch_id" class="form-control">
                                 <option value="" selected="">--เลือกอาจารย์ประจำกลุ่ม--</option> 
                                                 <?php foreach ($result_tch as $res) {
                                                         echo " <option value=".$res->tch_id."> ".$res->tch_name."  </option> ";
@@ -60,10 +60,14 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">เลือกระดับชั้น</label>
                                 <div class="col-sm-9">
-                                <select name="req_glevel" class="custom-select">
+                                <select name="cls_glevel" class="form-control">
                                         <option value="" selected="">--เลือกระดับชั้น--</option>
-                                          <option value="ปวช">ปวช</option>
-                                          <option value="ปวส">ปวส</option>
+                                          <option value="ปวช.3">ปวช.1</option>
+                                          <option value="ปวส.2">ปวช.2</option>
+                                          <option value="ปวช.3">ปวช.3</option>
+                                          <option value="ปวส.2">ปวส.1</option>
+                                          <option value="ปวช.3">ปวส.2</option>
+                                          
                                       </select>
                                 </div>
                             </div>

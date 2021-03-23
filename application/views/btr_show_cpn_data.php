@@ -68,7 +68,7 @@
                         <div class="form-group">
                         <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ที่อยู่</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->cpn_address ?></h5></td>
+                                <td><h5><?php echo $res->cpn_add ?></h5></td>
                                 </div>
                         </div>
                       </tr>
@@ -112,7 +112,7 @@
         
         
         &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'bilateral/accept_cpn/' . $res->cpn_id;  ?>';">อนุมัติ</a>
-        
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-warning "onclick="javascript:window.location='<?php echo base_url() . 'bilateral/cancel_accept_cpn/' . $res->cpn_id;  ?>';">ยกเลิกอนุมัติ</a>
         &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>bilateral/index">กลับหน้าหลัก</a>
         
     </div>

@@ -74,9 +74,9 @@
                       </tr>
                       <tr>
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ที่อยู่</h4></th>
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสบัติประชาชน</h4></th>
                                 <div class="col-sm-9">
-                                    <td><h5><?php echo $res->std_address ?></h5></td>
+                                    <td><h5><?php echo $res->std_idcard ?></h5></td>
                                 </div>
                         </div>
                       </tr> 
@@ -129,8 +129,8 @@
         
         
         &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'company/cpn_accept_std/' . $res->std_id;  ?>';">รับเข้าฝึกงาน</a>
-        
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>Main/index">กลับหน้าหลัก</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-warning "onclick="javascript:window.location='<?php echo base_url() . 'company/cancel_cpn_accept_std/' . $res->std_id;  ?>';">ยกเลิก</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>company/index">กลับหน้าหลัก</a>
         
     </div>
     

@@ -5,7 +5,8 @@
  
 <div class="layout-content">
         <div class="layout-content-body">
-        <h2>เพิ่มข้อมูลนักเรียน</h2>
+        <h2>แก้ไขข้อมูลนักเรียน</h2>
+        <br>
             <div class="row card">
                 <br>
                 <div class="col-md-8">
@@ -37,9 +38,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">บัตรประจำตัวประชาชน</label>
                                 <div class="col-sm-9">
-                                <input id="form-control-1" name="std_address" class="form-control" type="text" value="<?php echo $result[0]->std_address ?>">
+                                    <input id="form-control-1" name="std_idcard" class="form-control" type="text" value="<?php echo $result[0]->std_idcard ?>">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -79,10 +80,10 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">ชื่อห้อง</label>
                                 <div class="col-sm-9">
-                                <select name="cls_id" class="form-control">
+                                <select id="std_id"name="cls_id" class="form-control">
                                                
                                                 <?php foreach ($result_cls as $cl) {
-                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name." ".$cl->class_group." </option> ";
+                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name."         |         ".$cl->cls_glevel."/".$cl->cls_group."         |         ".$cl->dpm_name."         |         "."  </option> ";
                                                                                  }
                                                 ?>
                                             </select>
@@ -288,3 +289,10 @@
       ga('send', 'pageview');
     </script>
 </html> 
+<script>
+                              $(document).ready(function() {
+                              document.getElementById('std_id').value = "<?php echo $result[0]->cls_id  ?>";
+                              ;
+                              });
+
+</script>

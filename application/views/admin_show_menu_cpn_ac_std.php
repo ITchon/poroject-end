@@ -95,11 +95,14 @@
                     <thead>
                       <tr>
                         
-                        <th class="text-center">ชื่อบริษัท</th>
-                        <th class="text-center">ระดับชั้น</th>
-                        <th class="text-center">ต้องการแผนกวิชา</th>
+                        <th class="text-center">คำนำหน้า</th>
+                        <th class="text-center">ชื่อ</th>
+                        <th class="text-center">นามสกุล</th>
+                        <th class="text-center">อายุ</th>
                         <th class="text-center">เพศ</th>
-                        <th class="text-center">ต้องการนักศึกษา</th>
+                        <th class="text-center">แผนกวิชา</th>
+                        <th class="text-center">ชื่อบริษัทที่สมัค</th>
+                        <th class="text-center">สถาณะ</th>
                         <th class="text-center">รายระเอียดเพิ่มเติม</th>
                         
                       </tr>
@@ -107,15 +110,23 @@
                     <tbody>
                     <?php foreach($result as $res){ ?>
                           <tr>
-                            
-                            <td><?php echo $res->cpn_name ?></td>
-                            <td><?php echo $res->req_glevel ?></td>
-                            <td><?php echo $res->dpm_name ?></td>
-                            <td><?php echo $res->req_sex ?></td>
-                            <td><?php echo $res->req_number?></td>
+                            <td><?php echo $res->title ?></td>
+                            <td><?php echo $res->std_fname ?></td>
+                            <td><?php echo $res->std_lname ?></td>
+                            <td><?php echo $res->std_age ?></td>
+                            <td><?php echo $res->std_sex ?></td>
+                            <td><?php echo $res->dpm_name?></td>
+                            <td><?php echo $res->cpn_name?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'student/index2/' . $res->req_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
-                             
+                            <?php if( $res->ac_status == 1){
+                               echo '<span class="color">รับเข้าฝึกงานแล้ว</span>';
+                             }else{
+                               echo '<span class="color2">ยังไม่รับเข้าฝึกงาน</span>';
+                             }?>
+                            </td>
+                            <td>
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/show_cpn_ac_std2/' . $res->std_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
+                            <?php echo "<a type='button' href='".base_url()."company/delete_ac_f/".$res->ac_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
                             </td>
                             </tr>
                             <?php  } ?> 
@@ -149,3 +160,11 @@
       ga('send', 'pageview');
     </script>
 </html>
+<style>
+.color {
+  color: green;
+}
+.color2 {
+  color: red;
+}
+</style>

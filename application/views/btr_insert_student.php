@@ -35,9 +35,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">บัตรประจำตัวประชาชน</label>
                                 <div class="col-sm-9">
-                                <input id="form-control-1" name="std_address" class="form-control" type="text">
+                                    <input id="form-control-1" name="std_idcard" class="form-control" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -79,7 +79,7 @@
                                 <select name="cls_id" class="form-control">
                                                
                                                 <?php foreach ($result as $cl) {
-                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name." ".$cl->class_group." </option> ";
+                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name."         |         ".$cl->cls_glevel."/".$cl->cls_group."         |         ".$cl->dpm_name."         |         "."  </option> ";
                                                                                  }
                                                 ?>
                                             </select>

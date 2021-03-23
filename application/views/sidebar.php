@@ -67,27 +67,33 @@
                   </a>
                 </li>
                 <li class="sidenav-item">
-                <a href="<?php echo base_url();?>company/index">
+                <a href="<?php echo base_url();?>admin/index2">
                     <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label">จำนวนนักเรียนที่ออกฝึกงาน</span>
+                    <span class="sidenav-label">อนุมัติบริษัทเข้าสู่ระบบ</span>
                   </a>
                 </li>
                 <li class="sidenav-item">
-                <a href="<?php echo base_url();?>company/index">
+                <a href="<?php echo base_url();?>admin/index4">
                     <span class="sidenav-icon icon icon-columns"></span>
                     <span class="sidenav-label">อนุมัตินักศึกษาออกฝึกงาน</span>
                   </a>
                 </li>
                 <li class="sidenav-item">
-                <a href="<?php echo base_url();?>company/index">
+                <a href="<?php echo base_url();?>admin/show_cpn_ac_std">
                     <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label">อนุมัติบริษัท</span>
+                    <span class="sidenav-label">อนุมัตินักศึกษาเข้าฝึกงาน</span>
                   </a>
                 </li>
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>company/index">
                     <span class="sidenav-icon icon icon-columns"></span>
                     <span class="sidenav-label">พิมพ์เอกสารการออกฝึกงาน</span>
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>company/index">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">จำนวนนักเรียนที่ออกฝึกงาน</span>
                   </a>
                 </li>
               </ul>

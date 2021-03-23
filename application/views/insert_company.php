@@ -10,7 +10,7 @@
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/insert_company" method="POST">
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>bilateral/insert_company" method="POST">
                                
     
                             <div class="form-group">
@@ -22,7 +22,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
                                 <div class="col-sm-9">
-                                <input id="form-control-1" name="cpn_address" class="form-control" type="text">
+                                <input id="form-control-1" name="cpn_add" class="form-control" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -38,7 +38,12 @@
                                 <input id="form-control-1" name="cpn_phnumber" class="form-control" type="text">
                                 </div>
                             </div>
-                            
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">เบอร์โทรศัพท์</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="cpn_phnumber" class="form-control" type="text">
+                                </div>
+                            </div>
                             </div>
                             <!-- <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>

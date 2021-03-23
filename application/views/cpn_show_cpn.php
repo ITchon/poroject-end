@@ -114,8 +114,8 @@
                             <td><?php echo $res->req_sex ?></td>
                             <td><?php echo $res->req_number?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'student/index2/' . $res->req_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
-                             
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'company/show_cpn_data/' . $res->req_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
+                            
                             </td>
                             </tr>
                             <?php  } ?> 

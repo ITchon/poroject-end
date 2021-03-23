@@ -33,8 +33,7 @@
             
             <br><br>
             <div class="col-xs-12">
-            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("success"); ?> 
-            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("failed"); ?>    
+              
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
@@ -49,54 +48,80 @@
                     <?php foreach($result as $res){ ?> 
                     <table style="width:100%">
                     
-                    <tr>
+                    <!-- <tr>
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปบริษัท</h4></th>
                                 <div class="col-sm-9">
                                 <td><img src="<?php echo base_url()?>../img/<?php echo $res->cpn_img ?>"style="width:12%"></td>
                                 </div>
                         </div>
-                    </tr>
+                    </tr> -->
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อบริษัท</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
                                 <div class="col-sm-9">
-                                <td ><h5><?php echo $res->cpn_name ?></h5></td>
+                                <td ><h5><?php echo $res->std_fname ?></h5></td>
                                 </div>
                         </div>
                     </tr>
                       <tr>
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ที่อยู่</h4></th>
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">นามสกุล</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->cpn_add ?></h5></td>
+                                <td><h5><?php echo $res->std_lname ?></h5></td>
                                 </div>
                         </div>
                       </tr>
                       <tr>
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">E-mail</h4></th>
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสบัติประชาชน</h4></th>
                                 <div class="col-sm-9">
-                                    <td><h5><?php echo $res->cpn_email ?></h5></td>
+                                    <td><h5><?php echo $res->std_idcard ?></h5></td>
                                 </div>
                         </div>
                       </tr> 
                       <tr> 
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">เบอร์โทรศัพท์</h4></th> 
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสนักเรียน</h4></th> 
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->cpn_phnumber ?></h5></td>
+                                <td><h5><?php echo $res->std_code ?></h5></td>
                                 </div>
                         </div>
                       </tr> 
                       <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ต้องการนักศึกษา</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">อายุ</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->req_number ?></h5></td>
+                                <td><h5><?php echo $res->std_birthday ?></h5></td>
                                 </div>
                         </div>
-                    </tr>      
+                      </tr>
+                      <tr>
+                      <div class="form-group">
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">เพศ</h4></th>
+                                <div class="col-sm-9">
+                                <td><h5><?php echo $res->std_sex ?></h5></td>
+                                </div>
+                        </div>
+                      </tr>
+                      <tr>
+                      <div class="form-group">
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ระดับชั้น</h4></th>
+                                <div class="col-sm-9">
+                                <td><h5><?php echo $res->cls_name ?></h5></td>
+                                </div>
+                        </div>
+                      </tr>
+                      <tr>
+                      
+                      <div class="form-group">
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">แผนกวิชา</h4></th>
+                                <div class="col-sm-9">
+                                <td><h5><?php echo $res->dpm_name ?></h5></td>
+                                </div>
+                        </div>
+                      </tr>   
+                             
                             <?php  } ?> 
                     </table>
                     </div>                
@@ -104,10 +129,10 @@
         </div>     
         <br>
         
-        <?php if($this->session->userdata('std_status') == 1){?>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'student/req/' . $res->req_id;  ?>';">สมัครเข้าฝึกงาน</a>
-        <?php } ?>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>student/index">กลับหน้าหลัก</a>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'admin/cpn_accept_std/' . $res->std_id;  ?>';">รับเข้าฝึกงาน</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-warning "onclick="javascript:window.location='<?php echo base_url() . 'admin/cancel_cpn_accept_std/' . $res->std_id;  ?>';">ยกเลิก</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>admin/show_cpn_ac_std">กลับหน้าหลัก</a>
         
     </div>
     

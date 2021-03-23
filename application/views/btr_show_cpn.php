@@ -22,7 +22,7 @@
                 
                 <div class="card-body">
         <div class="panel-body collapse in">      
-        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>bilateral/insert_student_index">เพิ่ม</a>
+        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>bilateral/insert_company_index">เพิ่ม</a>
               <div class="table-responsive">
                 <div class="card-body ">
                   <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
@@ -43,7 +43,7 @@
                           <tr>
                             
                             <td><?php echo $res->cpn_name ?></td>
-                            <td><?php echo $res->cpn_address ?></td>
+                            <td><?php echo $res->cpn_add ?></td>
                             <td><?php echo $res->cpn_email ?></td>
                             <td><?php echo $res->cpn_phnumber ?></td>
                             <td>

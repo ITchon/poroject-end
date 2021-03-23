@@ -109,7 +109,6 @@
                     <tbody>
                     <?php foreach($result as $res){ ?>
                           <tr>
-                            
                             <td><?php echo $res->title ?></td>
                             <td><?php echo $res->std_fname ?></td>
                             <td><?php echo $res->std_lname ?></td>

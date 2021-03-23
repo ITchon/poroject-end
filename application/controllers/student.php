@@ -18,9 +18,9 @@ class Student extends CI_Controller {
  public function index(){
     
     
-    $qry_inp =  "SELECT company.cpn_id,company.cpn_name,company.cpn_address,company.cpn_email,company.cpn_phnumber,department.dpm_name,req.req_number
-    FROM company
-    INNER JOIN req on req.cpn_id = company.cpn_id
+    $qry_inp =  "SELECT req.req_id,req.req_sex,req.req_glevel,company.cpn_id,company.cpn_name,company.cpn_add,company.cpn_email,company.cpn_phnumber,department.dpm_name,req.req_number
+    FROM req
+    INNER JOIN company on company.cpn_id = req.cpn_id
     INNER JOIN department on department.dpm_id = req.dpm_id" ;
     $query = $this->db->query($qry_inp); 
     $data['result'] = $query->result();
@@ -28,7 +28,8 @@ class Student extends CI_Controller {
  }
  public function index2(){  
          $id = $this->uri->segment('3');
-         $std_status = $this->session->userdata('std_status'); 
+         $std_status = $this->session->userdata('std_status');
+         
         $data['result'] = $this->model->select_main_data($id);
       $this->load->view('main_data_std',$data,$std_status);
  }

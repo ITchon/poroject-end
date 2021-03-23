@@ -12,27 +12,31 @@
                     <div class="demo-form-wrapper">
                         <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_company_p" method="POST">
                         <input id="form-control-1" name="cpn_id" class="form-control" type="hidden" value="<?php echo $result[0]->cpn_id ?>" hidden>
-                        <div class="form-group">
+                                <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">ชื่อสถานประกอบการ</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="cpn_name" class="form-control" type="text" value="<?php echo $result[0]->cpn_name ?>">
                                 </div>
+                                </div>
                                 <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
                                 <div class="col-sm-9">
-                                <input id="form-control-1" name="cpn_address" class="form-control" type="text" value="<?php echo $result[0]->cpn_address ?>">
+                                <input id="form-control-1" name="cpn_add" class="form-control" type="text" value="<?php echo $result[0]->cpn_add ?>">
+                                </div>
                                 </div>
                                 <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">E-mail</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="cpn_email" class="form-control" type="text" value="<?php echo $result[0]->cpn_email ?>">
                                 </div>
+                                </div>
                                 <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">เบอร์โทรศัพท์</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="cpn_phnumber" class="form-control" type="text" value="<?php echo $result[0]->cpn_phnumber ?>">
                                 </div>
-                                </div>       
+                                </div>
+                      </div>       
                 </div> 
             </div>
             <input type="submit" class="btn btn-success" value="ยืนยัน">

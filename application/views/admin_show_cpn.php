@@ -3,9 +3,12 @@
   
   <body class="layout layout-header-fixed">
   <br><br>
-  
+            
             <div class="col-xs-10">
-              
+            <h2>อนุมัตบริษัทเข้าสู่ระบบ</h2>
+            <?php echo $this->session->flashdata("success"); ?>
+            <?php echo $this->session->flashdata("failed"); ?>
+            <?php echo $this->session->flashdata("success_del"); ?>
               <div class="card">
                 
                 <div class="card-header">
@@ -17,47 +20,44 @@
                   </div>
                   <strong>Basic Table (+Bootstrap Responsive Table)</strong>
                 </div>
+                
                 <div class="card-body">
         <div class="panel-body collapse in">      
-        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_student_index">เพิ่ม</a>
+        
               <div class="table-responsive">
                 <div class="card-body ">
                   <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
                     <thead>
-                      <tr>
-                        <!-- <th>รหัส</th> -->
-                        <th>คำนำหน้า</th>
-                        <th>ชื่อ</th>
-                        <th>นามสกุล</th>
-                        <th>รหัสนักเรียน</th>
-                        <th>วันเกิด</th>
-                        <th>อายุ</th>
-                        <th>เพศ</th>
-                        <th>ชื่อห้อง</th>
-                        <th>แผนก</th>
-                        <!-- <th>คุณครู</th> -->
-                        <th>manage</th>
+                    <tr>
                         
+                        <th>ชื่อบริษัท</th>
+                        <th>ที่อยู่</th>
+                        <th>E-mail</th>
+                        <th>เบอร์โทรศัพท์</th>
+                        <th>สถานะ</th>
+                        <th>จัดการ</th>
                         
                       </tr>
                     </thead>
                     <tbody>
                     <?php foreach($result as $res){ ?>
                           <tr>
-                            <!-- <td><?php echo $res->std_id ?></td> -->
-                            <td><?php echo $res->title ?></td>
-                            <td><?php echo $res->std_fname ?></td>
-                            <td><?php echo $res->std_lname ?></td>
-                            <td><?php echo $res->std_code ?></td>
-                            <td><?php echo $res->std_birthday ?></td>
-                            <td><?php echo $res->std_age ?></td>
-                            <td><?php echo $res->std_sex ?></td>
-                            <td><?php echo $res->cls_name ?></td>
-                            <td><?php echo $res->dpm_name ?></td>
-                            <!-- <td><?php echo $res->tch_name ?></td> -->
+                            
+                            <td><?php echo $res->cpn_name ?></td>
+                            <td><?php echo $res->cpn_add ?></td>
+                            <td><?php echo $res->cpn_email ?></td>
+                            <td><?php echo $res->cpn_phnumber ?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_student/' . $res->std_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."admin/delete_student/".$res->std_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
+                            <?php if( $res->cpn_status == 1){
+                               echo '<span class="color">อนุมัติแล้ว</span>';
+                             }else{
+                               echo '<span class="color2">ยังไม่อนุมัติ</span>';
+                             }?>
+                            </td>
+                            
+                            <td>
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/index3/' . $res->cpn_id; ?>';"><i class='btn btn-success'>ดูข้อมูลเพิ่มเติม</i></a> 
+                                            <?php echo "<a type='button' href='".base_url()."admin/delete_cpn_f/".$res->cpn_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
                             </td>
                             </tr>
                             <?php  } ?> 
@@ -248,3 +248,11 @@
       ga('send', 'pageview');
     </script>
 </html>
+<style>
+.color {
+  color: green;
+}
+.color2 {
+  color: red;
+}
+</style>

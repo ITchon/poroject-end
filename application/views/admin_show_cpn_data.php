@@ -33,8 +33,7 @@
             
             <br><br>
             <div class="col-xs-12">
-            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("success"); ?> 
-            &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("failed"); ?>    
+              
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
@@ -49,14 +48,14 @@
                     <?php foreach($result as $res){ ?> 
                     <table style="width:100%">
                     
-                    <tr>
+                    <!-- <tr>
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปบริษัท</h4></th>
                                 <div class="col-sm-9">
                                 <td><img src="<?php echo base_url()?>../img/<?php echo $res->cpn_img ?>"style="width:12%"></td>
                                 </div>
                         </div>
-                    </tr>
+                    </tr> -->
                     <tr>
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อบริษัท</h4></th>
@@ -91,12 +90,19 @@
                       </tr> 
                       <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ต้องการนักศึกษา</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถานะ</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->req_number ?></h5></td>
+                                <td>
+                            <?php if( $res->cpn_status == 1){
+                               echo '<h5 class="color">อนุมัติแล้ว</h5>';
+                             }else{
+                               echo '<h5 class="color2">ยังไม่อนุมัติ</h5>';
+                             }?>
+                            </td>
                                 </div>
                         </div>
-                    </tr>      
+                      </tr>
+                                
                             <?php  } ?> 
                     </table>
                     </div>                
@@ -104,10 +110,10 @@
         </div>     
         <br>
         
-        <?php if($this->session->userdata('std_status') == 1){?>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'student/req/' . $res->req_id;  ?>';">สมัครเข้าฝึกงาน</a>
-        <?php } ?>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>student/index">กลับหน้าหลัก</a>
+        
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'admin/accept_cpn/' . $res->cpn_id;  ?>';">อนุมัติ</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-warning "onclick="javascript:window.location='<?php echo base_url() . 'admin/cancel_accept_cpn/' . $res->cpn_id;  ?>';">ยกเลิกอนุมัติ</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>admin/index2">กลับหน้าหลัก</a>
         
     </div>
     

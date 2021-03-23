@@ -5,7 +5,10 @@
   <br><br>
   
             <div class="col-xs-10">
-              
+            <h2>อนุมัตินักศึกษาออกฝึกงาน</h2>
+            <?php echo $this->session->flashdata("success"); ?>
+            <?php echo $this->session->flashdata("failed"); ?>
+            <?php echo $this->session->flashdata("success_del"); ?>
               <div class="card">
                 
                 <div class="card-header">
@@ -29,7 +32,7 @@
                         <th>คำนำหน้า</th>
                         <th>ชื่อ</th>
                         <th>นามสกุล</th>
-                        <th>ที่อยู่</th>
+                        
                         <th>รหัสนักเรียน</th>
                         <th>วันเกิด</th>
                         <th>อายุ</th>
@@ -44,13 +47,13 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($result as $res){ ?>
+                      <?php foreach($result as $res){ ?>
                           <tr>
                             <!-- <td><?php echo $res->std_id ?></td> -->
                             <td><?php echo $res->title ?></td>
                             <td><?php echo $res->std_fname ?></td>
                             <td><?php echo $res->std_lname ?></td>
-                            <td><?php echo $res->std_address ?></td>
+                            
                             <td><?php echo $res->std_code ?></td>
                             <td><?php echo $res->std_birthday ?></td>
                             <td><?php echo $res->std_age ?></td>
@@ -66,12 +69,13 @@
                             
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'bilateral/accept_std/' . $res->std_id; ?>';"><i class='btn btn-success'>อนุมัติ</i></a> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'bilateral/cancel_accept_std/' . $res->std_id; ?>';"><i class='btn btn-warning'>ยกเลิกอนุมัติ</i></a> 
                                             <?php echo "<a type='button' href='".base_url()."bilateral/delete_student/".$res->std_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
                             </td>
                             </tr>
                             <?php  } ?> 
                            
-                    </tbody>                
+                      </tbody>                
                   </table>
                 </div>  
               </div>                              

@@ -39,7 +39,7 @@
                           <tr>
                             <td><?php echo $res->cpn_id ?></td>
                             <td><?php echo $res->cpn_name ?></td>
-                            <td><?php echo $res->cpn_address ?></td>
+                            <td><?php echo $res->cpn_add ?></td>
                             <td><?php echo $res->cpn_email ?></td>
                             <td><?php echo $res->cpn_phnumber ?></td>
                             <td>

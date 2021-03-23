@@ -7,6 +7,7 @@
         <div class="layout-content-body">
         <h2>เพิ่มข้อมูลนักเรียน</h2>
             <div class="row card">
+              
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
@@ -35,9 +36,9 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">บัตรประจำตัวประชาชน</label>
                                 <div class="col-sm-9">
-                                <input id="form-control-1" name="std_address" class="form-control" type="text">
+                                    <input id="form-control-1" name="std_idcard" class="form-control" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -52,7 +53,6 @@
                                 <div class="col-sm-12">
                                     <div class="input-with-icon">
                                     <input name="std_birthday" class="form-control" type="date" >
-                                     
                                     </div>
                                 </div>
                             </div>
@@ -62,8 +62,8 @@
                                 <div class="col-sm-2 col-sm-offset-0">
                                     <select name="std_sex" class="custom-select">
                                         <option value="" selected="">--Default--</option>
-                                        <option value="นาย">ชาย</option>
-                                        <option value="นางสาว">หญิง</option>
+                                        <option value="ชาย">ชาย</option>
+                                        <option value="หญิง">หญิง</option>
                                     </select>
                                 </div>
                             </div>
@@ -77,15 +77,23 @@
                                 <label class="col-sm-3 control-label" for="form-control-1">ระดับชั้น</label>
                                 <div class="col-sm-9">
                                 <select name="cls_id" class="form-control">
-                                               
+                                <option value="" selected="">--Default--</option>               
                                                 <?php foreach ($result as $cl) {
-                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name."  </option> ";
+                                                        echo " <option value=".$cl->cls_id."> ".$cl->cls_name."         |         ".$cl->cls_glevel."/".$cl->cls_group."         |         ".$cl->dpm_name."         |         "."  </option> ";
                                                                                  }
                                                 ?>
                                             </select>
                                 </div>
                             </div>
-                            
+                            <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form-control-9">รูปนักเรียน</label>
+                            <div class="col-sm-9">
+                            <input id="form-control-9" type="file" accept="image/*" multiple="multiple"  name="std_img">
+                            <p class="help-block">
+                                <small>***กรุณาใส่รูปนักเรียน***</small>
+                            </p>
+                            </div>
+                            </div>
                             <!-- <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
                                 <div class="col-sm-9">

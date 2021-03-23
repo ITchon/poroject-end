@@ -7,21 +7,22 @@ class Model extends CI_Model
   
 
 
-  public function insert_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id)
+  public function insert_student($title ,$std_fname ,$std_lname,$std_code,$std_idcard ,$std_birthday ,$std_sex ,$std_age ,$cls_id,$std_img)
         {
             $sql ="INSERT INTO student (
                         cls_id,
                         title,
                         std_fname,
                         std_lname,
-                        std_address,
+                        std_idcard,
                         std_code,
                         std_birthday,
                         std_age,
                         std_sex,
-                        std_status
+                        std_status,
+                        std_img
                         )
-                VALUES ('$cls_id','$title','$std_fname','$std_lname','$std_address','$std_code','$std_birthday','$std_age','$std_sex','0');";          
+                VALUES ('$cls_id','$title','$std_fname','$std_lname','$std_idcard','$std_code','$std_birthday','$std_age','$std_sex','0','$std_img');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -32,11 +33,15 @@ class Model extends CI_Model
                 } 
         }
 
-        public function edit_class($cls_id ,$cls_name ,$cls_group)
+        public function edit_class($cls_id ,$cls_name ,$cls_group,$dpm_id,$cls_glevel,$tch_id)
         {
             $sql ="UPDATE class SET  
                                         cls_name ='$cls_name' ,
-                                        cls_group ='$cls_group' 
+                                        cls_group ='$cls_group',
+                                        cls_group ='$cls_group' ,
+                                        dpm_id ='$dpm_id' ,
+                                        cls_glevel ='$cls_glevel' ,
+                                        tch_id ='$tch_id'
                                         WHERE cls_id = '$cls_id';";          
                 $exc = $this->db->query($sql);
                 if ($exc)
@@ -49,15 +54,15 @@ class Model extends CI_Model
                 }
         }
 
-   public function edit_student($title ,$std_fname ,$std_lname ,$std_address ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id ,$std_id)
+   public function edit_student($title ,$std_fname ,$std_lname,$std_idcard ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id , $std_id)
         {
             $sql ="UPDATE `student` SET  
                                          cls_id ='$cls_id' ,
                                          title ='$title' ,
                                          std_fname ='$std_fname' ,
                                          std_lname ='$std_lname' ,
-                                         std_address ='$std_address' ,
-                                         std_code ='$std_code' ,
+                                         std_idcard ='$std_idcard' ,
+                                         std_code ='$std_code' ,  
                                          std_birthday ='$std_birthday' ,
                                          std_age ='$std_age' ,
                                          std_sex ='$std_sex' 
@@ -95,16 +100,17 @@ class Model extends CI_Model
         }
 
 
- public function insert_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber)
+ public function insert_company($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber,$cpn_img)
         {
             $sql ="INSERT INTO company (
                         cpn_name,
-                        cpn_address,
+                        cpn_add,
                         cpn_email,
-                        cpn_phnumber
-
+                        cpn_phnumber,
+                        cpn_img,
+                        cpn_status
                         )
-                VALUES ('$cpn_name','$cpn_address','$cpn_email','$cpn_phnumber');";          
+                VALUES ('$cpn_name','$cpn_add','$cpn_email','$cpn_phnumber','$cpn_img','0');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -115,11 +121,11 @@ class Model extends CI_Model
                 } 
         }
 
-        public function show_main_menu($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber ,$cpn_id )
+        public function show_main_menu($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber ,$cpn_id )
         {
             $sql ="UPDATE `company` SET  
                                          cpn_name ='$cpn_name' ,
-                                         cpn_address ='$cpn_address' ,
+                                         cpn_add ='$cpn_add' ,
                                          cpn_email ='$cpn_email' ,
                                          cpn_phnumber ='$cpn_phnumber' 
                                         
@@ -135,11 +141,11 @@ class Model extends CI_Model
                 }
         }
 
-        public function edit_company($cpn_name ,$cpn_address ,$cpn_email ,$cpn_phnumber ,$cpn_id )
+        public function edit_company($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber ,$cpn_id )
         {
             $sql ="UPDATE `company` SET  
                                          cpn_name ='$cpn_name' ,
-                                         cpn_address ='$cpn_address' ,
+                                         cpn_add ='$cpn_add' ,
                                          cpn_email ='$cpn_email' ,
                                          cpn_phnumber ='$cpn_phnumber' 
                                         
@@ -163,6 +169,26 @@ class Model extends CI_Model
                         tch_card
                         )
                 VALUES ('$tch_name','$tch_tel','$tch_email','$tch_card');";          
+                $query = $this->db->query($sql);  
+                if($query)
+                {
+                return $this->db->insert_id();
+                }
+                else{
+                return false;
+                } 
+        }
+
+        public function insert_class($cls_name ,$cls_group ,$dpm_id,$tch_id,$cls_glevel)
+        {
+            $sql ="INSERT INTO class (
+                        cls_name,
+                        cls_group,
+                        dpm_id,
+                        tch_id,
+                        cls_glevel
+                        )
+                VALUES ('$cls_name','$cls_group','$dpm_id','$tch_id','$cls_glevel');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -295,17 +321,17 @@ public function chk_login($username,$userpass) {
 
 
 
-public function insert_registercpn($cpn_name,$cpn_address,$cpn_email,$cpn_phnumber,$cpn_img) {  
+public function insert_registercpn($cpn_name,$cpn_add,$cpn_email,$cpn_phnumber,$cpn_img) {  
   // $pass = base64_encode(trim($pass));
   $sql ="INSERT INTO company (
     cpn_name,
-    cpn_address,
+    cpn_add,
     cpn_email,
     cpn_phnumber,
     cpn_img,
     cpn_status
     )
-VALUES ('$cpn_name','$cpn_address','$cpn_email','$cpn_phnumber','$cpn_img','0');";
+VALUES ('$cpn_name','$cpn_add','$cpn_email','$cpn_phnumber','$cpn_img','0');";
 $query = $this->db->query($sql);
 if($query) {
     return $this->db->insert_id(); 
@@ -485,7 +511,21 @@ public function del_user_p($user_id)
 public function del_ac_p($ac_id)
 {
 
-  $sqlEdt = "DELETE FROM accept WHERE ac_id = '$ac_id';";
+  $sqlEdt = "DELETE FROM accept_req WHERE ac_id = '$ac_id';";
+
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
+public function del_req_p($req_id)
+{
+
+  $sqlEdt = "DELETE FROM req WHERE req_id = '$req_id';";
 
 
   $exc_teacher = $this->db->query($sqlEdt);
@@ -541,6 +581,23 @@ public function del_tch_p($tch_id)
     
   }else{  return false; }
 }
+
+
+public function del_class_p($cls_id)
+{
+
+  $sqlEdt = "DELETE FROM class WHERE cls_id = '$cls_id';";
+
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
+
 
 public function del_dpm_p($dpm_id)
 {
@@ -605,7 +662,11 @@ public function del_dpm_p($dpm_id)
 
  public function selectOneclass($id)
  {
-  $sql="SELECT * FROM class WHERE cls_id = '$id' ";
+  $sql="SELECT class.cls_id,class.cls_name,class.cls_group,department.dpm_name,class.dpm_id,teacher.tch_name,class.tch_id,class.cls_glevel
+  FROM class 
+  INNER JOIN department on department.dpm_id = class.dpm_id
+  INNER JOIN teacher on teacher.tch_id = class.tch_id
+  WHERE cls_id = '$id'";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
 
@@ -614,7 +675,11 @@ public function del_dpm_p($dpm_id)
  
  public function selectOnestudent($id)
  {
-  $sql="SELECT * FROM student WHERE std_id = '$id' ";
+  $sql="SELECT student.std_id,student.std_fname,student.std_lname,student.title,student.std_code,student.std_idcard,student.std_birthday
+  ,student.std_age,student.std_sex,department.dpm_id,department.dpm_name,class.cls_id,cls_name,cls_group,cls_glevel
+  FROM class
+  INNER JOIN student on student.cls_id = class.cls_id 
+  INNER JOIN department on department.dpm_id = class.dpm_id WHERE student.std_id = $id";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
 
@@ -659,9 +724,9 @@ public function del_dpm_p($dpm_id)
 
  public function select_main_data($id)
  {
-  $sql="SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_address,company.cpn_email,company.cpn_phnumber,req.req_number
-  FROM company
-  INNER JOIN req on req.cpn_id = company.cpn_id WHERE company.cpn_id = $id";
+  $sql="SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_add,company.cpn_email,company.cpn_phnumber,req.req_number
+  FROM req
+  INNER JOIN company on company.cpn_id = req.cpn_id WHERE req.req_id = $id ";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
 
@@ -670,16 +735,13 @@ public function del_dpm_p($dpm_id)
 
  public function select_main_data_std_cnp($std_id)
  {
-  $sql="SELECT student.std_id,c.cls_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_address,student.std_code,
-  student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name,company.cpn_name,accept_req.ac_status,student.std_idcard
+  $sql="SELECT student.std_idcard,student.std_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_code,
+  student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name
   FROM student
   INNER JOIN class AS c on student.cls_id = c.cls_id
   INNER JOIN department on department.dpm_id = c.dpm_id
   INNER JOIN teacher on teacher.tch_id = c.tch_id
-  INNER JOIN req on req.cls_id = c.cls_id
-  INNER JOIN company on company.cpn_id = req.cpn_id
-  INNER JOIN accept_req on accept_req.req_id = req.req_id
-  WHERE student.std_id = $std_id AND accept_req.std_id = $std_id";
+  WHERE student.std_id = $std_id";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
 
@@ -765,6 +827,57 @@ public function insert_req($req_id ,$real_id )
                 return false;
                 }
         }
+        public function btr_cancel_accept_std($std_id)
+        {
+          
+            $sql ="UPDATE student SET  
+
+                                        std_status ='0'
+                                         
+                                        WHERE std_id = '$std_id'";          
+                $exc = $this->db->query($sql);
+                if ($exc)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
+
+        public function cpn_cancel_accept_std($std_id)
+        {
+          
+            $sql ="UPDATE accept_req SET  
+
+                                        ac_status ='0'
+                                         
+                                        WHERE std_id = '$std_id'";          
+                $exc = $this->db->query($sql);
+                if ($exc)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
+
+        public function chk_btr_insert_std($std_id)
+        {
+            $sql ="SELECT * FROM student WHERE std_id = '$std_id'";          
+                $query = $this->db->query($sql);
+                $data  = $query->result(); 
+                if($query)
+                {
+                return $data;
+                }
+                else{
+                return false;
+                } 
+        }
         public function cpn_accept_std($std_id)
         {
           
@@ -816,7 +929,24 @@ public function insert_req($req_id ,$real_id )
                 return false;
                 }
         }
-        
+        public function btr_cancel_accept_cpn($cpn_id)
+        {
+          
+            $sql ="UPDATE company SET  
+
+                                        cpn_status ='0'
+                                         
+                                        WHERE cpn_id = '$cpn_id'";          
+                $exc = $this->db->query($sql);
+                if ($exc)
+                {
+                return true;  
+                }
+                else
+                {
+                return false;
+                }
+        }
         public function select_cpn_data($id)
  {
   $sql="SELECT company.cpn_status,company.cpn_id

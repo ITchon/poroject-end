@@ -6,31 +6,70 @@
 <div class="layout-content">
         <div class="layout-content-body">
         <h2>แก้ไขข้อมูลอาจารย์</h2>
+
             <div class="row card">
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
                         <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_class_p" method="POST">
                         <input id="form-control-1" name="cls_id" class="form-control" type="hidden" value="<?php echo $result[0]->cls_id ?>" hidden>
-                        <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อห้องเรียน</label>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อกลุ่ม</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="cls_name" class="form-control" type="text" value="<?php echo $result[0]->cls_name ?>">
+                                </div>
                                 </div>
                                 <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">กลุ่ม</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="cls_group" class="form-control" type="text" value="<?php echo $result[0]->cls_group ?>">
                                 </div>
-                                
+                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อแผนกวิชา</label>
+                                <div class="col-sm-9">
+                                <select id ="dpm_id" name="dpm_id" class="form-control">
+                                                <?php foreach ($result_dpm as $res) {
+                                                    echo " <option value=".$res->dpm_id."> ".$res->dpm_name."  </option> ";
+                                                      }
+                                                ?>
+                                            </select>
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">ระดับชั้น</label>
+                                <div class="col-sm-9">
+                                <input id="form-control-1" name="cls_glevel" class="form-control" type="text" value="<?php echo $result[0]->cls_glevel ?>">
+                                </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-sm-3 control-label" for="form-control-1">เลือกอาจารย์ประจำกลุ่ม</label>
+                                <div class="col-sm-9">
+                                <select id ="tch_id" name="tch_id" class="form-control">
+                                                <?php foreach ($result_tch as $res) {
+                                                    echo " <option value=".$res->tch_id."> ".$res->tch_name."  </option> ";
+                                                      }
+                                                ?>
+                                            </select>
+                                </div>
+                            </div>
 
-                                </div>       
+
+
+                            
+
+
+
+
+
+
+                    </div>       
                 </div> 
             </div>
             <input type="submit" class="btn btn-success" value="ยืนยัน">
             &nbsp;&nbsp;
             </form>   
-            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_teacher_index">ยกเลิก</a>
+            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_class">ยกเลิก</a>
         </div>   
 </div>
     <div class="theme">
@@ -210,3 +249,10 @@
       ga('send', 'pageview');
     </script>
 </html> 
+<script>
+                              $(document).ready(function() {
+                              document.getElementById('tch_id').value = "<?php echo $result[0]->tch_id  ?>";
+                              document.getElementById('dpm_id').value = "<?php echo $result[0]->dpm_id  ?>";
+                              });
+
+</script>
