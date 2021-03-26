@@ -91,7 +91,7 @@ class Bilateral extends CI_Controller {
             move_uploaded_file($tempFileLogo, $targetFileLogo);
 
             // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
-            $std_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+            $std_img = ''.$fileNameLogo;
 
 
          }

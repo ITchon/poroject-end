@@ -13,8 +13,9 @@
               
       <div class="card">
         <div class="layout-content">
+        <h2>ข้อมูลส่วนตัว</h2>
           <div class="layout-content-body">
-          <h2>ข้อมูลส่วนตัว</h2>
+          
             
                 <br>
                 <div class="col-md-8">
@@ -27,12 +28,15 @@
                     
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปของคุณ</h4></th>
+                      
                                 <div class="col-sm-9">
-                                <td><img src="<?php echo base_url()?>../img/<?php echo $res->std_img ?>"style="width:12%"></td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
+                                <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $res->std_img?>" style="width:35% ;hight:35%;">
                                 </div>
                         </div>
                     </tr>
+                    <br><br><br><br>
                     <tr>
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">คำนำหน้า</h4></th>
@@ -148,5 +152,8 @@
 }
 .color2 {
   color: red;
+}
+img {
+  border-radius: 50%;
 }
 </style>

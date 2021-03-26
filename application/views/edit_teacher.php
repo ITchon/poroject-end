@@ -10,29 +10,45 @@
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_teacher_p" method="POST">
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_teacher_p" method="POST" enctype="multipart/form-data">
                         <input id="form-control-1" name="tch_id" class="form-control" type="hidden" value="<?php echo $result[0]->tch_id ?>" hidden>
-                        <div class="form-group">
+                                <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">ชื่ออาจารย์</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="tch_name" class="form-control" type="text" value="<?php echo $result[0]->tch_name ?>">
-                                </div>
+                                </div> 
+                                </div> 
                                 <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">เบอร์โทรศัพท์</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="tch_tel" class="form-control" type="text" value="<?php echo $result[0]->tch_tel ?>">
                                 </div>
+                                </div> 
+                                <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">E-mail</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="tch_email" class="form-control" type="text" value="<?php echo $result[0]->tch_email ?>">
                                 </div>
+                                </div> 
                                 <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">รหัสประจำตัวประชาชน</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="tch_card" class="form-control" type="text" value="<?php echo $result[0]->tch_card ?>">
                                 </div>
+                                </div> 
                                 
-                                </div>       
+                                <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form-control-9" >รูปบริษัท</label>
+                            <div class="col-sm-9">
+                            <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $result[0]->tch_img?>" style="width:20% ;hight:20%;">
+                           <input type="file" name="tch_img" class="form-control" id="tch_img"  onchange="file()"  value="<?php echo $result[0]->tch_img ?>" required> 
+                                                                                  
+                            <p class="help-block">
+                                <small>***กรุณาใส่รูปบริษัท***</small>
+                            </p>
+                            </div>
+                            </div>  
+                            </div>            
                 </div> 
             </div>
             <input type="submit" class="btn btn-success" value="ยืนยัน">

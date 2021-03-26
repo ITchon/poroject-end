@@ -161,15 +161,16 @@ class Model extends CI_Model
                 return false;
                 }
         }
-        public function insert_teacher($tch_name ,$tch_tel ,$tch_email,$tch_card)
+        public function insert_teacher($tch_name ,$tch_tel ,$tch_email,$tch_card,$tch_img)
         {
             $sql ="INSERT INTO teacher (
                         tch_name,
                         tch_tel,
                         tch_email,
-                        tch_card
+                        tch_card,
+                        tch_img
                         )
-                VALUES ('$tch_name','$tch_tel','$tch_email','$tch_card');";          
+                VALUES ('$tch_name','$tch_tel','$tch_email','$tch_card','$tch_img');";          
                 $query = $this->db->query($sql);  
                 if($query)
                 {
@@ -218,14 +219,14 @@ class Model extends CI_Model
                 }
         }
 
-        public function edit_teacher($tch_id,$tch_name ,$tch_tel ,$tch_email,$tch_card)
+        public function edit_teacher($tch_id,$tch_name ,$tch_tel ,$tch_email,$tch_card,$tch_img)
         {
             $sql ="UPDATE `teacher` SET  
                                          tch_name ='$tch_name' ,
                                          tch_tel ='$tch_tel' ,
                                          tch_email ='$tch_email',
-                                         tch_card ='$tch_card'
-                                        
+                                         tch_card ='$tch_card',
+                                         tch_img ='$tch_img'
                                         WHERE tch_id = '$tch_id';";          
                 $exc_teacher = $this->db->query($sql);
                 if ($exc_teacher)
@@ -1018,9 +1019,18 @@ public function insert_req($req_id ,$real_id )
 
 
  
+public function get_data()
+{
+$query = $this->db->get('student');
+return $query->result();
+}
 
-
-
+public function count_number()
+        {
+          $sql ="SELECT COUNT(std_id) as std_id FROM student ";
+          $res =$this->db->query($sql);
+          return $res->row()->std_id;
+        }
 
 
 

@@ -9,39 +9,17 @@
         <div class="layout-content-body">
           <div class="title-bar">
           </div>
-          <div class="row gutter-xs">
-          <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="media">
-                    <div class="media-middle media-left">
-                      <div class="media-chart">
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#00FF00", "#757575"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
-                      </div>
-                    </div>
-                    <div class="media-middle media-body">
-                      <h2 class="media-heading">
-                        <span class="fw-l">879</span>
-                        <small>Resolved</small>
-                      </h2>
-                      <small>More than 70% resolved issues</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-    <div class="col-xs-12">
+          
+          
+          <div class="col-xs-12">
       <div class="card">
+      
         <div class="layout-content">
           <div class="layout-content-body">
-          <h2>ข้อมูลสถานประกอบการ</h2>
+          <h2>ข้อมูลเด็กนักเรียน</h2>
             
                 <br>
-                <div class="col-md-8">
-                    <div class="demo-form-wrapper">
-                              
-                    </div> 
-                </div>
+                <div class="col-sm-12">
                     <?php foreach($result as $res){ ?> 
                     <table style="width:100%">
                     
@@ -53,6 +31,16 @@
                                 </div>
                         </div>
                     </tr> -->
+                    <tr>
+                      <div class="form-group">
+                      
+                                <div class="col-sm-9">
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                
+                                <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $res->std_img?>" style="width:35% ;hight:35%;">
+                                </div>
+                        </div>
+                    </tr>
                     <tr>
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
@@ -135,14 +123,15 @@
                              
                             <?php  } ?> 
                     </table>
-                    </div>                
+                    </div>     
+                </div>           
             </div>      
         </div>     
         <br>
         
         
         <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/accept_std/' . $res->std_id; ?>';"><i class='btn btn-success'>อนุมัติ</i></a> 
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/cancel_accept_std/' . $res->std_id; ?>';"><i class='btn btn-warning'>ยกเลิกอนุมัติ</i></a> 
+        &nbsp;&nbsp;&nbsp;&nbsp;<a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/cancel_accept_std/' . $res->std_id; ?>';"><i class='btn btn-warning'>ยกเลิกอนุมัติ</i></a> 
         &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>admin/index4">กลับหน้าหลัก</a>
         
     </div>
@@ -170,6 +159,9 @@
   color: green;
 }
 .color2 {
-  color: red;
+  color: Orange;
+}
+img {
+  border-radius: 50%;
 }
 </style>

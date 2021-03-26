@@ -66,7 +66,7 @@
                                 <div class="col-sm-3 col-sm-offset-0">
                                     <select name="std_sex" class="custom-select">
                                         <!-- <option value="" selected="">--Default--</option> -->
-                                        <option value="ชาย" <?php if($result[0]->std_sex == 'ชาย'){echo "selected";} ?>>ชาย</option>
+                                        <option value="ชาย" <?php if(0== 'ชาย'){echo "selected";} ?>>ชาย</option>
                                         <option value="หญิง" <?php if($result[0]->std_sex == 'หญิง'){echo "selected";} ?>>หญิง</option>
                                     </select>
                                 </div>
@@ -95,8 +95,9 @@
                             <div class="form-group">
                             <label class="col-sm-3 control-label" for="form-control-9" >รูปรักเรียน</label>
                             <div class="col-sm-9">
+                            <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $result[0]->std_img?>" style="width:20% ;hight:20%;">
                           <input type="file" name="std_img" class="form-control" id="std_img"  onchange="file()"  value="<?php echo $result[0]->std_img ?>" required> 
-                                                                                  
+                                                                                 
                             <p class="help-block">
                                 <small>***กรุณาใส่รูปรักเรียน***</small>
                             </p>

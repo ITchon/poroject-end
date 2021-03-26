@@ -40,6 +40,7 @@
                                 <div class="form-group">
                             <label class="col-sm-3 control-label" for="form-control-9" >รูปบริษัท</label>
                             <div class="col-sm-9">
+                            <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $result[0]->cpn_img?>" style="width:20% ;hight:20%;">
                           <input type="file" name="cpn_img" class="form-control" id="cpn_img"  onchange="file()"  value="<?php echo $result[0]->cpn_img ?>" required> 
                                                                                   
                             <p class="help-block">

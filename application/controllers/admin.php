@@ -16,7 +16,17 @@ public function __construct()
     }
  
  public function index(){
-    $this->load->view('admin_menu');
+   $data['count_std'] = $this->model->count_number();
+   $sql2 =  "SELECT COUNT(cpn_id)
+   FROM company
+   WHERE cpn_status = 1" ;
+   $query2 = $this->db->query($sql2); 
+   $data['result1'] = $query2->result();
+   $sql3 =  "SELECT COUNT(tch_id)
+   FROM teacher" ;
+   $query3 = $this->db->query($sql3); 
+   $data['result2'] = $query3->result();
+    $this->load->view('admin_menu',$data);
  }
 
  public function show_user_index(){
@@ -189,7 +199,7 @@ public function insert_student()
             move_uploaded_file($tempFileLogo, $targetFileLogo);
 
             // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
-            $std_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+            $std_img = ''.$fileNameLogo;
 
 
          }
@@ -306,7 +316,7 @@ public function insert_student()
             move_uploaded_file($tempFileLogo, $targetFileLogo);
 
             // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
-            $cpn_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+            $cpn_img = ''.$fileNameLogo;
 
 
          }
@@ -372,7 +382,7 @@ public function insert_student()
          move_uploaded_file($tempFileLogo, $targetFileLogo);
 
          // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
-         $cpn_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+         $cpn_img = ''.$fileNameLogo;
 
 
       }
@@ -408,20 +418,63 @@ public function insert_student()
    }
    public function insert_teacher()
 	{
-         
+      $config['upload_path']   = './uploads/pic'; 
+      $config['allowed_types'] = 'gif|jpg|png'; 
+      $config['max_size']      = 0; 
+      $config['max_width']     = 0; 
+      $config['max_height']    = 0;  
+      $config['overwrite']     = TRUE;
+
+      // $config['encrypt_name']  = true;
+
+      $this->load->library('upload', $config);
+      
+      $file = $_FILES['tch_img']['name'];
+      
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ( ! $this->upload->do_upload('tch_img')) {
+         redirect('bilateral/insert_student_index'); 
+
+      }else{
          $tch_name    = $this->input->post('tch_name');
          $tch_tel   = $this->input->post('tch_tel');
          $tch_email      = $this->input->post('tch_email');
          $tch_card      = $this->input->post('tch_card');
-         $id = $this->model->insert_teacher($tch_name ,$tch_tel ,$tch_email,$tch_card);
+         $tch_img     = $this->input->post('tch_img');
+         if(!empty($_FILES['tch_img']['name'])) {
+                  
+            $tempFileLogo = $_FILES['tch_img']['name'];
+            $fileNameLogo = iconv('UTF-8','TIS-620',$_FILES['tch_img']['name']);
+            $arrStrLogo = explode(".", $fileNameLogo);
+            $fileNameLogo = $arrStrLogo[0].".".$arrStrLogo[1];
+
+
+            $fileNameLogo = preg_replace('/\s+/', '_', $fileNameLogo);
+            //$targetPathLogo = 'F:\inetpub\wwwroot\PICKING_SYSTEM\uploads\pic\\';
+            $targetPathLogo = 'C:\AppServ\www\project_end_1\uploads\pic';
+            // $targetPathLogo = APPPATH . 'upload/pic/';
+            $targetFileLogo = $targetPathLogo . $fileNameLogo ;
+            move_uploaded_file($tempFileLogo, $targetFileLogo);
+
+            // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
+            $tch_img = ''.$fileNameLogo;
+
+
+         }
+         $id = $this->model->insert_teacher($tch_name ,$tch_tel ,$tch_email,$tch_card,$tch_img );
          $user_name = $tch_email;
          $user_pass = $tch_card;
          $user_group = "teacher";
-        
-        $this->model->insert_user($user_name,$user_pass,$user_group,$id);
+         $this->model->insert_user($user_name,$user_pass,$user_group,$id);
         ########################
         redirect('Admin/show_teacher_index');
-	}
+	   }
+   }
+
+
+    
    public function edit_teacher()
    {
          $id = $this->uri->segment('3'); 
@@ -433,15 +486,56 @@ public function insert_student()
    }
    public function edit_teacher_p()
 	{
+      $config['upload_path']   = './uploads/pic'; 
+      $config['allowed_types'] = 'gif|jpg|png'; 
+      $config['max_size']      = 0; 
+      $config['max_width']     = 0; 
+      $config['max_height']    = 0;  
+      $config['overwrite']     = TRUE;
+
+      // $config['encrypt_name']  = true;
+
+      $this->load->library('upload', $config);
+      
+      $file = $_FILES['tch_img']['name'];
+      
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ( ! $this->upload->do_upload('tch_img')) {
+         redirect('bilateral/insert_student_index'); 
+
+      }else{
       $tch_id    = $this->input->post('tch_id');
       $tch_name    = $this->input->post('tch_name');
       $tch_tel    = $this->input->post('tch_tel');
       $tch_email   = $this->input->post('tch_email');
       $tch_card   = $this->input->post('tch_card');
+      $tch_img   = $this->input->post('tch_img');
+      if(!empty($_FILES['tch_img']['name'])) {
+                  
+         $tempFileLogo = $_FILES['tch_img']['name'];
+         $fileNameLogo = iconv('UTF-8','TIS-620',$_FILES['tch_img']['name']);
+         $arrStrLogo = explode(".", $fileNameLogo);
+         $fileNameLogo = $arrStrLogo[0].".".$arrStrLogo[1];
 
-         $id = $this->model->edit_teacher($tch_id,$tch_name ,$tch_tel ,$tch_email,$tch_card);
+
+         $fileNameLogo = preg_replace('/\s+/', '_', $fileNameLogo);
+         //$targetPathLogo = 'F:\inetpub\wwwroot\PICKING_SYSTEM\uploads\pic\\';
+         $targetPathLogo = 'C:\AppServ\www\project_end_1\uploads\pic';
+         // $targetPathLogo = APPPATH . 'upload/pic/';
+         $targetFileLogo = $targetPathLogo . $fileNameLogo ;
+         move_uploaded_file($tempFileLogo, $targetFileLogo);
+
+         // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
+         $tch_img = ''.$fileNameLogo;
+
+
+      }
+         $id = $this->model->edit_teacher($tch_id,$tch_name ,$tch_tel ,$tch_email,$tch_card,$tch_img);
 
         redirect('Admin/show_teacher_index');
+      }
 	}
 
    public function delete_teacher($tch_id)
@@ -478,7 +572,7 @@ public function insert_student()
 
    public function show_department_index()
    {
-      $qry_inp =  "SELECT * FROM department"; 
+      $qry_inp =  "SELECT * FROM department";
       $query = $this->db->query($qry_inp); 
       $data['result'] = $query->result();
       $this->load->view('show_department',$data);
@@ -860,7 +954,7 @@ public function delete_cpn_req_data($req_id)
  }
 }
 
-   
-   
+
+
 }
 ?>

@@ -85,7 +85,7 @@
                   </a>
                 </li>
                 <li class="sidenav-item">
-                <a href="<?php echo base_url();?>company/index">
+                <a href="<?php echo base_url();?>admin/get_all_data">
                     <span class="sidenav-icon icon icon-file-text-o"></span>
                     <span class="sidenav-label">พิมพ์เอกสารการออกฝึกงาน</span>
                   </a>
