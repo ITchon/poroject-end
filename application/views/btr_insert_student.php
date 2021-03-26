@@ -10,7 +10,7 @@
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>bilateral/insert_student" method="POST">
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>bilateral/insert_student" method="POST" enctype="multipart/form-data">
                                
                             <div class="form-group">
                             <label class="col-sm-3 control-label" for="form-control-1">คำนำหน้า</label>
@@ -83,21 +83,19 @@
                                                                                  }
                                                 ?>
                                             </select>
-                                <!-- <input id="form-control-1" name="cls_name" class="form-control" type="text"> -->
                                 </div>
                             </div>
-                            <!-- <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="dpm_name" class="form-control" type="text">
-                                </div>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">คุณครู</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="tch_name" class="form-control" type="text">
-                                </div>
-                            </div> -->
+                            <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form-control-9">รูปรักเรียน</label>
+                            <div class="col-sm-9">
+                          <input type="file" name="std_img" class="form-control" id="std_img" onchange="file()" required> 
+
+                            <p class="help-block">
+                                <small>***กรุณาใส่รูปรักเรียน***</small>
+                            </p>
+                            </div>
+                            </div>
+                            
                         
                     </div>       
                 </div> 

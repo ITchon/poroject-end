@@ -15,31 +15,19 @@
                   </form>
                 </li>
                 <li class="sidenav-heading">Navigation</li>
-                <li class="sidenav-item has-subnav active">
-                  <a href="dashboard-1.html" aria-haspopup="true">
-                    <span class="sidenav-icon icon icon-home"></span>
-                    <span class="sidenav-label">Dashboards</span>
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>bilateral/index">
+                    <span class="sidenav-icon icon icon-th"></span>
+                    <span class="sidenav-label" >จัดการอนุมัตินักเรียน</span>
                   </a>
-                  <ul class="sidenav-subnav collapse">
-                    <li class="sidenav-subheading">Dashboards</li>
-                    <li><a href="<?php echo base_url();?>admin/show_user_index">SHOW - USER</a></li>
-                  
-                    
-                  </ul>
                 </li>
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>bilateral/index2">
-                    
                     <span class="sidenav-icon icon icon-th"></span>
                     <span class="sidenav-label" >จัดการอนุมัติบริษัท</span>
                   </a>
                 </li>
-                <li class="sidenav-item">
-                  <a href="page-layouts.html">
-                    <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label">Page layouts</span>
-                  </a>
-                </li>
+                
                 
             </nav>
           </div>

@@ -10,7 +10,7 @@
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>bilateral/insert_company" method="POST">
+                    <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/insert_company" method="POST" enctype="multipart/form-data">
                                
     
                             <div class="form-group">
@@ -39,12 +39,20 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">เบอร์โทรศัพท์</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="cpn_phnumber" class="form-control" type="text">
-                                </div>
+                            <label class="col-sm-3 control-label" for="form-control-9">รูปบริษัท</label>
+                            <div class="col-sm-9">
+                          <input type="file" name="cpn_img" class="form-control" id="cpn_img" onchange="file()" required> 
+
+                            <p class="help-block">
+                                <small>***กรุณาใส่รูปนักเรียน***</small>
+                            </p>
                             </div>
                             </div>
+
+
+
+                            </div>
+                            
                             <!-- <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
                                 <div class="col-sm-9">

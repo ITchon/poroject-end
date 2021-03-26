@@ -9,12 +9,32 @@
         <div class="layout-content-body">
           <div class="title-bar">
           </div>
-            <div class="col-xs-12">
-              
+          <div class="row gutter-xs">
+          <div class="col-md-4">
+              <div class="card">
+                <div class="card-body">
+                  <div class="media">
+                    <div class="media-middle media-left">
+                      <div class="media-chart">
+                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#00FF00", "#757575"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
+                      </div>
+                    </div>
+                    <div class="media-middle media-body">
+                      <h2 class="media-heading">
+                        <span class="fw-l">879</span>
+                        <small>Resolved</small>
+                      </h2>
+                      <small>More than 70% resolved issues</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+    <div class="col-xs-12">
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
-          <h2>ข้อมูลเด็กนักเรียน</h2>
+          <h2>ข้อมูลสถานประกอบการ</h2>
             
                 <br>
                 <div class="col-md-8">
@@ -35,14 +55,6 @@
                     </tr> -->
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปนักเรียน</h4></th>
-                                <div class="col-sm-9">
-                                <td><img src="<?php echo base_url()?>../img/<?php echo $res->std_img ?>"style="width:12%"></td>
-                                </div>
-                        </div>
-                    </tr>
-                    <tr>
-                      <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
                                 <div class="col-sm-9">
                                 <td ><h5><?php echo $res->std_fname ?></h5></td>
@@ -57,7 +69,14 @@
                                 </div>
                         </div>
                       </tr>
-                      
+                      <tr>
+                        <div class="form-group">
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสบัติประชาชน</h4></th>
+                                <div class="col-sm-9">
+                                    <td><h5><?php echo $res->std_idcard ?></h5></td>
+                                </div>
+                        </div>
+                      </tr> 
                       <tr> 
                         <div class="form-group">
                         <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสนักเรียน</h4></th> 
@@ -66,16 +85,6 @@
                                 </div>
                         </div>
                       </tr> 
-
-                      <tr> 
-                        <div class="form-group">
-                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสประจำตัวประชาชน</h4></th> 
-                                <div class="col-sm-9">
-                                <td><h5><?php echo $res->std_idcard ?></h5></td>
-                                </div>
-                        </div>
-                      </tr>
-
                       <tr>
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">อายุ</h4></th>
@@ -99,47 +108,42 @@
                                 <td><h5><?php echo $res->cls_name ?></h5></td>
                                 </div>
                         </div>
-                      </tr>  
+                      </tr>
                       <tr>
+                      
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">แผนกวิชา</h4></th>
                                 <div class="col-sm-9">
                                 <td><h5><?php echo $res->dpm_name ?></h5></td>
                                 </div>
                         </div>
-                      </tr>
+                      </tr>  
                       <tr>
-                      <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถานที่ฝึกงาน</h4></th>
-                                <div class="col-sm-9">
-                                <td><h5><?php echo $res->cpn_name ?></h5></td>
-                                </div>
-                        </div>
-                      </tr>
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถานะ</h4></th>
                                 <div class="col-sm-9">
                                 <td>
-                            <?php if(isset($res->ac_status)){
-                            if( $res->ac_status == 1){
-                               echo '<span class="color">มีสถานที่ฝึกงานแล้ว</span>';
+                            <?php if( $res->std_status == 1){
+                               echo '<h5 class="color">อนุมัติแล้ว</h5>';
                              }else{
-                               echo '<span class="color3">รออนุมัติ</span>';
-                             }
-                            }else{
-                              echo '<span class="color2">ยังไม่มีที่ฝึกงาน</span>';
+                               echo '<h5 class="color2">ยังไม่อนุมัติ</h5>';
                              }?>
                             </td>
                                 </div>
                         </div>
-                      </tr>       
+                      </tr>
+                             
                             <?php  } ?> 
                     </table>
                     </div>                
             </div>      
         </div>     
         <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>teacher/index">กลับหน้าหลัก</a>
+        
+        
+        <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/accept_std/' . $res->std_id; ?>';"><i class='btn btn-success'>อนุมัติ</i></a> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/cancel_accept_std/' . $res->std_id; ?>';"><i class='btn btn-warning'>ยกเลิกอนุมัติ</i></a> 
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>admin/index4">กลับหน้าหลัก</a>
         
     </div>
     
@@ -167,8 +171,5 @@
 }
 .color2 {
   color: red;
-}
-.color3 {
-  color: orange;
 }
 </style>

@@ -34,6 +34,7 @@
                         <th>อายุ</th>
                         <th>เพศ</th>
                         <th>ชื่อห้อง</th>
+                        <!-- <th>รูปนักเรียน</th> -->
                         <th>แผนก</th>
                         <!-- <th>คุณครู</th> -->
                         <th>manage</th>
@@ -53,8 +54,9 @@
                             <td><?php echo $res->std_age ?></td>
                             <td><?php echo $res->std_sex ?></td>
                             <td><?php echo $res->cls_name ?></td>
+                            <!-- <td><?php echo $res->std_img ?></td> -->
                             <td><?php echo $res->dpm_name ?></td>
-                            <!-- <td><?php echo $res->tch_name ?></td> -->
+                            
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_student/' . $res->std_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
                                             <?php echo "<a type='button' href='".base_url()."admin/delete_student/".$res->std_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 

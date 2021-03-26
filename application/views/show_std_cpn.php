@@ -9,35 +9,14 @@
         <div class="layout-content-body">
           <div class="title-bar">
           </div>
-          <div class="row gutter-xs">
-          <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="media">
-                    <div class="media-middle media-left">
-                      <div class="media-chart">
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#00FF00", "#757575"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
-                      </div>
-                    </div>
-                    <div class="media-middle media-body">
-                      <h2 class="media-heading">
-                        <span class="fw-l">879</span>
-                        <small>Resolved</small>
-                      </h2>
-                      <small>More than 70% resolved issues</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
             
-            <br><br>
             <div class="col-xs-12">
               
       <div class="card">
         <div class="layout-content">
+        <h2>สถานประกอบการที่นักเรียนสมัคร</h2>
           <div class="layout-content-body">
-          <h2>ข้อมูลสถานประกอบการ</h2>
+          
             
                 <br>
                 <div class="col-md-8">
@@ -45,9 +24,21 @@
                               
                     </div> 
                 </div>
+                    <?php 
+                    if($result == null){
+                      echo '<span class="color2"><h1>ไม่มีข้อมูลสถานที่ฝึกงานของคุณ</h1></span>';
+                    }else{?>
                     <?php foreach($result as $res){ ?> 
                     <table style="width:100%">
                     
+                    <!-- <tr>
+                      <div class="form-group">
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปบริษัท</h4></th>
+                                <div class="col-sm-9">
+                                <td><img src="<?php echo base_url()?>../img/<?php echo $res->cpn_img ?>"style="width:12%"></td>
+                                </div>
+                        </div>
+                    </tr> -->
                     <tr>
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปบริษัท</h4></th>
@@ -58,7 +49,7 @@
                     </tr>
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อบริษัท</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อบริษัทบริษัท</h4></th>
                                 <div class="col-sm-9">
                                 <td ><h5><?php echo $res->cpn_name ?></h5></td>
                                 </div>
@@ -87,37 +78,45 @@
                                 <td><h5><?php echo $res->cpn_phnumber ?></h5></td>
                                 </div>
                         </div>
-                      </tr>       
+                      </tr> 
+                      <tr>
+                      <div class="form-group">
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถานะ</h4></th>
+                                <div class="col-sm-9">
+                                <td><h5><?php if( $res->ac_status == 1){
+                               echo '<span class="color">อนุมัติเข้าฝึกงานแล้ว</span>';
+                             }else{
+                               echo '<span class="color2">รออนุมัติเข้าฝึกงาน</span>';
+                             }?></h5></td>
+                                </div>
+                        </div>
+                      </tr>
+                                
                             <?php  } ?> 
                     </table>
+                    
                     </div>                
             </div>      
         </div>     
         <br>
         
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success " data-toggle="modal" data-target="#warningModalAlert" >สมัครเข้าฝึกงาน</a>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>Main/index">กลับหน้าหลัก</a>
+        <?php if($res->ac_status == 0) {?>
+        <?php echo "<a type='button' href='".base_url()."student/delete_student_ac_std/".$res->ac_id."' onclick='return confirm(\"Confirm Delete Item\")' ><span class='btn btn-warning'>ยกเลิกการสมัคร</span></a>";?> 
+        <?php  }else{
+          echo '<span class="color"><h4>คุณได้รับการอนุมัติเข้าฝึกงานที่บริษัทนี้แล้ว</h4></span>
+          <p class="help-block">
+          <h5>*** หมายเหตุ : ถ้าต้องการจะยกเลิกการสมัคให้ติดต่อที่ | งานทวิภาคี | ***</h5>
+          </p>  ';
+        } ?> 
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>student/index">กลับหน้าหลัก</a>
+        
+        
+        
+        <?php  } ?> 
         
     </div>
-    <br><br><br>
-    <div id="warningModalAlert" tabindex="-1" role="dialog" class="modal fade">
-      <div class="modal-dialog polaroid ">
-        <div class="modal-content">
-          <div class="modal-body ">
-            <div class="text-center">
-              <span class="text-warning icon icon-exclamation-triangle icon-5x"></span>
-              <h3 class="text-warning">คำเตือน</h3>
-              <h1>กรุณา Login ก่อนค่ะ</h1>
-              <div class="m-t-lg">
-              <a class="btn btn-success "  href="<?php echo base_url(); ?>Login/index">Login</a>
-                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer"></div>
-        </div>
-      </div>
-    </div>
+    
+    
 
   </body>
   
@@ -135,3 +134,11 @@
       ga('send', 'pageview');
     </script>
 </html>
+<style>
+.color {
+  color: green;
+}
+.color2 {
+  color: Orange;
+}
+</style>

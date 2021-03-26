@@ -15,34 +15,34 @@
                   </form>
                 </li>
                 
-                <li class="sidenav-item">
+                
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>company/index_show_cpn">
-                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-icon icon icon-users"></span>
                     <span class="sidenav-label" >ข้อมูลบริษัท</span>
                   </a>
                   </li><li class="sidenav-item">
+                  <li class="sidenav-item">
+                <a href="<?php echo base_url();?>company/index_show_cpn_private ">
+                    <span class="sidenav-icon icon icon-user"></span>
+                    <span class="sidenav-label">ข้อมูลส่วนตัว</span>
+                  </a>
+                </li>
                 <li class="sidenav-item">
                   <a href="<?php echo base_url();?>company/insert_req_cpn_f">
-                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-icon icon icon-th-large"></span>
                     <span class="sidenav-label" >เปิดรับนักศึกษา</span>
                   </a>
                   </li>
                   <li class="sidenav-item">
                   <a href="<?php echo base_url();?>company/index_show_cpn_req">
-                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-icon icon icon-cubes"></span>
                     <span class="sidenav-label" >ตรวจสอบการเปิดรับนักศึกษา</span>
                   </a>
-                  </li>
-                  <li class="sidenav-item">
-                  <a href="<?php echo base_url();?>company/show_private_tch">
-                    <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label" >จัดการข้อมูลบริษัท</span>
-                  </a>
-                </li>
+                  
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>company/index">
-                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-icon icon icon-user-plus"></span>
                     <span class="sidenav-label">คำร้องนักศึกษาฝึกงาน</span>
                   </a>
                 </li>

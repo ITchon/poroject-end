@@ -42,7 +42,7 @@ public function show_teacher_index(){
 
 public function show_student_index(){
    $qry_inp =  "SELECT student.std_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_code,
-   student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name
+   student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name,student.std_img
    FROM student
    INNER JOIN class AS c on student.cls_id = c.cls_id
    INNER JOIN department on department.dpm_id = c.dpm_id
@@ -62,20 +62,60 @@ public function insert_student_index(){
 }
 
 public function insert_student()
-	{
+	{  
+      $config['upload_path']   = './uploads/pic'; 
+      $config['allowed_types'] = 'gif|jpg|png'; 
+      $config['max_size']      = 0; 
+      $config['max_width']     = 0; 
+      $config['max_height']    = 0;  
+      $config['overwrite']     = TRUE;
+
+      // $config['encrypt_name']  = true;
+
+      $this->load->library('upload', $config);
+      
+      $file = $_FILES['std_img']['name'];
+      
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ( ! $this->upload->do_upload('std_img')) {
+         redirect('admin/insert_student_index'); 
+
+      }else{
 		   $title    = $this->input->post('title'); 
          $std_fname    = $this->input->post('std_fname');
          $std_lname    = $this->input->post('std_lname');
+         $std_idcard    = $this->input->post('std_idcard');
          $std_code      = $this->input->post('std_code');
-         $std_idcard      = $this->input->post('std_idcard');
          $std_birthday    = $this->input->post('std_birthday');
          $std_sex    = $this->input->post('std_sex');
 		   $std_age  = $this->input->post('std_age');
 		   $cls_id   = $this->input->post('cls_id');
-         $std_img   = $this->input->post('std_img');
+         
+         if(!empty($_FILES['std_img']['name'])) {
+                  
+            $tempFileLogo = $_FILES['std_img']['name'];
+            $fileNameLogo = iconv('UTF-8','TIS-620',$_FILES['std_img']['name']);
+            $arrStrLogo = explode(".", $fileNameLogo);
+            $fileNameLogo = $arrStrLogo[0].".".$arrStrLogo[1];
+
+
+            $fileNameLogo = preg_replace('/\s+/', '_', $fileNameLogo);
+            //$targetPathLogo = 'F:\inetpub\wwwroot\PICKING_SYSTEM\uploads\pic\\';
+            $targetPathLogo = 'C:\AppServ\www\project_end_1\uploads\pic';
+            // $targetPathLogo = APPPATH . 'upload/pic/';
+            $targetFileLogo = $targetPathLogo . $fileNameLogo ;
+            move_uploaded_file($tempFileLogo, $targetFileLogo);
+
+            // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
+            $std_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+
+
+         }
          // $dpm_name = $this->input->post('dpm_name');
          // $tch_name = $this->input->post('tch_name');
-         $id = $this->model->insert_student($title ,$std_fname ,$std_lname,$std_code,$std_idcard ,$std_birthday ,$std_sex ,$std_age ,$cls_id,$std_img);
+         $id = $this->model->insert_student($title ,$std_fname ,$std_lname,$std_idcard,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id,$std_img);
 
         ########################
         $user_name = $std_code;
@@ -84,9 +124,9 @@ public function insert_student()
         
         $this->model->insert_user($user_name,$user_pass,$user_group,$id);
         ########################
-        redirect('Admin/show_student_index');
+        redirect('admin/show_student_index');
 	}
-
+}
 
 
    public function edit_student()
@@ -102,6 +142,26 @@ public function insert_student()
    }
    public function edit_student_p()
 	{
+      $config['upload_path']   = './uploads/pic'; 
+      $config['allowed_types'] = 'gif|jpg|png'; 
+      $config['max_size']      = 0; 
+      $config['max_width']     = 0; 
+      $config['max_height']    = 0;  
+      $config['overwrite']     = TRUE;
+
+      // $config['encrypt_name']  = true;
+
+      $this->load->library('upload', $config);
+      
+      $file = $_FILES['std_img']['name'];
+      
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ( ! $this->upload->do_upload('std_img')) {
+         redirect('bilateral/insert_student_index'); 
+
+      }else{
 		   $title    = $this->input->post('title'); 
          $std_fname    = $this->input->post('std_fname');
          $std_lname    = $this->input->post('std_lname');
@@ -112,20 +172,30 @@ public function insert_student()
 		   $std_age  = $this->input->post('std_age');
 		   $cls_id   = $this->input->post('cls_id');
          $std_id = $this->input->post('std_id');
-         $id = $this->model->edit_student($title ,$std_fname ,$std_lname,$std_idcard ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id , $std_id);
+         $std_img = $this->input->post('std_img');
+         if(!empty($_FILES['std_img']['name'])) {
+                  
+            $tempFileLogo = $_FILES['std_img']['name'];
+            $fileNameLogo = iconv('UTF-8','TIS-620',$_FILES['std_img']['name']);
+            $arrStrLogo = explode(".", $fileNameLogo);
+            $fileNameLogo = $arrStrLogo[0].".".$arrStrLogo[1];
 
 
+            $fileNameLogo = preg_replace('/\s+/', '_', $fileNameLogo);
+            //$targetPathLogo = 'F:\inetpub\wwwroot\PICKING_SYSTEM\uploads\pic\\';
+            $targetPathLogo = 'C:\AppServ\www\project_end_1\uploads\pic';
+            // $targetPathLogo = APPPATH . 'upload/pic/';
+            $targetFileLogo = $targetPathLogo . $fileNameLogo ;
+            move_uploaded_file($tempFileLogo, $targetFileLogo);
+
+            // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
+            $std_img = '/project_end_1/uploads/pic'.$fileNameLogo;
 
 
-
-        ########################
-      //   $user_name = $std_code;
-      //   $user_pass = $std_birthday;
-      //   $user_group = "student";
-        
-      //   $this->model->edit_user($user_name,$user_pass,$user_group,$id);
-        ########################
+         }
+         $id = $this->model->edit_student($title ,$std_fname ,$std_lname,$std_idcard ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id , $std_id,$std_img);
         redirect('Admin/show_student_index');
+      }
 	}
 
 
@@ -194,18 +264,60 @@ public function insert_student()
    }
    public function insert_company()
 	{
-         
-         $cpn_name    = $this->input->post('cpn_name');
+      $config['upload_path']   = './uploads/pic'; 
+      $config['allowed_types'] = 'gif|jpg|png'; 
+      $config['max_size']      = 0; 
+      $config['max_width']     = 0; 
+      $config['max_height']    = 0;  
+      $config['overwrite']     = TRUE;
+
+      // $config['encrypt_name']  = true;
+
+      $this->load->library('upload', $config);
+      
+      $file = $_FILES['cpn_img']['name'];
+      
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ( ! $this->upload->do_upload('cpn_img')) {
+         redirect('bilateral/insert_student_index'); 
+
+      }else{
+		   $cpn_name    = $this->input->post('cpn_name');
          $cpn_add   = $this->input->post('cpn_add');
          $cpn_email      = $this->input->post('cpn_email');
          $cpn_phnumber    = $this->input->post('cpn_phnumber');
-         $id = $this->model->insert_company($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber);
+         $cpn_img    = $this->input->post('cpn_img');
+         
+         if(!empty($_FILES['cpn_img']['name'])) {
+                  
+            $tempFileLogo = $_FILES['cpn_img']['name'];
+            $fileNameLogo = iconv('UTF-8','TIS-620',$_FILES['cpn_img']['name']);
+            $arrStrLogo = explode(".", $fileNameLogo);
+            $fileNameLogo = $arrStrLogo[0].".".$arrStrLogo[1];
+
+
+            $fileNameLogo = preg_replace('/\s+/', '_', $fileNameLogo);
+            //$targetPathLogo = 'F:\inetpub\wwwroot\PICKING_SYSTEM\uploads\pic\\';
+            $targetPathLogo = 'C:\AppServ\www\project_end_1\uploads\pic';
+            // $targetPathLogo = APPPATH . 'upload/pic/';
+            $targetFileLogo = $targetPathLogo . $fileNameLogo ;
+            move_uploaded_file($tempFileLogo, $targetFileLogo);
+
+            // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
+            $cpn_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+
+
+         }
+         $id = $this->model->insert_company($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber,$cpn_img);
          $user_name = $cpn_email;
          $user_pass = $cpn_phnumber;
          $user_group = "company";
-        
-        $this->model->insert_user($user_name,$user_pass,$user_group,$id);
-        redirect('Admin/show_company_index');
+         $this->model->insert_user($user_name,$user_pass,$user_group,$id);
+       redirect('admin/show_company_index');
+	   }
+      
 	}
    public function edit_company()
    {
@@ -218,14 +330,56 @@ public function insert_student()
    }
    public function edit_company_p()
 	{
+      $config['upload_path']   = './uploads/pic'; 
+      $config['allowed_types'] = 'gif|jpg|png'; 
+      $config['max_size']      = 0; 
+      $config['max_width']     = 0; 
+      $config['max_height']    = 0;  
+      $config['overwrite']     = TRUE;
+
+      // $config['encrypt_name']  = true;
+
+      $this->load->library('upload', $config);
+      
+      $file = $_FILES['cpn_img']['name'];
+      
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ( ! $this->upload->do_upload('cpn_img')) {
+         redirect('bilateral/insert_student_index'); 
+
+      }else{
       $cpn_id    = $this->input->post('cpn_id');
       $cpn_name    = $this->input->post('cpn_name');
       $cpn_add   = $this->input->post('cpn_add');
       $cpn_email      = $this->input->post('cpn_email');
       $cpn_phnumber    = $this->input->post('cpn_phnumber');
-         $id = $this->model->edit_company($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber,$cpn_id);
+      $cpn_img    = $this->input->post('cpn_img');
+      if(!empty($_FILES['cpn_img']['name'])) {
+                  
+         $tempFileLogo = $_FILES['cpn_img']['name'];
+         $fileNameLogo = iconv('UTF-8','TIS-620',$_FILES['cpn_img']['name']);
+         $arrStrLogo = explode(".", $fileNameLogo);
+         $fileNameLogo = $arrStrLogo[0].".".$arrStrLogo[1];
+
+
+         $fileNameLogo = preg_replace('/\s+/', '_', $fileNameLogo);
+         //$targetPathLogo = 'F:\inetpub\wwwroot\PICKING_SYSTEM\uploads\pic\\';
+         $targetPathLogo = 'C:\AppServ\www\project_end_1\uploads\pic';
+         // $targetPathLogo = APPPATH . 'upload/pic/';
+         $targetFileLogo = $targetPathLogo . $fileNameLogo ;
+         move_uploaded_file($tempFileLogo, $targetFileLogo);
+
+         // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
+         $cpn_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+
+
+      }
+         $id = $this->model->edit_company($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber,$cpn_id,$cpn_img );
 
         redirect('Admin/show_company_index');
+      }
 	}
 
    public function delete_company($cpn_id)
@@ -534,6 +688,18 @@ public function delete_cpn_f($ac_id)
      }
   }
 
+
+
+  public function show_std_data(){  
+   $std_id = $this->uri->segment('3');
+   $data['result'] = $this->model->select_main_data_std_cnp($std_id);
+   
+   $this->load->view('admin_show_std_data',$data);
+}
+
+
+
+
   public function accept_std(){   
    $std_id = $this->uri->segment('3');
   $data = $this->model->chk_btr_insert_std($std_id);
@@ -597,7 +763,7 @@ public function delete_student_ac_std($std_id)
 }
 public function index4(){
    $qry_inp =  "SELECT student.std_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_code,
-   student.std_birthday,student.std_age,student.std_sex,student.std_status,department.dpm_name
+   student.std_birthday,student.std_age,student.std_sex,student.std_status,department.dpm_name,student.std_img
    FROM student
    INNER JOIN class AS c on student.cls_id = c.cls_id
    INNER JOIN department on department.dpm_id = c.dpm_id";
@@ -679,7 +845,20 @@ public function cancel_cpn_accept_std(){
  
   
 }
- 
+
+public function delete_cpn_req_data($req_id)
+{
+ $result = $this->model->del_req_p($req_id);
+ if($result!=FALSE)
+ {
+       redirect('admin/show_cpn_ac_std','refresh');
+ }
+ else
+ {
+     echo "<script>alert('Something wrong')</script>";
+      redirect('manage_student','refresh');
+ }
+}
 
    
    

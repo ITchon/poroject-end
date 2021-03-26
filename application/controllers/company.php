@@ -204,7 +204,16 @@ public function show_cpn_data(){
    $this->load->view('cpn_see_data_cpn',$data);
 }
 
-
+public function index_show_cpn_private(){
+   $cpn_id = $this->session->userdata('cpn_id');
+   $qry_inp =  "SELECT * FROM company where company.cpn_id = $cpn_id  ";
+   $query = $this->db->query($qry_inp); 
+   $data['result'] = $query->result();
+   $this->load->view('head_main');
+   $this->load->view('cpn_sidebar');
+   $this->load->view('private_cpn',$data);
+   
+}
 
 
 }

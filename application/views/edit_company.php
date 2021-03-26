@@ -10,7 +10,8 @@
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_company_p" method="POST">
+                        
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_company_p" method="POST" enctype="multipart/form-data">
                         <input id="form-control-1" name="cpn_id" class="form-control" type="hidden" value="<?php echo $result[0]->cpn_id ?>" hidden>
                                 <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">ชื่อสถานประกอบการ</label>
@@ -36,6 +37,16 @@
                                 <input id="form-control-1" name="cpn_phnumber" class="form-control" type="text" value="<?php echo $result[0]->cpn_phnumber ?>">
                                 </div>
                                 </div>
+                                <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form-control-9" >รูปบริษัท</label>
+                            <div class="col-sm-9">
+                          <input type="file" name="cpn_img" class="form-control" id="cpn_img"  onchange="file()"  value="<?php echo $result[0]->cpn_img ?>" required> 
+                                                                                  
+                            <p class="help-block">
+                                <small>***กรุณาใส่รูปบริษัท***</small>
+                            </p>
+                            </div>
+                            </div>  
                       </div>       
                 </div> 
             </div>

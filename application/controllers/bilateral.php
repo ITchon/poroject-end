@@ -8,11 +8,16 @@ class Bilateral extends CI_Controller {
     public function __construct()
     {
         parent::__construct();
+        $this->load->helper('url');
+		  $this->load->helper('form');
+		  $this->load->database();
+        $this->form_validation->set_error_delimiters('<div class="bg-danger" style="padding:3px 10px;">', '</div>');
+        $this->load->library('upload');
         $this->load->view('header2');
         $this->load->model('model');
         $this->load->view('head_main');
         $this->load->view('btr_sidebar');
-        
+        $this->load->library('upload');
     }
  
     public function index(){
@@ -35,8 +40,31 @@ class Bilateral extends CI_Controller {
         $data['result'] = $query->result();
         $this->load->view('btr_insert_student',$data);
      }
+
+
+
      public function insert_student()
-	{
+	{  
+      $config['upload_path']   = './uploads/pic'; 
+      $config['allowed_types'] = 'gif|jpg|png'; 
+      $config['max_size']      = 0; 
+      $config['max_width']     = 0; 
+      $config['max_height']    = 0;  
+      $config['overwrite']     = TRUE;
+
+      // $config['encrypt_name']  = true;
+
+      $this->load->library('upload', $config);
+      
+      $file = $_FILES['std_img']['name'];
+      
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ( ! $this->upload->do_upload('std_img')) {
+         redirect('bilateral/insert_student_index'); 
+
+      }else{
 		   $title    = $this->input->post('title'); 
          $std_fname    = $this->input->post('std_fname');
          $std_lname    = $this->input->post('std_lname');
@@ -46,9 +74,30 @@ class Bilateral extends CI_Controller {
          $std_sex    = $this->input->post('std_sex');
 		   $std_age  = $this->input->post('std_age');
 		   $cls_id   = $this->input->post('cls_id');
+         
+         if(!empty($_FILES['std_img']['name'])) {
+                  
+            $tempFileLogo = $_FILES['std_img']['name'];
+            $fileNameLogo = iconv('UTF-8','TIS-620',$_FILES['std_img']['name']);
+            $arrStrLogo = explode(".", $fileNameLogo);
+            $fileNameLogo = $arrStrLogo[0].".".$arrStrLogo[1];
+
+
+            $fileNameLogo = preg_replace('/\s+/', '_', $fileNameLogo);
+            //$targetPathLogo = 'F:\inetpub\wwwroot\PICKING_SYSTEM\uploads\pic\\';
+            $targetPathLogo = 'C:\AppServ\www\project_end_1\uploads\pic';
+            // $targetPathLogo = APPPATH . 'upload/pic/';
+            $targetFileLogo = $targetPathLogo . $fileNameLogo ;
+            move_uploaded_file($tempFileLogo, $targetFileLogo);
+
+            // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
+            $std_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+
+
+         }
          // $dpm_name = $this->input->post('dpm_name');
          // $tch_name = $this->input->post('tch_name');
-         $id = $this->model->insert_student($title ,$std_fname ,$std_lname,$std_idcard,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id);
+         $id = $this->model->insert_student($title ,$std_fname ,$std_lname,$std_idcard,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id,$std_img);
 
         ########################
         $user_name = $std_code;
@@ -59,6 +108,13 @@ class Bilateral extends CI_Controller {
         ########################
         redirect('bilateral/index');
 	}
+}
+
+
+
+
+
+
 
     public function accept_std(){   
         $std_id = $this->uri->segment('3');
@@ -239,19 +295,67 @@ class Bilateral extends CI_Controller {
  
 public function insert_company()
 	{
-         
+      $config['upload_path']   = './uploads/pic'; 
+      $config['allowed_types'] = 'gif|jpg|png'; 
+      $config['max_size']      = 0; 
+      $config['max_width']     = 0; 
+      $config['max_height']    = 0;  
+      $config['overwrite']     = TRUE;
+
+      // $config['encrypt_name']  = true;
+
+      $this->load->library('upload', $config);
+      
+      $file = $_FILES['cpn_img']['name'];
+      
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ( ! $this->upload->do_upload('cpn_img')) {
+         redirect('bilateral/insert_company_index'); 
+
+      }else{
          $cpn_name    = $this->input->post('cpn_name');
          $cpn_add   = $this->input->post('cpn_add');
          $cpn_email      = $this->input->post('cpn_email');
          $cpn_phnumber    = $this->input->post('cpn_phnumber');
          $cpn_img    = $this->input->post('cpn_img');
+         
+         
+         if(!empty($_FILES['cpn_img']['name'])) {
+                  
+            $tempFileLogo = $_FILES['cpn_img']['name'];
+            $fileNameLogo = iconv('UTF-8','TIS-620',$_FILES['cpn_img']['name']);
+            $arrStrLogo = explode(".", $fileNameLogo);
+            $fileNameLogo = $arrStrLogo[0].".".$arrStrLogo[1];
+
+
+            $fileNameLogo = preg_replace('/\s+/', '_', $fileNameLogo);
+            //$targetPathLogo = 'F:\inetpub\wwwroot\PICKING_SYSTEM\uploads\pic\\';
+            $targetPathLogo = 'C:\AppServ\www\project_end_1\uploads\pic';
+            // $targetPathLogo = APPPATH . 'upload/pic/';
+            $targetFileLogo = $targetPathLogo . $fileNameLogo ;
+            move_uploaded_file($tempFileLogo, $targetFileLogo);
+
+            // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
+            $cpn_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+
+
+         }
          $id = $this->model->insert_company($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber,$cpn_img);
          $user_name = $cpn_email;
          $user_pass = $cpn_phnumber;
          $user_group = "company";
-        
-        $this->model->insert_user($user_name,$user_pass,$user_group,$id);
-        redirect('bilateral/index2');
+         $this->model->insert_user($user_name,$user_pass,$user_group,$id);
+       redirect('bilateral/index2');
+      }
 	} 
+
+   
+      
+
+      
+
+
 
 }

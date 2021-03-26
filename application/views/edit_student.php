@@ -11,7 +11,8 @@
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_student_p" method="POST">
+                        
+                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/edit_student_p" method="POST" enctype="multipart/form-data">
                         <input id="form-control-1" name="std_id" class="form-control" type="hidden" value="<?php echo $result[0]->std_id ?>" hidden>
                             <div class="form-group">
                             <label class="col-sm-3 control-label" for="form-control-1">คำนำหน้า</label>
@@ -87,9 +88,20 @@
                                                                                  }
                                                 ?>
                                             </select>
+                                                      
                                 <!-- <input id="form-control-1" name="cls_name" class="form-control" type="text"> -->
                                 </div>
                             </div>
+                            <div class="form-group">
+                            <label class="col-sm-3 control-label" for="form-control-9" >รูปรักเรียน</label>
+                            <div class="col-sm-9">
+                          <input type="file" name="std_img" class="form-control" id="std_img"  onchange="file()"  value="<?php echo $result[0]->std_img ?>" required> 
+                                                                                  
+                            <p class="help-block">
+                                <small>***กรุณาใส่รูปรักเรียน***</small>
+                            </p>
+                            </div>
+                            </div>  
                             <!-- <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
                                 <div class="col-sm-9">

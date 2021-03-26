@@ -7,7 +7,7 @@ class Model extends CI_Model
   
 
 
-  public function insert_student($title ,$std_fname ,$std_lname,$std_code,$std_idcard ,$std_birthday ,$std_sex ,$std_age ,$cls_id,$std_img)
+  public function insert_student($title ,$std_fname ,$std_lname,$std_idcard,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id,$std_img)
         {
             $sql ="INSERT INTO student (
                         cls_id,
@@ -54,7 +54,7 @@ class Model extends CI_Model
                 }
         }
 
-   public function edit_student($title ,$std_fname ,$std_lname,$std_idcard ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id , $std_id)
+   public function edit_student($title ,$std_fname ,$std_lname,$std_idcard ,$std_code ,$std_birthday ,$std_sex ,$std_age ,$cls_id , $std_id,$std_img)
         {
             $sql ="UPDATE `student` SET  
                                          cls_id ='$cls_id' ,
@@ -65,7 +65,8 @@ class Model extends CI_Model
                                          std_code ='$std_code' ,  
                                          std_birthday ='$std_birthday' ,
                                          std_age ='$std_age' ,
-                                         std_sex ='$std_sex' 
+                                         std_sex ='$std_sex' ,
+                                         std_img ='$std_img' 
                                         WHERE std_id = '$std_id';";          
                 $exc_teacher = $this->db->query($sql);
                 if ($exc_teacher)
@@ -141,14 +142,14 @@ class Model extends CI_Model
                 }
         }
 
-        public function edit_company($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber ,$cpn_id )
+        public function edit_company($cpn_name ,$cpn_add ,$cpn_email ,$cpn_phnumber ,$cpn_id,$cpn_img  )
         {
             $sql ="UPDATE `company` SET  
                                          cpn_name ='$cpn_name' ,
                                          cpn_add ='$cpn_add' ,
                                          cpn_email ='$cpn_email' ,
-                                         cpn_phnumber ='$cpn_phnumber' 
-                                        
+                                         cpn_phnumber ='$cpn_phnumber' ,
+                                         cpn_img ='$cpn_img' 
                                         WHERE cpn_id = '$cpn_id';";          
                 $exc_teacher = $this->db->query($sql);
                 if ($exc_teacher)
@@ -551,6 +552,20 @@ public function del_std_p($std_id)
     
   }else{  return false; }
 }
+public function del_ac_std_p($ac_id)
+{
+
+  $sqlEdt = "DELETE FROM accept_req WHERE ac_id = '$ac_id  ';";
+
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
 public function del_cpn_p($cpn_id)
 {
 
@@ -676,7 +691,7 @@ public function del_dpm_p($dpm_id)
  public function selectOnestudent($id)
  {
   $sql="SELECT student.std_id,student.std_fname,student.std_lname,student.title,student.std_code,student.std_idcard,student.std_birthday
-  ,student.std_age,student.std_sex,department.dpm_id,department.dpm_name,class.cls_id,cls_name,cls_group,cls_glevel
+  ,student.std_age,student.std_sex,department.dpm_id,department.dpm_name,class.cls_id,cls_name,cls_group,cls_glevel,student.std_img
   FROM class
   INNER JOIN student on student.cls_id = class.cls_id 
   INNER JOIN department on department.dpm_id = class.dpm_id WHERE student.std_id = $id";
@@ -725,6 +740,7 @@ public function del_dpm_p($dpm_id)
  public function select_main_data($id)
  {
   $sql="SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_add,company.cpn_email,company.cpn_phnumber,req.req_number
+  
   FROM req
   INNER JOIN company on company.cpn_id = req.cpn_id WHERE req.req_id = $id ";
   $query = $this->db->query($sql); 
@@ -735,12 +751,15 @@ public function del_dpm_p($dpm_id)
 
  public function select_main_data_std_cnp($std_id)
  {
-  $sql="SELECT student.std_idcard,student.std_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_code,
-  student.std_birthday,student.std_age,student.std_sex,department.dpm_name,teacher.tch_name
+  $sql="SELECT student.std_id,student.title,student.std_fname,student.std_lname,student.std_age,student.std_sex,student.std_status
+  ,department.dpm_name,accept_req.ac_status,accept_req.ac_id,company.cpn_name,student.std_img,c.cls_name,student.std_birthday,student.std_idcard,student.std_code
   FROM student
   INNER JOIN class AS c on student.cls_id = c.cls_id
   INNER JOIN department on department.dpm_id = c.dpm_id
   INNER JOIN teacher on teacher.tch_id = c.tch_id
+  LEFT JOIN accept_req on accept_req.std_id = accept_req.std_id
+  LEFT JOIN req on req.req_id = accept_req.req_id
+  LEFT JOIN company on company.cpn_id = req.cpn_id
   WHERE student.std_id = $std_id";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
@@ -996,6 +1015,9 @@ public function insert_req($req_id ,$real_id )
          } 
  }
 
+
+
+ 
 
 
 

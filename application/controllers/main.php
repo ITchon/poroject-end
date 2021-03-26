@@ -18,7 +18,11 @@ public function __construct()
  public function index(){
     
     
-    $qry_inp =  "SELECT `cpn_id`,`cpn_name`, `cpn_address`, `cpn_email`, `cpn_phnumber`, `cpn_img` FROM `company`" ;
+    $qry_inp =  "SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_add,company.cpn_email,company.cpn_phnumber,req.req_number
+    ,req.req_sex,req.req_glevel,department.dpm_name
+    FROM req
+    INNER JOIN company on company.cpn_id = req.cpn_id
+    INNER JOIN department on department.dpm_id = req.dpm_id" ;
     $query = $this->db->query($qry_inp); 
     $data['result'] = $query->result();
     $this->load->view('main_menu',$data);
@@ -26,6 +30,7 @@ public function __construct()
  public function index2(){  
          $id = $this->uri->segment('3'); 
         $data['result'] = $this->model->select_main_data($id);
+        
       $this->load->view('main_data',$data);
  }
 

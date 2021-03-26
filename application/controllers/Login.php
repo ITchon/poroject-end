@@ -90,7 +90,7 @@ class Login extends CI_Controller {
 					$query = $this->db->query($sql);
 					$data_std = $query->row();
 					$this->session->set_userdata('std_status',$data_std->std_status);
-					
+					$this->session->set_userdata('std_id',$data_std->std_id);
 					redirect('student'); 
 				}else if($data['user_group'] == "bilateral"){
 					redirect('bilateral');

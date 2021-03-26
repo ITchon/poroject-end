@@ -95,8 +95,9 @@
                         
                         <th class="text-center">ชื่อบริษัท</th>
                         <th class="text-center">ที่อยู่</th>
-                        <th class="text-center">E-mail</th>
-                        <th class="text-center">เบอร์โทรศัพท์</th>
+                        <th class="text-center">ต้องการเพศ</th>
+                        <th class="text-center">ต้องการระดับชั้น</th>
+                        <th class="text-center">ต้องการนแผนก</th>
                         <th class="text-center">รายระเอียดเพิ่มเติม</th>
                         
                       </tr>
@@ -106,11 +107,12 @@
                           <tr>
                             
                             <td><?php echo $res->cpn_name ?></td>
-                            <td><?php echo $res->cpn_address ?></td>
-                            <td><?php echo $res->cpn_email ?></td>
-                            <td><?php echo $res->cpn_phnumber ?></td>
+                            <td><?php echo $res->cpn_add ?></td>
+                            <td><?php echo $res->req_sex ?></td>
+                            <td><?php echo $res->req_glevel ?></td>
+                            <td><?php echo $res->dpm_name ?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'main/index2/' . $res->cpn_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'main/index2/' . $res->req_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
                             </td>
                             </tr>
                             <?php  } ?> 

@@ -108,7 +108,8 @@
                       </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($result as $res){ ?>
+                    <?php 
+                     foreach($result as $res){ ?>
                           <tr>
                             
                             <td><?php echo $res->title ?></td>
@@ -119,10 +120,14 @@
                             <td><?php echo $res->dpm_name?></td>
                             <td><?php echo $res->cpn_name?></td>
                             <td>
-                            <?php if( $res->ac_status == 1){
+                            <?php if(isset($res->ac_status)){
+                            if( $res->ac_status == 1){
                                echo '<span class="color">มีสถานที่ฝึกงานแล้ว</span>';
                              }else{
-                               echo '<span class="color2">ยังไม่มีสถานที่ฝึกงาน</span>';
+                               echo '<span class="color3">รออนุมัติ</span>';
+                             }
+                            }else{
+                              echo '<span class="color2">ยังไม่มีที่ฝึกงาน</span>';
                              }?>
                             </td>
                             <td>
@@ -167,5 +172,8 @@
 }
 .color2 {
   color: red;
+}
+.color3 {
+  color: orange;
 }
 </style>

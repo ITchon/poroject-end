@@ -126,7 +126,7 @@
                             </td>
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/show_cpn_ac_std2/' . $res->std_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
-                            <?php echo "<a type='button' href='".base_url()."company/delete_ac_f/".$res->ac_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
+                            <?php echo "<a type='button' href='".base_url()."admin/delete_ac_f/".$res->ac_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
                             </td>
                             </tr>
                             <?php  } ?> 

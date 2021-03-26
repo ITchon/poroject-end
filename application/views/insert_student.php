@@ -11,8 +11,10 @@
                 <br>
                 <div class="col-md-8">
                     <div class="demo-form-wrapper">
-                        <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/insert_student" method="POST">
-                               
+                    <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/insert_student" method="POST" enctype="multipart/form-data">
+                        
+                        
+                        <div class="form form-horizontal">  
                             <div class="form-group">
                             <label class="col-sm-3 control-label" for="form-control-1">คำนำหน้า</label>
                                 <div class="col-sm-2 col-sm-offset-0">
@@ -88,7 +90,8 @@
                             <div class="form-group">
                             <label class="col-sm-3 control-label" for="form-control-9">รูปนักเรียน</label>
                             <div class="col-sm-9">
-                            <input id="form-control-9" type="file" accept="image/*" multiple="multiple"  name="std_img">
+                          <input type="file" name="std_img" class="form-control" id="std_img" onchange="file()" required> 
+
                             <p class="help-block">
                                 <small>***กรุณาใส่รูปนักเรียน***</small>
                             </p>
@@ -110,10 +113,13 @@
                     </div>       
                 </div> 
             </div>
+            </div>
             <input type="submit" class="btn btn-success" value="ยืนยัน">
             &nbsp;&nbsp;
-            </form>   
+           
+             
             <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_student_index">ยกเลิก</a>
+            </form>  
         </div>   
 </div>
     <div class="theme">

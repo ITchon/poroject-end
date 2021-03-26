@@ -77,7 +77,7 @@
             <input type="submit" class="btn btn-success" value="ยืนยัน">
             &nbsp;&nbsp;
             </form>   
-            <a class="btn btn-danger" href="<?php echo base_url(); ?>company/index">ยกเลิก</a>
+            <a class="btn btn-danger" href="<?php echo base_url(); ?>company/index_show_cpn_req">ยกเลิก</a>
         </div>   
 </div>
     <div class="theme">

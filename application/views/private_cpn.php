@@ -29,66 +29,53 @@
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปของคุณ</h4></th>
                                 <div class="col-sm-9">
-                                <td><img src="<?php echo base_url()?>../img/<?php echo $res->tch_img ?>"style="width:12%"></td>
+                                <td><img src="<?php echo base_url()?>../img/<?php echo $res->cpn_img ?>"style="width:12%"></td>
+                                </div>
+                        </div>
+                    </tr>
+                    
+                    <tr>
+                      <div class="form-group">
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
+                                <div class="col-sm-9">
+                                <td ><h5><?php echo $res->cpn_name ?></h5></td>
                                 </div>
                         </div>
                     </tr>
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ และ นามสกุล</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ที่อยู่</h4></th>
                                 <div class="col-sm-9">
-                                <td ><h5><?php echo $res->tch_name ?></h5></td>
+                                <td ><h5><?php echo $res->cpn_add ?></h5></td>
                                 </div>
                         </div>
+                        </tr>
+                      <tr>
+                        <div class="form-group">
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">E-mail</h4></th>
+                                <div class="col-sm-9">
+                                <td><h5><?php echo $res->cpn_email ?></h5></td>
+                                </div>
+                        </div>
+                      </tr>
                     </tr>
                       <tr>
                         <div class="form-group">
                         <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">เบอร์โทรศัพท์</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->tch_tel ?></h5></td>
+                                <td><h5><?php echo $res->cpn_phnumber ?></h5></td>
                                 </div>
                         </div>
                       </tr>
-                      <tr>
-                        <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">E-mail</h4></th>
-                                <div class="col-sm-9">
-                                    <td><h5><?php echo $res->tch_email ?></h5></td>
-                                </div>
-                        </div>
-                      </tr> 
-                      <tr> 
-                        <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสประจำตัวประชาชน</h4></th> 
-                                <div class="col-sm-9">
-                                <td><h5><?php echo $res->tch_card ?></h5></td>
-                                </div>
-                        </div>
-                      </tr> 
-
-                      <tr> 
-                        <div class="form-group">
-                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อแผนก</h4></th> 
-                                <div class="col-sm-9">
-                                <td><h5><?php echo $res->dpm_name ?></h5></td>
-                                </div>
-                        </div>
-                      </tr>
-
                       <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อกลุ่ม</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถาณะ</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->cls_name." | กลุ่มที่ : ".$res->cls_group ?></h5></td>
-                                </div>
-                        </div>
-                      </tr>
-                      
-                      <tr> 
-                        <div class="form-group">
-                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">ระดับชั้น</h4></th> 
-                                <div class="col-sm-9">
-                                <td><h5><?php echo $res->cls_glevel ?></h5></td>
+                                <td><h5><?php if( $res->cpn_status == 1){
+                               echo '<span class="color">ได้รับอนุญาติแล้ว</span>';
+                             }else{
+                               echo '<span class="color2">ยังไม่ได้รับอนุญาติแล้ว</span>';
+                             }?></h5></td>
                                 </div>
                         </div>
                       </tr>
@@ -99,7 +86,7 @@
             </div>      
         </div>     
         <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>teacher/index">กลับหน้าหลัก</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>company/index_show_cpn">กลับหน้าหลัก</a>
         
     </div>
     

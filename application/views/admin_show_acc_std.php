@@ -2,7 +2,7 @@
 <html lang="en">
   
   <body class="layout layout-header-fixed">
-  <br><br>
+  <br>
   
             <div class="col-xs-10">
             <h2>อนุมัตินักศึกษาออกฝึกงาน</h2>
@@ -68,8 +68,9 @@
                             </td>
                             
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/accept_std/' . $res->std_id; ?>';"><i class='btn btn-success'>อนุมัติ</i></a> 
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/cancel_accept_std/' . $res->std_id; ?>';"><i class='btn btn-warning'>ยกเลิกอนุมัติ</i></a> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/show_std_data/' . $res->std_id; ?>';"><i class='btn btn-success'>ดูข้อมูลเพิ่มเติม</i></a>
+                            <!-- <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/accept_std/' . $res->std_id; ?>';"><i class='btn btn-success'>อนุมัติ</i></a> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/cancel_accept_std/' . $res->std_id; ?>';"><i class='btn btn-warning'>ยกเลิกอนุมัติ</i></a>  -->
                                             <?php echo "<a type='button' href='".base_url()."admin/delete_student_ac_std/".$res->std_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
                             </td>
                             </tr>

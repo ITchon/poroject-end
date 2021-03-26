@@ -29,66 +29,87 @@
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปของคุณ</h4></th>
                                 <div class="col-sm-9">
-                                <td><img src="<?php echo base_url()?>../img/<?php echo $res->tch_img ?>"style="width:12%"></td>
+                                <td><img src="<?php echo base_url()?>../img/<?php echo $res->std_img ?>"style="width:12%"></td>
                                 </div>
                         </div>
                     </tr>
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ และ นามสกุล</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">คำนำหน้า</h4></th>
                                 <div class="col-sm-9">
-                                <td ><h5><?php echo $res->tch_name ?></h5></td>
+                                <td ><h5><?php echo $res->title ?></h5></td>
                                 </div>
                         </div>
                     </tr>
-                      <tr>
-                        <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">เบอร์โทรศัพท์</h4></th>
-                                <div class="col-sm-9">
-                                <td><h5><?php echo $res->tch_tel ?></h5></td>
-                                </div>
-                        </div>
-                      </tr>
-                      <tr>
-                        <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">E-mail</h4></th>
-                                <div class="col-sm-9">
-                                    <td><h5><?php echo $res->tch_email ?></h5></td>
-                                </div>
-                        </div>
-                      </tr> 
-                      <tr> 
-                        <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสประจำตัวประชาชน</h4></th> 
-                                <div class="col-sm-9">
-                                <td><h5><?php echo $res->tch_card ?></h5></td>
-                                </div>
-                        </div>
-                      </tr> 
-
-                      <tr> 
-                        <div class="form-group">
-                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อแผนก</h4></th> 
-                                <div class="col-sm-9">
-                                <td><h5><?php echo $res->dpm_name ?></h5></td>
-                                </div>
-                        </div>
-                      </tr>
-
-                      <tr>
+                    <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อกลุ่ม</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->cls_name." | กลุ่มที่ : ".$res->cls_group ?></h5></td>
+                                <td ><h5><?php echo $res->std_fname ?></h5></td>
+                                </div>
+                        </div>
+                    </tr>
+                    <tr>
+                      <div class="form-group">
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">นามสกุล</h4></th>
+                                <div class="col-sm-9">
+                                <td ><h5><?php echo $res->std_lname ?></h5></td>
+                                </div>
+                        </div>
+                        </tr>
+                      <tr>
+                        <div class="form-group">
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสประจำตัวประชาชน</h4></th>
+                                <div class="col-sm-9">
+                                <td><h5><?php echo $res->std_idcard ?></h5></td>
+                                </div>
+                        </div>
+                      </tr>
+                    </tr>
+                      <tr>
+                        <div class="form-group">
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสนักเรียน</h4></th>
+                                <div class="col-sm-9">
+                                <td><h5><?php echo $res->std_code ?></h5></td>
                                 </div>
                         </div>
                       </tr>
                       
+
                       <tr> 
                         <div class="form-group">
-                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">ระดับชั้น</h4></th> 
+                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">วันเดือนปีเกิด</h4></th> 
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->cls_glevel ?></h5></td>
+                                <td><h5><?php echo $res->std_birthday ?></h5></td>
+                                </div>
+                        </div>
+                      </tr>
+
+                      <tr> 
+                        <div class="form-group">
+                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">อายุ</h4></th> 
+                                <div class="col-sm-9">
+                                <td><h5><?php echo $res->std_age ?></h5></td>
+                                </div>
+                        </div>
+                      </tr>
+                      <tr> 
+                        <div class="form-group">
+                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">เพศ</h4></th> 
+                                <div class="col-sm-9">
+                                <td><h5><?php echo $res->std_sex ?></h5></td>
+                                </div>
+                        </div>
+                      </tr>
+                      <tr>
+                      <div class="form-group">
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถาณะนักศึกษา</h4></th>
+                                <div class="col-sm-9">
+                                <td><h5><?php if( $res->std_status == 1){
+                               echo '<span class="color">ได้รับอนุมัติให้ออกฝึกงานแล้ว</span>';
+                             }else{
+                               echo '<span class="color2">ยังไม่ได้รับอนุมัติให้ออกฝึกงาน</span>';
+                             }?></h5></td>
                                 </div>
                         </div>
                       </tr>
@@ -99,7 +120,7 @@
             </div>      
         </div>     
         <br>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>teacher/index">กลับหน้าหลัก</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>student/index">กลับหน้าหลัก</a>
         
     </div>
     
