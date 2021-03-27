@@ -829,7 +829,7 @@
     });
 
     var $datatablesButtons = $('#demo-datatables-buttons-1').DataTable({
-      buttons: ['print', 'copy', 'pdf','word', 'excel', 'colvis'],
+      buttons: ['print', 'copy', 'pdf', 'excel', 'colvis'],
       lengthChange: false,
       responsive: true,
       language: {

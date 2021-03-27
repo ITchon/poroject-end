@@ -27,11 +27,9 @@
                     
                     <tr>
                       <div class="form-group">
-                      
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปของคุณ</h4></th>
                                 <div class="col-sm-9">
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;
-                                <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $res->cpn_img?>" style="width:35% ;hight:35%;">
+                                <td><img src="<?php echo base_url()?>../img/<?php echo $res->cpn_img ?>"style="width:12%"></td>
                                 </div>
                         </div>
                     </tr>
@@ -116,8 +114,5 @@
 }
 .color2 {
   color: red;
-}
-img {
-  border-radius: 50%;
 }
 </style>
