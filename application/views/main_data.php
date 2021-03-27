@@ -30,7 +30,11 @@
                     
                     <tr>
                       <div class="form-group">
+<<<<<<< HEAD
                       
+=======
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รูปบริษัท</h4></th>
+>>>>>>> parent of a74e995 (แก้ภาษา)
                                 <div class="col-sm-9">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;

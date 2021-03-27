@@ -39,12 +39,12 @@
                             </div>
                           
                             <div class="form-group">
-                            <label class="col-sm-3 control-label" for="form-control-9">รูปอาจารย์</label>
+                            <label class="col-sm-3 control-label" for="form-control-9">รูปนักเรียน</label>
                             <div class="col-sm-9">
                           <input type="file" name="tch_img" class="form-control" id="tch_img" onchange="file()" required> 
 
                             <p class="help-block">
-                                <small>***กรุณาใส่รูปอาจารย์***</small>
+                                <small>***กรุณาใส่รูปนักเรียน***</small>
                             </p>
                             </div>
                             </div> 

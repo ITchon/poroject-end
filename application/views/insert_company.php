@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่สถานประกอบการ</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="cpn_add" class="form-control" type="text">
                                 </div>
@@ -33,18 +33,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">เบอร์ติดต่อ</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">เบอร์โทรศัพท์</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="cpn_phnumber" class="form-control" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                            <label class="col-sm-3 control-label" for="form-control-9">รูปสถานประกอบการ</label>
+                            <label class="col-sm-3 control-label" for="form-control-9">รูปบริษัท</label>
                             <div class="col-sm-9">
                           <input type="file" name="cpn_img" class="form-control" id="cpn_img" onchange="file()" required> 
 
                             <p class="help-block">
-                                <small>***กรุณาใส่รูปสถานประกอบการ***</small>
+                                <small>***กรุณาใส่รูปนักเรียน***</small>
                             </p>
                             </div>
                             </div>

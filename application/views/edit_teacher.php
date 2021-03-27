@@ -38,13 +38,13 @@
                                 </div> 
                                 
                                 <div class="form-group">
-                            <label class="col-sm-3 control-label" for="form-control-9" >รูปอาจารย์</label>
+                            <label class="col-sm-3 control-label" for="form-control-9" >รูปบริษัท</label>
                             <div class="col-sm-9">
                             <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $result[0]->tch_img?>" style="width:20% ;hight:20%;">
                            <input type="file" name="tch_img" class="form-control" id="tch_img"  onchange="file()"  value="<?php echo $result[0]->tch_img ?>" required> 
                                                                                   
                             <p class="help-block">
-                                <small>***กรุณาใส่รูปอาจารย์***</small>
+                                <small>***กรุณาใส่รูปบริษัท***</small>
                             </p>
                             </div>
                             </div>  

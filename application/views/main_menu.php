@@ -75,11 +75,18 @@
                       <tr>
                         
                         <th class="text-center">ชื่อบริษัท</th>
+<<<<<<< HEAD
                         
                         <th class="text-center">ต้องการเพศ</th>
                         <th class="text-center">ต้องการระดับชั้น</th>
                         <th class="text-center">ต้องการนแผนก</th>
                         <th class="text-center">จำนวนที่ต้องการ</th>
+=======
+                        <th class="text-center">ที่อยู่</th>
+                        <th class="text-center">ต้องการเพศ</th>
+                        <th class="text-center">ต้องการระดับชั้น</th>
+                        <th class="text-center">ต้องการนแผนก</th>
+>>>>>>> parent of a74e995 (แก้ภาษา)
                         <th class="text-center">รายระเอียดเพิ่มเติม</th>
                         
                       </tr>

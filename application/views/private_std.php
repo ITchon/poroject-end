@@ -47,7 +47,7 @@
                     </tr>
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อจริง</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
                                 <div class="col-sm-9">
                                 <td ><h5><?php echo $res->std_fname ?></h5></td>
                                 </div>
@@ -72,7 +72,7 @@
                     </tr>
                       <tr>
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสประจำตัวนักศึกษา</h4></th>
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสนักเรียน</h4></th>
                                 <div class="col-sm-9">
                                 <td><h5><?php echo $res->std_code ?></h5></td>
                                 </div>
@@ -82,7 +82,7 @@
 
                       <tr> 
                         <div class="form-group">
-                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">วันเกิด</h4></th> 
+                        <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">วันเดือนปีเกิด</h4></th> 
                                 <div class="col-sm-9">
                                 <td><h5><?php echo $res->std_birthday ?></h5></td>
                                 </div>
@@ -107,7 +107,7 @@
                       </tr>
                       <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถานะนักศึกษา</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถาณะนักศึกษา</h4></th>
                                 <div class="col-sm-9">
                                 <td><h5><?php if( $res->std_status == 1){
                                echo '<span class="color">ได้รับอนุมัติให้ออกฝึกงานแล้ว</span>';

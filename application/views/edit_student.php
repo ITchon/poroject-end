@@ -5,7 +5,7 @@
  
 <div class="layout-content">
         <div class="layout-content-body">
-        <h2>แก้ไขข้อมูลนักศึกษา</h2>
+        <h2>แก้ไขข้อมูลนักเรียน</h2>
         <br>
             <div class="row card">
                 <br>
@@ -27,7 +27,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อจริง</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อ</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="std_fname" class="form-control" type="text" value="<?php echo $result[0]->std_fname ?>">
                                 </div>
@@ -45,7 +45,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">รหัสประจำตัวนักศึกษา</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">รหัสนักเรียน</label>
                                 <div class="col-sm-9">
                                     <input id="form-control-1" name="std_code" class="form-control" type="text" value="<?php echo $result[0]->std_code ?>">
                                 </div>
@@ -79,7 +79,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ระดับชั้น</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อห้อง</label>
                                 <div class="col-sm-9">
                                 <select id="std_id"name="cls_id" class="form-control">
                                                
@@ -93,7 +93,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                            <label class="col-sm-3 control-label" for="form-control-9" >รูปนักศึกษา</label>
+                            <label class="col-sm-3 control-label" for="form-control-9" >รูปรักเรียน</label>
                             <div class="col-sm-9">
                             <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $result[0]->std_img?>" style="width:20% ;hight:20%;">
                           <input type="file" name="std_img" class="form-control" id="std_img"  onchange="file()"  value="<?php echo $result[0]->std_img ?>" required> 
