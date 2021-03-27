@@ -24,7 +24,7 @@
         
           <h2 class="media-heading">
           
-            <span class="fw-l"><?php echo $count_user?>/50</span>
+            <span class="fw-l"><?php echo $count_user ?>/50</span>
             
           </h2>
           <small>จำนวนสมาชิก</small>
@@ -91,7 +91,8 @@
                 </div>
               </div>
             </div>
-
+      </div>
+      <div class="row gutter-xs">
             <div class="col-md-4">
               <div class="card">
                 <div class="card-body">
@@ -99,7 +100,7 @@
                     <div class="media-middle media-left">
                       <div class="media-chart">
                       
-
+                        <canvas data-chart="doughnut" data-animation="false" data-labels='["<?php echo $count_tch?>", "<?php echo $count_tch?>"]' data-values='[{"backgroundColor": ["#FFE700", "#A6A6A6"], "data": [<?php echo $count_std?>,50]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
                         
                       </div>
                     </div>
@@ -117,6 +118,10 @@
                 </div>
               </div>
             </div>
+        </dive> 
+
+        
+            
 
             <div class="col-md-4">
               <div class="card">

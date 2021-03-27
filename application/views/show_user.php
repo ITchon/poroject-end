@@ -32,7 +32,7 @@
                             <td><?php echo $res->status ?></td>
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_passwd/' . $res->user_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
-                                            <?php echo "<a type='button' href='".base_url()."admin/delete_user/".$res->user_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
+                            &nbsp;<a class="btn btn-danger " data-toggle="modal" data-target="#warningModalAlert" >ลบ</a> 
                                         </td>
                             
                             </tr>
@@ -45,6 +45,29 @@
               </div>                              
         </div>
       </div>
+
+      <div id="warningModalAlert" tabindex="-1" role="dialog" class="modal fade">
+      <div class="modal-dialog polaroid ">
+        <div class="modal-content">
+          <div class="modal-body ">
+            <div class="text-center">
+              <span class="text-warning icon icon-exclamation-triangle icon-5x"></span>
+              <h3 class="text-warning">คำเตือน</h3>
+              <h1>กรุณากด "ยืนยัน" เพื่อลบ</h1>
+              <div class="m-t-lg">
+              <?php echo "<a type='button' href='".base_url()."admin/delete_user/".$res->user_id."' ' ><label class='btn btn-danger'>ยืนยัน</label></a>";?>
+                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+
+
+
     <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">

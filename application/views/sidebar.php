@@ -77,7 +77,7 @@
                   </a>
                 </li>
                 <li class="sidenav-item">
-                <a href="<?php echo base_url();?>company/index">
+                <a href="<?php echo base_url();?>admin/show_std_rp">
                     <span class="sidenav-icon icon icon-tags"></span>
                     <span class="sidenav-label">จำนวนนักเรียนที่ออกฝึกงาน</span>
                   </a>

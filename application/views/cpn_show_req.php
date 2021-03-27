@@ -24,7 +24,7 @@
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                     
                   </div>
-                  <strong>รายการสถานประกอบการ</strong>
+                  <strong>ตรวสอบการเปิดรับนักศึกษา</strong>
                 </div>
                 <div class="card-body">
         <div class="panel-body collapse in">      
@@ -54,8 +54,8 @@
                             <td><?php echo $res->req_sex ?></td>
                             <td><?php echo $res->req_number?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'company/index_show_cpn_req_data/' . $res->cpn_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
-                            <?php echo "<a type='button' href='".base_url()."company/delete_cpn_req_data/".$res->req_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?>
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'company/index_show_cpn_req_data/' . $res->cpn_id;  ?>';"><label class='btn btn-success '>ดูข้อมูลเพิ่มเติม</label></a> 
+                            &nbsp;<a class="btn btn-danger " data-toggle="modal" data-target="#warningModalAlert" >ลบ</a>
                             </td>
                             </tr>
                             <?php  } ?> 
@@ -74,7 +74,26 @@
       
     </div>
 
-    
+    <div id="warningModalAlert" tabindex="-1" role="dialog" class="modal fade">
+      <div class="modal-dialog polaroid ">
+        <div class="modal-content">
+          <div class="modal-body ">
+            <div class="text-center">
+              <span class="text-warning icon icon-exclamation-triangle icon-5x"></span>
+              <h3 class="text-warning">คำเตือน</h3>
+              <h1>กรุณากด "ยืนยัน" เพื่อลบ</h1>
+              <div class="m-t-lg">
+              <?php echo "<a type='button' href='".base_url()."admin/delete_cpn_req_data/".$res->req_id."' ' ><label class='btn btn-danger'>ยืนยัน</label></a>";?>
+                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+
   </body>
   <script src="<?php echo base_url()?>asset/js/vendor.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/elephant.min.js"></script>

@@ -5,7 +5,7 @@
   <br><br>
   
             <div class="col-xs-10">
-            <h2>อนุมัตินักศึกษาออกฝึกงาน</h2>
+            
             <?php echo $this->session->flashdata("success"); ?>
             <?php echo $this->session->flashdata("failed"); ?>
             <?php echo $this->session->flashdata("success_del"); ?>
@@ -18,7 +18,7 @@
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                     
                   </div>
-                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
+                  <strong>อนุมัตินักศึกษาออกฝึกงาน</strong>
                 </div>
                 <div class="card-body">
         <div class="panel-body collapse in">      
@@ -68,9 +68,9 @@
                             </td>
                             
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'bilateral/accept_std/' . $res->std_id; ?>';"><i class='btn btn-success'>อนุมัติ</i></a> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'bilateral/accept_std/' . $res->std_id; ?>';"><label class='btn btn-success'>อนุมัติ</label></a> 
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'bilateral/cancel_accept_std/' . $res->std_id; ?>';"><i class='btn btn-warning'>ยกเลิกอนุมัติ</i></a> 
-                                            <?php echo "<a type='button' href='".base_url()."bilateral/delete_student/".$res->std_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
+                            &nbsp;<a class="btn btn-danger " data-toggle="modal" data-target="#warningModalAlert" >ลบ</a>
                             </td>
                             </tr>
                             <?php  } ?> 
@@ -83,6 +83,27 @@
         </div>
       </div>
       
+      <div id="warningModalAlert" tabindex="-1" role="dialog" class="modal fade">
+      <div class="modal-dialog polaroid ">
+        <div class="modal-content">
+          <div class="modal-body ">
+            <div class="text-center">
+              <span class="text-warning icon icon-exclamation-triangle icon-5x"></span>
+              <h3 class="text-warning">คำเตือน</h3>
+              <h1>กรุณากด "ยืนยัน" เพื่อลบ</h1>
+              <div class="m-t-lg">
+              <?php echo "<a type='button' href='".base_url()."admin/delete_student/".$res->std_id."' ' ><label class='btn btn-danger'>ยืนยัน</label></a>";?>
+                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+
+
     <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">

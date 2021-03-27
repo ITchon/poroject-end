@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   
+
   <body class="layout layout-header-fixed">
   <br><br>
             
             <div class="col-xs-10">
-            <h2>อนุมัติสถานประกอบการเข้าสู่ระบบ</h2>
+            
             <?php echo $this->session->flashdata("success"); ?>
             <?php echo $this->session->flashdata("failed"); ?>
             <?php echo $this->session->flashdata("success_del"); ?>
-              <div class="card">
+              
+            <div class="card">
                 
                 <div class="card-header">
                   <div class="card-actions">
@@ -18,7 +20,7 @@
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                     
                   </div>
-                  <strong></strong>
+                  <strong>แสดงข้อมูลสถาณประกอบการที่รออนุมัติ</strong>
                 </div>
                 
                 <div class="card-body">
@@ -31,7 +33,7 @@
                     <tr>
                         
                         <th>ชื่อสถานประกอบการ</th>
-                        <th>ที่อยู่สถานประกอบการ</th>
+                        
                         <th>E-mail</th>
                         <th>เบอร์ติดต่อ</th>
                         <th>สถานะ</th>
@@ -44,7 +46,7 @@
                           <tr>
                             
                             <td><?php echo $res->cpn_name ?></td>
-                            <td><?php echo $res->cpn_add ?></td>
+                            
                             <td><?php echo $res->cpn_email ?></td>
                             <td><?php echo $res->cpn_phnumber ?></td>
                             <td>
@@ -56,8 +58,8 @@
                             </td>
                             
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/index3/' . $res->cpn_id; ?>';"><i class='btn btn-success'>ดูข้อมูลเพิ่มเติม</i></a> 
-                                            <?php echo "<a type='button' href='".base_url()."admin/delete_cpn_f/".$res->cpn_id."' onclick='return confirm(\"Confirm Delete Item\")' ><i class='btn btn-danger'>ลบ</i></a>";?> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/index3/' . $res->cpn_id; ?>';"><label class='btn btn-success'>ดูข้อมูลเพิ่มเติม</label></a> 
+                            &nbsp;<a class="btn btn-danger " data-toggle="modal" data-target="#warningModalAlert" >ลบ</a>  
                             </td>
                             </tr>
                             <?php  } ?> 
@@ -70,6 +72,27 @@
         </div>
       </div>
       
+
+
+
+      <div id="warningModalAlert" tabindex="-1" role="dialog" class="modal fade">
+      <div class="modal-dialog polaroid ">
+        <div class="modal-content">
+          <div class="modal-body ">
+            <div class="text-center">
+              <span class="text-warning icon icon-exclamation-triangle icon-5x"></span>
+              <h3 class="text-warning">คำเตือน</h3>
+              <h1>กรุณากด "ยืนยัน" เพื่อลบ</h1>
+              <div class="m-t-lg">
+              <?php echo "<a type='button' href='".base_url()."admin/delete_cpn_f/".$res->cpn_id."' ' ><label class='btn btn-danger'>ยืนยัน</label></a>";?>
+                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
     <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">

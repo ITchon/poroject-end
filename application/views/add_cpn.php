@@ -32,10 +32,11 @@
   <body class="layout layout-header-fixed">
    
     <div class="layout-main">
-      
+      <div class="card">
       <div class="layout-content">
         <div class="layout-content-body">
-          
+        <H2>ลงทะเบียนเข้าสู่ระบบของบริษัท</H2>
+        <br><br>
           <div class="row">
             <div class="col-md-8">
               <div class="demo-form-wrapper">
@@ -93,6 +94,7 @@
           </div>
         </div>
         
+      </div>
       </div>
     </div>
     <script src="js/vendor.min.js"></script>

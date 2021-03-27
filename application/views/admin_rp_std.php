@@ -2,10 +2,13 @@
 <html lang="en">
   
   <body class="layout layout-header-fixed">
-  <br><br>
+  <br>
   
             <div class="col-xs-10">
-              
+            <h2>นักเรียนทั้งหมดที่ได้รับอนุญาติให้ออกฝึกงาน</h2>
+            <?php echo $this->session->flashdata("success"); ?>
+            <?php echo $this->session->flashdata("failed"); ?>
+            <?php echo $this->session->flashdata("success_del"); ?>
               <div class="card">
                 
                 <div class="card-header">
@@ -15,41 +18,60 @@
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                     
                   </div>
-                  <strong>แสดงข้อมูลบริษัททั้งหมด</strong>
+                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
                 </div>
                 <div class="card-body">
         <div class="panel-body collapse in">      
-        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_company_index">เพิ่ม</a>
+        
               <div class="table-responsive">
                 <div class="card-body ">
-                  <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">
+                <table id="demo-datatables-buttons-2" class="table table-bordered table-striped table-nowrap dataTable text-center" cellspacing="0" width="100%">
                     <thead>
                       <tr>
-                        <th>รหัสบริษัท</th>
-                        <th>ชื่อบริษัท</th>
-                        <th>ที่อยู่</th>
-                        <th>E-mail</th>
-                        <th>เบอร์โทรศัพท์</th>
-                        <th>จัดการ</th>
+                        <!-- <th>รหัส</th> -->
+                        <th>คำนำหน้า</th>
+                        <th>ชื่อ</th>
+                        <th>นามสกุล</th>
+                        
+                        <th>รหัสนักเรียน</th>
+                        <th>วันเกิด</th>
+                        <th>อายุ</th>
+                        <th>เพศ</th>
+                        
+                        <th>แผนก</th>
+                        <!-- <th>คุณครู</th> -->
+                        <th>สถานะ</th>
+                        
+                        
                         
                       </tr>
                     </thead>
                     <tbody>
-                    <?php foreach($result as $res){ ?>
+                      <?php foreach($result as $res){ ?>
                           <tr>
-                            <td><?php echo $res->cpn_id ?></td>
-                            <td><?php echo $res->cpn_name ?></td>
-                            <td><?php echo $res->cpn_add ?></td>
-                            <td><?php echo $res->cpn_email ?></td>
-                            <td><?php echo $res->cpn_phnumber ?></td>
+                            <!-- <td><?php echo $res->std_id ?></td> -->
+                            <td><?php echo $res->title ?></td>
+                            <td><?php echo $res->std_fname ?></td>
+                            <td><?php echo $res->std_lname ?></td>
+                            
+                            <td><?php echo $res->std_code ?></td>
+                            <td><?php echo $res->std_birthday ?></td>
+                            <td><?php echo $res->std_age ?></td>
+                            <td><?php echo $res->std_sex ?></td>
+                            <td><?php echo $res->dpm_name ?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_company/' . $res->cpn_id; ?>';"><label class='btn btn-warning'>แก้ไข</label></a> &nbsp 
-                                            &nbsp;<a class="btn btn-danger " data-toggle="modal" data-target="#warningModalAlert" >ลบ</a>        
-                                        </td>
+                            <?php if( $res->std_status == 1){
+                               echo '<span class="color">อนุมัติแล้ว</span>';
+                             }else{
+                               echo '<span class="color2">ยังไม่อนุมัติ</span>';
+                             }?>
+                            </td>
+                            
+                            
                             </tr>
                             <?php  } ?> 
                            
-                    </tbody>                
+                      </tbody>                
                   </table>
                 </div>  
               </div>                              
@@ -57,29 +79,6 @@
         </div>
       </div>
       
-      <div id="warningModalAlert" tabindex="-1" role="dialog" class="modal fade">
-      <div class="modal-dialog polaroid ">
-        <div class="modal-content">
-          <div class="modal-body ">
-            <div class="text-center">
-              <span class="text-warning icon icon-exclamation-triangle icon-5x"></span>
-              <h3 class="text-warning">คำเตือน</h3>
-              <h1>กรุณากด "ยืนยัน" เพื่อลบ</h1>
-              <div class="m-t-lg">
-              <?php echo "<a type='button' href='".base_url()."admin/delete_company/".$res->cpn_id."' ' ><label class='btn btn-danger'>ยืนยัน</label></a>";?>
-                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer"></div>
-        </div>
-      </div>
-    </div>
-
-
-
-
-
     <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">
@@ -244,6 +243,7 @@
     </div>
     
   </body>
+
     <script src="<?php echo base_url()?>asset/js/vendor.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/elephant.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/application.min.js"></script>                                   
@@ -255,5 +255,13 @@
       })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
-    </script>>
+    </script>
 </html>
+<style>
+.color {
+  color: green;
+}
+.color2 {
+  color: red;
+}
+</style>

@@ -10,7 +10,7 @@ class Student extends CI_Controller {
         parent::__construct();
         $this->load->view('header2');
         $this->load->model('model');
-        $this->load->view('head_main');
+        $this->load->view('head_std');
         $this->load->view('sidebar_std');
         
     }
@@ -18,12 +18,14 @@ class Student extends CI_Controller {
  public function index(){
     
     
-    $qry_inp =  "SELECT req.req_id,req.req_sex,req.req_glevel,company.cpn_id,company.cpn_name,company.cpn_add,company.cpn_email,company.cpn_phnumber,department.dpm_name,req.req_number
+    $qry_inp =  "SELECT req.req_id,req.req_sex,req.req_glevel,company.cpn_id
+    ,company.cpn_name,company.cpn_add,company.cpn_email,company.cpn_phnumber,department.dpm_name,req.req_number
     FROM req
     INNER JOIN company on company.cpn_id = req.cpn_id
     INNER JOIN department on department.dpm_id = req.dpm_id" ;
     $query = $this->db->query($qry_inp); 
     $data['result'] = $query->result();
+    $data['count_req'] = $this->model->count_req();
     $this->load->view('main_menu_std',$data);
  }
  public function index2(){  
@@ -98,11 +100,11 @@ public function index_priv_std(){
    $qry_inp =  "SELECT student.std_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_code,
    student.std_birthday,student.std_age,student.std_sex,student.std_status,department.dpm_name,student.std_img,student.std_idcard
    FROM student
-   INNER JOIN accept_req on accept_req.std_id = student.std_id
-   INNER JOIN req on req.req_id = accept_req.req_id
-   INNER JOIN company on company.cpn_id = req.cpn_id
-   INNER JOIN class AS c on student.cls_id = c.cls_id
-   INNER JOIN department on department.dpm_id = c.dpm_id
+   LEFT JOIN accept_req on accept_req.std_id = student.std_id
+   LEFT JOIN req on req.req_id = accept_req.req_id
+   LEFT JOIN company on company.cpn_id = req.cpn_id
+   LEFT JOIN class AS c on student.cls_id = c.cls_id
+   LEFT JOIN department on department.dpm_id = c.dpm_id
    WHERE student.std_id = $std_id" ;
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();

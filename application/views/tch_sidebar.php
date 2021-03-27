@@ -14,27 +14,22 @@
                     </div>
                   </form>
                 </li>
-                
+                <br>
                 <li class="sidenav-item">
                   <li class="sidenav-item">
                   <a href="<?php echo base_url();?>teacher/index_priv_tch">
-                    <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label" >จัดข้อมูลส่วนตัว</span>
+                    <span class="sidenav-icon icon icon-folder-open-o"></span>
+                    <span class="sidenav-label" >ข้อมูลส่วนตัว</span>
                   </a>
                 </li>
                 <li class="sidenav-item">
                   <li class="sidenav-item">
                   <a href="<?php echo base_url();?>teacher/index">
-                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-icon icon icon-edit"></span>
                     <span class="sidenav-label" >จัดการนักศึกษาในชั้นเรียน</span>
                   </a>
                 </li>
-                <li class="sidenav-item">
-                  <a href="page-layouts.html">
-                    <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label">ข้อมูลวันเวลาออกฝึกงาน</span>
-                  </a>
-                </li>
+                
             </nav>
           </div>
         </div>

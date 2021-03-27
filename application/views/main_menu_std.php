@@ -16,15 +16,15 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <div class="media-chart">
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#66FFFF", "#757575"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
+                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#66FFFF", "#A6A6A6"], "data": [<?php echo $count_req?>, 50]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
                       </div>
                     </div>
                     <div class="media-middle media-body">
                       <h2 class="media-heading">
-                        <span class="fw-l">879</span>
-                        <small>Resolved</small>
+                        <span class="fw-l"><?php echo $count_req?>/50</span>
+                        <small></small>
                       </h2>
-                      <small>More than 70% resolved issues</small>
+                      <small>จำนวนบริษัทที่เปิดรับสมัคร</small>
                     </div>
                   </div>
                 </div>
@@ -74,7 +74,7 @@
                             <td><?php echo $res->req_sex ?></td>
                             <td><?php echo $res->req_number?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'student/index2/' . $res->req_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'student/index2/' . $res->req_id;  ?>';"><label class='btn btn-success '>ดูข้อมูลเพิ่มเติม</label></a> 
                              
                             </td>
                             </tr>

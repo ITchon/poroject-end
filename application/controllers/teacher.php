@@ -10,14 +10,19 @@ class Teacher extends CI_Controller {
        parent::__construct();
        $this->load->view('header2');
        $this->load->model('model');
-       
+       $this->load->view('head_tch');
+      $this->load->view('tch_sidebar');
        
        
    }
 
 public function index(){
    $tch_id = $this->session->userdata('tch_id');
-  
+   $qry_inp =  "SELECT * FROM class where class.tch_id = $tch_id ";
+   $query = $this->db->query($qry_inp); 
+   $data['result1'] = $query->result();
+   $data['count_cls'] = $this->model->count_cls($data);
+   
    $qry_inp =  "SELECT student.std_id,student.title,student.std_fname,student.std_lname,student.std_age,student.std_sex
    ,department.dpm_name,accept_req.ac_status,accept_req.ac_id,company.cpn_name,student.std_img
       FROM student  
@@ -28,16 +33,15 @@ public function index(){
       LEFT JOIN department on department.dpm_id = class.dpm_id WHERE class.tch_id = $tch_id" ;
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
-   $this->load->view('head_main');
-   $this->load->view('tch_sidebar');
+   
    $this->load->view('main_menu_tch',$data);
    
 }
 public function index2(){  
    $std_id = $this->uri->segment('3');
    $data['result'] = $this->model->select_main_data_std_cnp($std_id);
-   $this->load->view('head_main');
-   $this->load->view('tch_sidebar');
+   $data['result2'] = $this->model->select_main_data_std_cnp($std_id);
+   
    $this->load->view('main_data_tch',$data);
 }
 public function cpn_accept_std(){   
@@ -105,8 +109,7 @@ public function delete_ac_f($ac_id)
       WHERE teacher.tch_id = $tch_id" ;
       $query = $this->db->query($qry_inp); 
       $data['result'] = $query->result();
-      $this->load->view('head_main');
-      $this->load->view('tch_sidebar');
+  
       $this->load->view('private_tch',$data);
       
    }

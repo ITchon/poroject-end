@@ -25,6 +25,7 @@
             </span>
           </button>
         </div>
+        
         <div class="navbar-toggleable">
           <nav id="navbar" class="navbar-collapse collapse">
             <button class="sidenav-toggler hidden-xs" title="Collapse sidenav ( [ )" aria-expanded="true" type="button">
@@ -43,7 +44,17 @@
                 <h4 class="navbar-text text-center">Hi, Teddy Wilson</h4>
               </li>
               
-              
+              <li class="dropdown hidden-xs">
+                <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
+                  <H4>ออกจากระบบ</H4>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  
+                  <li><a href="<?php echo base_url()?>">Sign out</a></li>
+                </ul>
+              </li>
+
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
                   <div class="dropdown-header">
                     <a class="dropdown-link" href="compose.html">New Message</a>
@@ -300,4 +311,4 @@
           </nav>
         </div>
       </div>
-    </div>
+    </div> 
