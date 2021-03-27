@@ -5,7 +5,7 @@
   <br><br>
             
             <div class="col-xs-10">
-            <h2>อนุมัตบริษัทเข้าสู่ระบบ</h2>
+            <h2>อนุมัติสถานประกอบการเข้าสู่ระบบ</h2>
             <?php echo $this->session->flashdata("success"); ?>
             <?php echo $this->session->flashdata("failed"); ?>
             <?php echo $this->session->flashdata("success_del"); ?>
