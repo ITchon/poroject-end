@@ -15,7 +15,7 @@
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                     
                   </div>
-                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
+                  <strong>แสดงข้อมูล</strong>
                 </div>
                 <div class="card-body">
         <div class="panel-body collapse in">      
@@ -28,7 +28,7 @@
                         
                         <th>ลำดับ</th>
                         <th>ชื่อแผนกวิชา</th>
-                        <th>จัดการ</th>
+                        <th>manage</th>
                         
                         
                       </tr>

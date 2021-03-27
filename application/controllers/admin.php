@@ -951,28 +951,6 @@ public function delete_cpn_req_data($req_id)
 }
 
 
-<<<<<<< HEAD
-public function index_show_report(){
-   $qry_inp =  "SELECT student.std_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_code,
-   student.std_birthday,student.std_age,student.std_sex,student.std_status,department.dpm_name,student.std_img
-   FROM student
-   INNER JOIN class AS c on student.cls_id = c.cls_id
-   INNER JOIN department on department.dpm_id = c.dpm_id";
-   $query = $this->db->query($qry_inp); 
-   $data['result'] = $query->result();
-   $this->load->view('admin_rp_std',$data);
-  }
-
-
-  public function download(){
-  
-   $this->load->view('admin_download');
-   
-}
-
-
-=======
->>>>>>> parent of c4e1351 (ล่าสุดเลยละกัน)
 
 }
 ?>

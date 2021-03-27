@@ -95,13 +95,6 @@ public function insert_req_cpn_f(){
    $sql="SELECT * FROM department";
    $query = $this->db->query($sql); 
    $data['result1'] = $query->result();
-<<<<<<< HEAD
-   $data['total'] = $this->model->count_req_cpn_sql($cpn_id);
-=======
-   $this->load->view('head_main');
-   $this->load->view('cpn_sidebar');
->>>>>>> parent of c4e1351 (ล่าสุดเลยละกัน)
-   $this->load->view('insert_req_cpn',$data);
 }
 
 public function insert_req_cpn_r(){
@@ -218,13 +211,6 @@ public function index_show_cpn_private(){
    $this->load->view('private_cpn',$data);
    
 }
-<<<<<<< HEAD
-public function count_req_cpn(){
-   $data['count_req_cpn'] = $this->model->count_req_cpn_sql();
- }
-=======
->>>>>>> parent of c4e1351 (ล่าสุดเลยละกัน)
-
 
 }
 ?>

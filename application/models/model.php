@@ -1025,29 +1025,12 @@ $query = $this->db->get('student');
 return $query->result();
 }
 
-<<<<<<< HEAD
 public function count_std()
 {
-          $sql ="SELECT COUNT(std_id) as std_id FROM student ";
-          $res =$this->db->query($sql);
-          return $res->row()->std_id;
-}
-public function count_req_cpn_sql($cpn_id)
-{
-          $sql ="SELECT req_id   FROM req where cpn_id = $cpn_id";
+          $sql ="SELECT std_id  FROM student";
           $res =$this->db->query($sql);
           return $res->num_rows();
 }
-=======
-public function count_number()
-        {
-          $sql ="SELECT COUNT(std_id) as std_id FROM student ";
-          $res =$this->db->query($sql);
-          return $res->row()->std_id;
-        }
-
->>>>>>> parent of c4e1351 (ล่าสุดเลยละกัน)
-
 public function count_cpn()
 {
           $sql ="SELECT cpn_id  FROM company";

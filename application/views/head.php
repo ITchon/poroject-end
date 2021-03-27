@@ -1,9 +1,10 @@
 <div class="layout-header">
       <div class="navbar navbar-default">
         <div class="navbar-header">
-          <a class="navbar-brand navbar-brand-center" href="index.html">
-            <img class="navbar-brand-logo" src="img/logo-inverse.svg" alt="Elephant">
+        <a class="navbar-brand navbar-brand-center" href="index">
+            <label class="navbar-brand-logo"><H4>หน้าแรก</H4></label>
           </a>
+          <br><br><br> 
           <button class="navbar-toggler visible-xs-block collapsed" type="button" data-toggle="collapse" data-target="#sidenav">
             <span class="sr-only">Toggle navigation</span>
             <span class="bars">
@@ -41,29 +42,8 @@
               <li class="visible-xs-block">
                 <h4 class="navbar-text text-center">Hi, Teddy Wilson</h4>
               </li>
-              <li class="hidden-xs hidden-sm">
-                <form class="navbar-search navbar-search-collapsed">
-                  <div class="navbar-search-group">
-                    <input class="navbar-search-input" type="text" placeholder="Search for people, companies, and more&hellip;">
-                    <button class="navbar-search-toggler" title="Expand search form ( S )" aria-expanded="false" type="submit">
-                      <span class="icon icon-search icon-lg"></span>
-                    </button>
-                    <button class="navbar-search-adv-btn" type="button">Advanced</button>
-                  </div>
-                </form>
-              </li>
-              <li class="dropdown">
-                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">
-                  <span class="icon-with-child hidden-xs">
-                    <span class="icon icon-envelope-o icon-lg"></span>
-                    <span class="badge badge-danger badge-above right">8</span>
-                  </span>
-                  <span class="visible-xs-block">
-                    <span class="icon icon-envelope icon-lg icon-fw"></span>
-                    <span class="badge badge-danger pull-right">8</span>
-                    Messages
-                  </span>
-                </a>
+              
+              
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
                   <div class="dropdown-header">
                     <a class="dropdown-link" href="compose.html">New Message</a>
@@ -314,46 +294,8 @@
                   </div>
                 </div>
               </li>-->
-              <li class="dropdown hidden-xs">
-                <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-                  <img class="rounded" width="36" height="36" src="img/0180441436.jpg" alt="Teddy Wilson"> Teddy Wilson
-                  <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li>
-                    <a href="upgrade.html">
-                      <h5 class="navbar-upgrade-heading">
-                        Upgrade Now
-                        <small class="navbar-upgrade-notification">You have 15 days left in your trial.</small>
-                      </h5>
-                    </a>
-                  </li>
-                  <li class="divider"></li>
-                  <li class="navbar-upgrade-version">Version: 1.0.0</li>
-                  <li class="divider"></li>
-                  <li><a href="contacts.html">Contacts</a></li>
-                  <li><a href="profile.html">Profile</a></li>
-                  <li><a href="<?php echo base_url()."logout/index";?>">Sign out</a></li>
-                </ul>
-              </li>
-              <li class="visible-xs-block">
-                <a href="contacts.html">
-                  <span class="icon icon-users icon-lg icon-fw"></span>
-                  Contacts
-                </a>
-              </li>
-              <li class="visible-xs-block">
-                <a href="profile.html">
-                  <span class="icon icon-user icon-lg icon-fw"></span>
-                  Profile
-                </a>
-              </li>
-              <li class="visible-xs-block">
-                <a href="login-1.html">
-                  <span class="icon icon-power-off icon-lg icon-fw"></span>
-                  Sign out
-                </a>
-              </li>
+              
+              
             </ul>
           </nav>
         </div>
