@@ -951,7 +951,6 @@ public function delete_cpn_req_data($req_id)
 }
 
 
-<<<<<<< HEAD
 public function index_show_report(){
    $qry_inp =  "SELECT student.std_id,c.cls_name,student.title,student.std_fname,student.std_lname,student.std_code,
    student.std_birthday,student.std_age,student.std_sex,student.std_status,department.dpm_name,student.std_img
@@ -971,8 +970,6 @@ public function index_show_report(){
 }
 
 
-=======
->>>>>>> parent of c4e1351 (ล่าสุดเลยละกัน)
 
 }
 ?>

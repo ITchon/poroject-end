@@ -59,7 +59,10 @@
                     <tr>
                       <div class="form-group">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of e21970e (side new)
                       
                                 <div class="col-sm-9">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -69,7 +72,10 @@
                     </tr>
                     <tr>
                       <div class="form-group">
+<<<<<<< HEAD
 >>>>>>> parent of a74e995 (แก้ภาษา)
+=======
+>>>>>>> parent of e21970e (side new)
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อบริษัท</h4></th>
                                 <div class="col-sm-9">
                                 <td ><h5><?php echo $res->cpn_name ?></h5></td>
@@ -147,3 +153,14 @@
       ga('send', 'pageview');
     </script>
 </html>
+<style>
+.color {
+  color: green;
+}
+.color2 {
+  color: Orange;
+}
+img {
+  border-radius: 50%;
+}
+</style>s

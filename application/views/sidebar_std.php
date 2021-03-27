@@ -15,9 +15,13 @@
                   </form>
                 </li>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                 <br>
 >>>>>>> parent of a74e995 (แก้ภาษา)
+=======
+                <br>
+>>>>>>> parent of e21970e (side new)
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>student/index_priv_std">
                     <span class="sidenav-icon icon icon-mortar-board"></span>

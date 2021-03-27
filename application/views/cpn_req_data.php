@@ -1,5 +1,8 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of e21970e (side new)
 <!DOCTYPE html>
 <html lang="en">
   
@@ -122,5 +125,9 @@
 img {
   border-radius: 50%;
 }
+<<<<<<< HEAD
 </style>
 >>>>>>> parent of a74e995 (แก้ภาษา)
+=======
+</style>
+>>>>>>> parent of e21970e (side new)

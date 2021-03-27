@@ -729,6 +729,18 @@ public function del_dpm_p($dpm_id)
   return $data;
  }
 
+ public function see_data_req_cpn($id)
+ {
+  $sql="SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_add,company.cpn_email,company.cpn_phnumber,req.req_number
+  
+  FROM req
+  INNER JOIN company on company.cpn_id = req.cpn_id WHERE company.cpn_id = $id ";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
+ 
  public function select_main_btr_cpn_data($cpn_id)
  {
   $sql="SELECT * FROM company WHERE cpn_id = '$cpn_id'";
@@ -755,9 +767,9 @@ public function del_dpm_p($dpm_id)
   $sql="SELECT student.std_id,student.title,student.std_fname,student.std_lname,student.std_age,student.std_sex,student.std_status
   ,department.dpm_name,accept_req.ac_status,accept_req.ac_id,company.cpn_name,student.std_img,c.cls_name,student.std_birthday,student.std_idcard,student.std_code
   FROM student
-  INNER JOIN class AS c on student.cls_id = c.cls_id
-  INNER JOIN department on department.dpm_id = c.dpm_id
-  INNER JOIN teacher on teacher.tch_id = c.tch_id
+  LEFT JOIN class AS c on student.cls_id = c.cls_id
+  LEFT JOIN department on department.dpm_id = c.dpm_id
+  LEFT JOIN teacher on teacher.tch_id = c.tch_id
   LEFT JOIN accept_req on accept_req.std_id = accept_req.std_id
   LEFT JOIN req on req.req_id = accept_req.req_id
   LEFT JOIN company on company.cpn_id = req.cpn_id
@@ -1025,7 +1037,6 @@ $query = $this->db->get('student');
 return $query->result();
 }
 
-<<<<<<< HEAD
 public function count_std()
 {
           $sql ="SELECT COUNT(std_id) as std_id FROM student ";
@@ -1038,15 +1049,6 @@ public function count_req_cpn_sql($cpn_id)
           $res =$this->db->query($sql);
           return $res->num_rows();
 }
-=======
-public function count_number()
-        {
-          $sql ="SELECT COUNT(std_id) as std_id FROM student ";
-          $res =$this->db->query($sql);
-          return $res->row()->std_id;
-        }
-
->>>>>>> parent of c4e1351 (ล่าสุดเลยละกัน)
 
 public function count_cpn()
 {

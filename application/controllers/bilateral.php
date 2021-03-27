@@ -15,7 +15,7 @@ class Bilateral extends CI_Controller {
         $this->load->library('upload');
         $this->load->view('header2');
         $this->load->model('model');
-        $this->load->view('head_main');
+        $this->load->view('head_brt');
         $this->load->view('btr_sidebar');
         $this->load->library('upload');
     }

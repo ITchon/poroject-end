@@ -22,7 +22,7 @@
                               
                     </div> 
                 </div>
-                    <?php foreach($result as $res){ ?> 
+                    <?php $result['0']?> 
                     <table style="width:100%">
                     
                     <!-- <tr>
@@ -39,7 +39,7 @@
                                 <div class="col-sm-9">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;
-                                <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $res->std_img?>" style="width:35% ;hight:35%;">
+                                <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $result['0']->std_img?>" style="width:35% ;hight:35%;">
                                 </div>
                         </div>
                     </tr>
@@ -47,7 +47,7 @@
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
                                 <div class="col-sm-9">
-                                <td ><h5><?php echo $res->std_fname ?></h5></td>
+                                <td ><h5><?php echo $result['0']->std_fname ?></h5></td>
                                 </div>
                         </div>
                     </tr>
@@ -55,7 +55,7 @@
                         <div class="form-group">
                         <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">นามสกุล</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->std_lname ?></h5></td>
+                                <td><h5><?php echo $result['0']->std_lname ?></h5></td>
                                 </div>
                         </div>
                       </tr>
@@ -64,7 +64,7 @@
                         <div class="form-group">
                         <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสนักเรียน</h4></th> 
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->std_code ?></h5></td>
+                                <td><h5><?php echo $result['0']->std_code ?></h5></td>
                                 </div>
                         </div>
                       </tr> 
@@ -73,7 +73,7 @@
                         <div class="form-group">
                         <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสประจำตัวประชาชน</h4></th> 
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->std_idcard ?></h5></td>
+                                <td><h5><?php echo $result['0']->std_idcard ?></h5></td>
                                 </div>
                         </div>
                       </tr>
@@ -82,7 +82,7 @@
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">อายุ</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->std_birthday ?></h5></td>
+                                <td><h5><?php echo $result['0']->std_birthday ?></h5></td>
                                 </div>
                         </div>
                       </tr>
@@ -90,7 +90,7 @@
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">เพศ</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->std_sex ?></h5></td>
+                                <td><h5><?php echo $result['0']->std_sex ?></h5></td>
                                 </div>
                         </div>
                       </tr>
@@ -98,7 +98,7 @@
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ระดับชั้น</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->cls_name ?></h5></td>
+                                <td><h5><?php echo $result['0']->cls_name ?></h5></td>
                                 </div>
                         </div>
                       </tr>  
@@ -106,7 +106,7 @@
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">แผนกวิชา</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->dpm_name ?></h5></td>
+                                <td><h5><?php echo $result['0']->dpm_name ?></h5></td>
                                 </div>
                         </div>
                       </tr>
@@ -114,28 +114,13 @@
                       <div class="form-group">
                       <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถานที่ฝึกงาน</h4></th>
                                 <div class="col-sm-9">
-                                <td><h5><?php echo $res->cpn_name ?></h5></td>
+                                <td><h5><?php echo $result['0']->cpn_name ?></h5></td>
                                 </div>
                         </div>
                       </tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถานะ</h4></th>
-                                <div class="col-sm-9">
-                                <td>
-                            <?php if(isset($res->ac_status)){
-                            if( $res->ac_status == 1){
-                               echo '<span class="color">มีสถานที่ฝึกงานแล้ว</span>';
-                             }else{
-                               echo '<span class="color3">รออนุมัติ</span>';
-                             }
-                            }else{
-                              echo '<span class="color2">ยังไม่มีที่ฝึกงาน</span>';
-                             }?>
-                            </td>
-                                </div>
-                        </div>
-                      </tr>       
-                            <?php  } ?> 
+                            
+                            
                     </table>
                     </div>                
             </div>      

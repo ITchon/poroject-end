@@ -9,39 +9,21 @@
         <div class="layout-content-body">
           <div class="title-bar">
           </div>
-          <div class="row gutter-xs">
-          <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="media">
-                    <div class="media-middle media-left">
-                      <div class="media-chart">
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#00FF00", "#757575"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
-                      </div>
-                    </div>
-                    <div class="media-middle media-body">
-                      <h2 class="media-heading">
-                        <span class="fw-l">879</span>
-                        <small>Resolved</small>
-                      </h2>
-                      <small>More than 70% resolved issues</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <br><br>
+          
             <div class="col-xs-12">
               
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <h2>ข้อมูลสถานประกอบการ</h2>
 =======
           <h2>ข้อมูลนักเรียน</h2>
 >>>>>>> parent of a74e995 (แก้ภาษา)
+=======
+          <h2>ข้อมูลนักเรียน</h2>
+>>>>>>> parent of e21970e (side new)
             
                 <br>
                 <div class="col-md-8">
@@ -62,9 +44,11 @@
                     </tr> -->
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
+                      
                                 <div class="col-sm-9">
-                                <td ><h5><?php echo $res->std_fname ?></h5></td>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;
+                                <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $res->std_img?>" style="width:35% ;hight:35%;">
                                 </div>
                         </div>
                     </tr>
@@ -156,3 +140,14 @@
       ga('send', 'pageview');
     </script>
 </html>
+<style>
+.color {
+  color: green;
+}
+.color2 {
+  color: red;
+}
+img {
+  border-radius: 50%;
+}
+</style>
