@@ -96,14 +96,14 @@
                       <tr>
                         
                         <th class="text-center">คำนำหน้า</th>
-                        <th class="text-center">ชื่อจริง</th>
+                        <th class="text-center">ชื่อ</th>
                         <th class="text-center">นามสกุล</th>
                         <th class="text-center">อายุ</th>
                         <th class="text-center">เพศ</th>
                         <th class="text-center">แผนกวิชา</th>
-                        <th class="text-center">ชื่อสถานประกอบการที่สมัคร</th>
-                        <th class="text-center">สถานะ</th>
-                        <th class="text-center">รายละเอียดเพิ่มเติม</th>
+                        <th class="text-center">ชื่อบริษัทที่สมัค</th>
+                        <th class="text-center">สถาณะ</th>
+                        <th class="text-center">รายระเอียดเพิ่มเติม</th>
                         
                       </tr>
                     </thead>

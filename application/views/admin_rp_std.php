@@ -1,80 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
   
-<body class="layout layout-header-fixed">
- 
-<div class="layout-content">
-        <div class="layout-content-body">
-        <h2>เพิ่มข้อมูลสถานประกอบการ</h2>
-            <div class="row card">
-                <br>
-                <div class="col-md-8">
-                    <div class="demo-form-wrapper">
-                    <form class="form form-horizontal" action="<?php echo base_url(); ?>admin/insert_company" method="POST" enctype="multipart/form-data">
-                               
-    
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อสถานประกอบการ</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="cpn_name" class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="cpn_add" class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">E-mail</label>
-                                <div class="col-sm-9">
-                                    <input id="form-control-1" name="cpn_email" class="form-control" type="text">
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">เบอร์โทรศัพท์</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="cpn_phnumber" class="form-control" type="text">
-                                </div>
-                            </div>
-                            <div class="form-group">
-                            <label class="col-sm-3 control-label" for="form-control-9">รูปบริษัท</label>
-                            <div class="col-sm-9">
-                          <input type="file" name="cpn_img" class="form-control" id="cpn_img" onchange="file()" required> 
-
-                            <p class="help-block">
-                                <small>***กรุณาใส่รูปนักเรียน***</small>
-                            </p>
-                            </div>
-                            </div>
-
-
-
-                            </div>
-                            
-                            <!-- <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">แผนก</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="dpm_name" class="form-control" type="text">
-                                </div>
-                            </div> -->
-                            <!-- <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">คุณครู</label>
-                                <div class="col-sm-9">
-                                <input id="form-control-1" name="tch_name" class="form-control" type="text">
-                                </div>
-                            </div> -->
+  <body class="layout layout-header-fixed">
+  <br>
+  
+            <div class="col-xs-10">
+            <h2>นักเรียนทั้งหมดที่ได้รับอนุญาติให้ออกฝึกงาน</h2>
+            <?php echo $this->session->flashdata("success"); ?>
+            <?php echo $this->session->flashdata("failed"); ?>
+            <?php echo $this->session->flashdata("success_del"); ?>
+              <div class="card">
+                
+                <div class="card-header">
+                  <div class="card-actions">
+                    <button type="button" class="card-action card-toggler" title="Collapse"></button>
+                    <button type="button" class="card-action card-reload" title="Reload"></button>
+                    <button type="button" class="card-action card-remove" title="Remove"></button>
+                    
+                  </div>
+                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
+                </div>
+                <div class="card-body">
+        <div class="panel-body collapse in">      
+        
+              <div class="table-responsive">
+                <div class="card-body ">
+                <table id="demo-datatables-buttons-2" class="table table-bordered table-striped table-nowrap dataTable text-center" cellspacing="0" width="100%">
+                    <thead>
+                      <tr>
+                        <!-- <th>รหัส</th> -->
+                        <th>คำนำหน้า</th>
+                        <th>ชื่อ</th>
+                        <th>นามสกุล</th>
                         
-                    </div>       
-                </div> 
-            </div>
-            <input type="submit" class="btn btn-success" value="ยืนยัน">
-            &nbsp;&nbsp;
-            </form>   
-            <a class="btn btn-danger" href="<?php echo base_url(); ?>admin/show_company_index">ยกเลิก</a>
-        </div>   
-</div>
+                        <th>รหัสนักเรียน</th>
+                        <th>วันเกิด</th>
+                        <th>อายุ</th>
+                        <th>เพศ</th>
+                        
+                        <th>แผนก</th>
+                        <!-- <th>คุณครู</th> -->
+                        <th>สถานะ</th>
+                        
+                        
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <?php foreach($result as $res){ ?>
+                          <tr>
+                            <!-- <td><?php echo $res->std_id ?></td> -->
+                            <td><?php echo $res->title ?></td>
+                            <td><?php echo $res->std_fname ?></td>
+                            <td><?php echo $res->std_lname ?></td>
+                            
+                            <td><?php echo $res->std_code ?></td>
+                            <td><?php echo $res->std_birthday ?></td>
+                            <td><?php echo $res->std_age ?></td>
+                            <td><?php echo $res->std_sex ?></td>
+                            <td><?php echo $res->dpm_name ?></td>
+                            <td>
+                            <?php if( $res->std_status == 1){
+                               echo '<span class="color">อนุมัติแล้ว</span>';
+                             }else{
+                               echo '<span class="color2">ยังไม่อนุมัติ</span>';
+                             }?>
+                            </td>
+                            
+                            
+                            </tr>
+                            <?php  } ?> 
+                           
+                      </tbody>                
+                  </table>
+                </div>  
+              </div>                              
+        </div>
+        </div>
+      </div>
+      
     <div class="theme">
       <div class="theme-panel theme-panel-collapsed">
         <div class="theme-panel-controls">
@@ -239,6 +243,7 @@
     </div>
     
   </body>
+
     <script src="<?php echo base_url()?>asset/js/vendor.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/elephant.min.js"></script>
     <script src="<?php echo base_url()?>asset/js/application.min.js"></script>                                   
@@ -251,4 +256,12 @@
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
     </script>
-</html> 
+</html>
+<style>
+.color {
+  color: green;
+}
+.color2 {
+  color: red;
+}
+</style>

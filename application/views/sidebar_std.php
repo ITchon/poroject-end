@@ -14,6 +14,10 @@
                     </div>
                   </form>
                 </li>
+<<<<<<< HEAD
+=======
+                <br>
+>>>>>>> parent of a74e995 (แก้ภาษา)
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>student/index_priv_std">
                     <span class="sidenav-icon icon icon-mortar-board"></span>
@@ -32,6 +36,15 @@
                     <span class="sidenav-label" >ดูสถานประกอบการที่คุณสมัคร</span>
                   </a>
                 </li>
+<<<<<<< HEAD
+=======
+                <li class="sidenav-item">
+                  <a href="page-layouts.html">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label" >กำหนดการออกฝึกงาน</span>
+                  </a>
+                  </li>
+>>>>>>> parent of a74e995 (แก้ภาษา)
                   <li class="sidenav-item">
                   <a href="<?php echo base_url();?>student/download">
                     <span class="sidenav-icon icon icon-file-pdf-o"></span>

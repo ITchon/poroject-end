@@ -112,7 +112,11 @@
                       <h2 class="media-heading">
                       
                         <span class="fw-l"><?php echo $count_std?>/50</span>
+<<<<<<< HEAD
                         
+=======
+                        <small>จำนวนนักเรียน</small>
+>>>>>>> parent of a74e995 (แก้ภาษา)
                       </h2>
                       <small>จำนวนนักเรียน</small>
                       

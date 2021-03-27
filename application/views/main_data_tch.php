@@ -14,7 +14,7 @@
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
-          <h2>ข้อมูลนักนักศึกษา</h2>
+          <h2>ข้อมูลเด็กนักเรียน</h2>
             
                 <br>
                 <div class="col-md-8">
@@ -45,7 +45,7 @@
                     </tr>
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อจริง</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
                                 <div class="col-sm-9">
                                 <td ><h5><?php echo $res->std_fname ?></h5></td>
                                 </div>
@@ -62,7 +62,7 @@
                       
                       <tr> 
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสประจำตัวนักศึกษา</h4></th> 
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสนักเรียน</h4></th> 
                                 <div class="col-sm-9">
                                 <td><h5><?php echo $res->std_code ?></h5></td>
                                 </div>

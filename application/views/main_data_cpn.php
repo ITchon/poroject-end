@@ -37,7 +37,11 @@
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
+<<<<<<< HEAD
           <h2>ข้อมูลสถานประกอบการ</h2>
+=======
+          <h2>ข้อมูลนักเรียน</h2>
+>>>>>>> parent of a74e995 (แก้ภาษา)
             
                 <br>
                 <div class="col-md-8">

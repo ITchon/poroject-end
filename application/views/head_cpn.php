@@ -46,6 +46,7 @@
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
+<<<<<<< HEAD
                   <li>
                     <a href="upgrade.html">
                       <h5 class="navbar-upgrade-heading">
@@ -57,6 +58,8 @@
                   
                   <li><a href="contacts.html">Contacts</a></li>
                   <li><a href="profile.html">Profile</a></li>
+=======
+>>>>>>> parent of a74e995 (แก้ภาษา)
                   <li><a href="<?php echo base_url()."logout/index";?>">Sign out</a></li>
                 </ul>
               </li>

@@ -5,7 +5,7 @@
  
 <div class="layout-content">
         <div class="layout-content-body">
-        <h2>เพิ่มข้อมูลนักศึกษา</h2>
+        <h2>เพิ่มข้อมูลนักเรียน</h2>
             <div class="row card">
                 <br>
                 <div class="col-md-8">
@@ -41,7 +41,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">รหัสประจำตัวนักศึกษา</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">รหัสนักเรียน</label>
                                 <div class="col-sm-9">
                                     <input id="form-control-1" name="std_code" class="form-control" type="text">
                                 </div>
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ระดับชั้น</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อห้อง</label>
                                 <div class="col-sm-9">
                                 <select name="cls_id" class="form-control">
                                                
@@ -86,12 +86,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                            <label class="col-sm-3 control-label" for="form-control-9">รูปนักศึกษา</label>
+                            <label class="col-sm-3 control-label" for="form-control-9">รูปรักเรียน</label>
                             <div class="col-sm-9">
                           <input type="file" name="std_img" class="form-control" id="std_img" onchange="file()" required> 
 
                             <p class="help-block">
-                                <small>***กรุณาใส่รูปนักศึกษา***</small>
+                                <small>***กรุณาใส่รูปรักเรียน***</small>
                             </p>
                             </div>
                             </div>

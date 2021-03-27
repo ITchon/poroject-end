@@ -41,13 +41,13 @@
               <div class="demo-form-wrapper">
 			  <form action="<?php echo base_url()?>company/registercpn" method="post" class='form-horizontal'>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-1">ชื่อสถานประกอบการ</label>
+                    <label class="col-sm-3 control-label" for="form-control-1">ชื่อบริษัท</label>
                     <div class="col-sm-9">
                       <input id="form-control-1" class="form-control" type="text" name="cpn_name">
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่สถานประกอบการ</label>
+                    <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
                     <div class="col-sm-9">
                       <input id="form-control-1" class="form-control" type="text" name="cpn_address">
                     </div>
@@ -59,18 +59,18 @@
                     </div>
                   </div>
                   <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-1">เบอร์ติดต่อ</label>
+                    <label class="col-sm-3 control-label" for="form-control-1">เบอร์โทรศัพท์</label>
                     <div class="col-sm-9">
                       <input id="form-control-1" class="form-control" type="text" name="cpn_phnumber">
                     </div>
                   </div>
                  
                   <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-9">รูปสถานประกอบการ</label>
+                    <label class="col-sm-3 control-label" for="form-control-9">รูปบริษัท</label>
                     <div class="col-sm-9">
                       <input id="form-control-9" type="file" accept="image/*" multiple="multiple"  name="cpn_img">
                       <p class="help-block">
-                        <small>***กรุณาใส่รูปสถานประกอบการที่มีขนาด***</small>
+                        <small>***กรุณาใส่รูปบริษัทที่มีขนาด***</small>
                       </p>
                     </div>
                   </div>

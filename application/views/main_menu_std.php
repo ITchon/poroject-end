@@ -55,12 +55,12 @@
                     <thead>
                       <tr>
                         
-                        <th class="text-center">ชื่อสถานประกอบการ</th>
+                        <th class="text-center">ชื่อบริษัท</th>
                         <th class="text-center">ระดับชั้น</th>
                         <th class="text-center">ต้องการแผนกวิชา</th>
                         <th class="text-center">เพศ</th>
                         <th class="text-center">ต้องการนักศึกษา</th>
-                        <th class="text-center">รายละเอียดเพิ่มเติม</th>
+                        <th class="text-center">รายระเอียดเพิ่มเติม</th>
                         
                       </tr>
                     </thead>

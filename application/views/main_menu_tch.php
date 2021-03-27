@@ -84,7 +84,7 @@
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                     
                   </div>
-                  <strong>รายชื่อนักศึกษา</strong>
+                  <strong>รายชื่อนักเรียนของคุณ</strong>
                 </div>
                 <div class="card-body">
         <div class="panel-body collapse in">      
@@ -96,14 +96,14 @@
                       <tr>
                         
                         <th class="text-center">คำนำหน้า</th>
-                        <th class="text-center">ชื่อจริง</th>
+                        <th class="text-center">ชื่อ</th>
                         <th class="text-center">นามสกุล</th>
                         <th class="text-center">อายุ</th>
                         <th class="text-center">เพศ</th>
                         <th class="text-center">แผนกวิชา</th>
                         <th class="text-center">บริษัทที่รับเข้าฝึกงาน</th>
-                        <th class="text-center">สถานะ</th>
-                        <th class="text-center">รายละเอียดเพิ่มเติม</th>
+                        <th class="text-center">สถาณะ</th>
+                        <th class="text-center">รายระเอียดเพิ่มเติม</th>
                         
                       </tr>
                     </thead>

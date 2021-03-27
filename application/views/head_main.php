@@ -170,6 +170,7 @@
                   </div>
                 </div>
               </li>
+<<<<<<< HEAD
               <!--<li class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">
                   <span class="icon-with-child hidden-xs">
@@ -181,6 +182,12 @@
                     <span class="badge badge-danger pull-right">7</span>
                     Notifications
                   </span>
+=======
+              <li class="visible-xs-block">
+                <a href="login-1.html">
+                  <span class="icon icon-power-off icon-lg icon-fw"></span>
+                  Sign out
+>>>>>>> parent of a74e995 (แก้ภาษา)
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
                   <div class="dropdown-header">
