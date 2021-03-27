@@ -10,7 +10,8 @@ class Company extends CI_Controller {
        parent::__construct();
        $this->load->view('header2');
        $this->load->model('model');
-       
+       $this->load->view('head_cpn');
+      $this->load->view('cpn_sidebar');
        
        
    }
@@ -27,16 +28,14 @@ public function index(){
       left JOIN department on department.dpm_id = req.dpm_id where company.cpn_id = $cpn_id  ";
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
-   $this->load->view('head_main');
-   $this->load->view('cpn_sidebar');
+   
    $this->load->view('main_menu_cpn',$data);
    
 }
 public function index2(){  
    $std_id = $this->uri->segment('3');
    $data['result'] = $this->model->select_main_data_std_cnp($std_id);
-   $this->load->view('head_main');
-   $this->load->view('cpn_sidebar');
+   
    $this->load->view('main_data_cpn',$data);
 }
 public function cpn_accept_std(){   
@@ -95,8 +94,13 @@ public function insert_req_cpn_f(){
    $sql="SELECT * FROM department";
    $query = $this->db->query($sql); 
    $data['result1'] = $query->result();
-   $this->load->view('head_main');
-   $this->load->view('cpn_sidebar');
+
+   $cpn_id = $this->session->userdata('cpn_id');
+   $qry_inp =  "SELECT * FROM company where company.cpn_id = $cpn_id  ";
+   $query = $this->db->query($qry_inp); 
+   $data['result'] = $query->result();
+   $data['count_req_cpn'] = $this->model->count_req_cpn_sql($data);
+   
    $this->load->view('insert_req_cpn',$data);
 }
 
@@ -159,8 +163,7 @@ public function delete_ac_f($ac_id)
       INNER JOIN department on department.dpm_id = req.dpm_id WHERE company.cpn_id = $cpn_id" ;
       $query = $this->db->query($qry_inp); 
       $data['result'] = $query->result();
-      $this->load->view('head_main');
-      $this->load->view('cpn_sidebar');
+      
       $this->load->view('cpn_show_req',$data);
    }
    public function index_show_cpn(){
@@ -171,15 +174,13 @@ public function delete_ac_f($ac_id)
       INNER JOIN department on department.dpm_id = req.dpm_id " ;
       $query = $this->db->query($qry_inp); 
       $data['result'] = $query->result();
-      $this->load->view('head_main');
-      $this->load->view('cpn_sidebar');
+      
       $this->load->view('cpn_show_cpn',$data);
    }
    public function index_show_cpn_req_data(){  
       $id = $this->uri->segment('3');
-     $data['result'] = $this->model->select_main_data($id);
-     $this->load->view('head_main');
-      $this->load->view('cpn_sidebar');
+     $data['result'] = $this->model->see_data_req_cpn($id);
+     
    $this->load->view('cpn_req_data',$data);
 }
 public function delete_cpn_req_data($req_id)
@@ -199,8 +200,7 @@ public function delete_cpn_req_data($req_id)
 public function show_cpn_data(){
    $id = $this->uri->segment('3');
      $data['result'] = $this->model->select_main_data($id);
-     $this->load->view('head_main');
-      $this->load->view('cpn_sidebar');
+     
    $this->load->view('cpn_see_data_cpn',$data);
 }
 
@@ -209,11 +209,18 @@ public function index_show_cpn_private(){
    $qry_inp =  "SELECT * FROM company where company.cpn_id = $cpn_id  ";
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
-   $this->load->view('head_main');
-   $this->load->view('cpn_sidebar');
+   
    $this->load->view('private_cpn',$data);
    
 }
+public function count_req_cpn(){
+   $cpn_id = $this->session->userdata('cpn_id');
+   $qry_inp =  "SELECT * FROM company where company.cpn_id = $cpn_id  ";
+   $query = $this->db->query($qry_inp); 
+   $data['result'] = $query->result();
+   $data['count_req_cpn'] = $this->model->count_req_cpn_sql();
+   
+ }
 
 
 }

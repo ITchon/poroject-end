@@ -14,7 +14,7 @@
                     </div>
                   </form>
                 </li>
-                <li class="sidenav-heading">Navigation</li>
+                <br>
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>bilateral/index">
                     <span class="sidenav-icon icon icon-th"></span>

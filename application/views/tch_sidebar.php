@@ -14,7 +14,7 @@
                     </div>
                   </form>
                 </li>
-                
+                <br>
                 <li class="sidenav-item">
                   <li class="sidenav-item">
                   <a href="<?php echo base_url();?>teacher/index_priv_tch">
@@ -29,12 +29,7 @@
                     <span class="sidenav-label" >จัดนักเรียนของคุณ</span>
                   </a>
                 </li>
-                <li class="sidenav-item">
-                  <a href="page-layouts.html">
-                    <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label">ข้อมูลวันเวลาออกฝึกงาน</span>
-                  </a>
-                </li>
+                
             </nav>
           </div>
         </div>

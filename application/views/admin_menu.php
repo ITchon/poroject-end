@@ -140,7 +140,7 @@
                     <div class="media-middle media-left">
                       <div class="media-chart">
                       
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["<?php echo $count_std?>", "<?php echo $count_std?>"]' data-values='[{"backgroundColor": ["#0034FB", "#6585FF"], "data": [<?php echo $count_std?>,50]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
+                        <canvas data-chart="doughnut" data-animation="false" data-labels='["<?php echo $count_std?>", "<?php echo $count_std?>"]' data-values='[{"backgroundColor": ["#0034FB", "#C3C3C3"], "data": [<?php echo $count_std?>,50]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
                         
                       </div>
                     </div>
