@@ -74,8 +74,13 @@
                     </div>       
                 </div> 
             </div>
-            <input type="submit" class="btn btn-success" value="ยืนยัน">
-            &nbsp;&nbsp;
+            <?php if($total == 3){
+                echo '<span class="color">สามารถเปิดรับนักศึกษาได้มากสุดแค่</span>';
+            }else{?>
+              <input type="submit" class="btn btn-success" value="ยืนยัน">
+              &nbsp;&nbsp;
+            <?php } ?>
+            
             </form>   
             <a class="btn btn-danger" href="<?php echo base_url(); ?>company/index_show_cpn_req">ยกเลิก</a>
         </div>   
@@ -256,4 +261,15 @@
       ga('create', 'UA-83990101-1', 'auto');
       ga('send', 'pageview');
     </script>
-</html> 
+</html>
+<style>
+.color {
+  color: green;
+}
+.color2 {
+  color: red;
+}
+img {
+  border-radius: 50%;
+}
+</style>

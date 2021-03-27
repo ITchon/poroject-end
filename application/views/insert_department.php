@@ -2,10 +2,10 @@
 <html lang="en">
   
 <body class="layout layout-header-fixed">
- 
+
 <div class="layout-content">
         <div class="layout-content-body">
-        <h2>เพิ่มข้อมูลอาจารย์</h2>
+        <h2>เพิ่มข้อมูลแผนก</h2>
             <div class="row card">
                 <br>
                 <div class="col-md-8">

@@ -16,16 +16,12 @@ public function __construct()
     }
  
  public function index(){
-   $data['count_std'] = $this->model->count_number();
-   $sql2 =  "SELECT COUNT(cpn_id)
-   FROM company
-   WHERE cpn_status = 1" ;
-   $query2 = $this->db->query($sql2); 
-   $data['result1'] = $query2->result();
-   $sql3 =  "SELECT COUNT(tch_id)
-   FROM teacher" ;
-   $query3 = $this->db->query($sql3); 
-   $data['result2'] = $query3->result();
+   $data['count_std'] = $this->model->count_std();
+   $data['count_cpn'] = $this->model->count_cpn();
+   $data['count_tch'] = $this->model->count_tch();
+   $data['count_dpm'] = $this->model->count_dpm();
+   $data['count_user'] = $this->model->count_user();
+   $data['count_cls'] = $this->model->count_cls();
     $this->load->view('admin_menu',$data);
  }
 
@@ -102,7 +98,7 @@ public function insert_student()
          $std_sex    = $this->input->post('std_sex');
 		   $std_age  = $this->input->post('std_age');
 		   $cls_id   = $this->input->post('cls_id');
-         
+         $std_img   = $this->input->post('std_img');
          if(!empty($_FILES['std_img']['name'])) {
                   
             $tempFileLogo = $_FILES['std_img']['name'];
@@ -119,7 +115,7 @@ public function insert_student()
             move_uploaded_file($tempFileLogo, $targetFileLogo);
 
             // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
-            $std_img = '/project_end_1/uploads/pic'.$fileNameLogo;
+            $std_img = ''.$fileNameLogo;
 
 
          }
@@ -966,6 +962,12 @@ public function index_show_report(){
    $this->load->view('admin_rp_std',$data);
   }
 
+
+  public function download(){
+  
+   $this->load->view('admin_download');
+   
+}
 
 
 

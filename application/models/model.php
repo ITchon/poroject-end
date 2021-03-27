@@ -1037,18 +1037,54 @@ $query = $this->db->get('student');
 return $query->result();
 }
 
-public function count_number()
+public function count_std()
 {
           $sql ="SELECT COUNT(std_id) as std_id FROM student ";
           $res =$this->db->query($sql);
           return $res->row()->std_id;
 }
-public function count_req_cpn_sql($data)
+public function count_req_cpn_sql($cpn_id)
 {
-          $sql ="SELECT COUNT(req_id) as req_id FROM req where req_id = $data ";
+          $sql ="SELECT req_id   FROM req where cpn_id = $cpn_id";
           $res =$this->db->query($sql);
-          return $res->row()->req_id;
+          return $res->num_rows();
 }
+
+public function count_cpn()
+{
+          $sql ="SELECT cpn_id  FROM company";
+          $res =$this->db->query($sql);
+          return $res->num_rows();
+}
+
+public function count_tch()
+{
+          $sql ="SELECT tch_id  FROM teacher";
+          $res =$this->db->query($sql);
+          return $res->num_rows();
+}
+
+public function count_dpm()
+{
+          $sql ="SELECT dpm_id  FROM department";
+          $res =$this->db->query($sql);
+          return $res->num_rows();
+}
+
+public function count_user()
+{
+          $sql ="SELECT user_id  FROM user";
+          $res =$this->db->query($sql);
+          return $res->num_rows();
+}
+
+public function count_cls()
+{
+          $sql ="SELECT cls_id  FROM class";
+          $res =$this->db->query($sql);
+          return $res->num_rows();
+}
+
 
 
 

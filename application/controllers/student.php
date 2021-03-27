@@ -112,6 +112,11 @@ public function index_priv_std(){
    
 }
 
+public function download(){
+  
+   $this->load->view('std_download');
+   
+}
  
  
 }

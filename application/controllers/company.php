@@ -90,17 +90,11 @@ public function cancel_cpn_accept_std(){
 
 
 public function insert_req_cpn_f(){
-   
+   $cpn_id =$this->session->userdata('cpn_id');
    $sql="SELECT * FROM department";
    $query = $this->db->query($sql); 
    $data['result1'] = $query->result();
-
-   $cpn_id = $this->session->userdata('cpn_id');
-   $qry_inp =  "SELECT * FROM company where company.cpn_id = $cpn_id  ";
-   $query = $this->db->query($qry_inp); 
-   $data['result'] = $query->result();
-   $data['count_req_cpn'] = $this->model->count_req_cpn_sql($data);
-   
+   $data['total'] = $this->model->count_req_cpn_sql($cpn_id);
    $this->load->view('insert_req_cpn',$data);
 }
 
@@ -112,7 +106,7 @@ public function insert_req_cpn_r(){
    $req_sex      = $this->input->post('req_sex');
    $req_glevel      = $this->input->post('req_glevel');
    $id = $this->model->insert_req_cpn($dpm_id,$req_number,$cpn_id,$req_sex,$req_glevel);
-   redirect('company/insert_req_cpn_f','refresh');
+   redirect('company/index_show_cpn_req','refresh');
 }
 public function delete_ac_f($ac_id)
    {
@@ -206,7 +200,7 @@ public function show_cpn_data(){
 
 public function index_show_cpn_private(){
    $cpn_id = $this->session->userdata('cpn_id');
-   $qry_inp =  "SELECT * FROM company where company.cpn_id = $cpn_id  ";
+   $qry_inp =  "SELECT * FROM company where company.cpn_id = $cpn_id ";
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
    
@@ -214,12 +208,7 @@ public function index_show_cpn_private(){
    
 }
 public function count_req_cpn(){
-   $cpn_id = $this->session->userdata('cpn_id');
-   $qry_inp =  "SELECT * FROM company where company.cpn_id = $cpn_id  ";
-   $query = $this->db->query($qry_inp); 
-   $data['result'] = $query->result();
    $data['count_req_cpn'] = $this->model->count_req_cpn_sql();
-   
  }
 
 

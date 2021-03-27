@@ -50,26 +50,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="media">
-                    <div class="media-middle media-left">
-                      <div class="media-chart">
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#757575", "#0288d1"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
-                      </div>
-                    </div>
-                    <div class="media-middle media-body">
-                      <h2 class="media-heading">
-                        <span class="fw-l">377</span>
-                        <small>Unresolved</small>
-                      </h2>
-                      <small>Less than 30% unresolved issues</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+            
             <br><br>
             <div class="col-xs-12">
               
@@ -94,10 +75,11 @@
                       <tr>
                         
                         <th class="text-center">ชื่อบริษัท</th>
-                        <th class="text-center">ที่อยู่</th>
+                        
                         <th class="text-center">ต้องการเพศ</th>
                         <th class="text-center">ต้องการระดับชั้น</th>
                         <th class="text-center">ต้องการนแผนก</th>
+                        <th class="text-center">จำนวนที่ต้องการ</th>
                         <th class="text-center">รายระเอียดเพิ่มเติม</th>
                         
                       </tr>
@@ -107,10 +89,11 @@
                           <tr>
                             
                             <td><?php echo $res->cpn_name ?></td>
-                            <td><?php echo $res->cpn_add ?></td>
+                            
                             <td><?php echo $res->req_sex ?></td>
                             <td><?php echo $res->req_glevel ?></td>
                             <td><?php echo $res->dpm_name ?></td>
+                            <td><?php echo $res->req_number ?></td>
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'main/index2/' . $res->req_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
                             </td>

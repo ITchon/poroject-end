@@ -14,21 +14,7 @@
                     </div>
                   </form>
                 </li>
-                <li class="sidenav-heading"></li>
-                <li class="sidenav-item has-subnav active">
-                  <a href="dashboard-1.html" aria-haspopup="true">
-                    <span class="sidenav-icon icon icon-home"></span>
-                    <span class="sidenav-label">การจัดการข้อมูล
-                    </span>
-                  </a>
-                  <ul class="sidenav-subnav collapse">
-                    <li class="sidenav-subheading">เมนูหลัก
-                    </li>
-                    
-                    
-                    
-                  </ul>
-                </li>
+                <br>
                 
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>admin/show_user_index">
@@ -85,7 +71,7 @@
                   </a>
                 </li>
                 <li class="sidenav-item">
-                <a href="<?php echo base_url();?>admin/get_all_data">
+                <a href="<?php echo base_url();?>admin/download">
                     <span class="sidenav-icon icon icon-file-text-o"></span>
                     <span class="sidenav-label">พิมพ์เอกสารการออกฝึกงาน</span>
                   </a>

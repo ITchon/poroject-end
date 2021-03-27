@@ -33,16 +33,10 @@
                     <span class="sidenav-label" >ดูสถานประกอบการที่คุณสมัคร</span>
                   </a>
                 </li>
-                <li class="sidenav-item">
-                  <a href="page-layouts.html">
-                    <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label" >กำหนดการออกฝึกงาน</span>
-                  </a>
-                  </li>
                   <li class="sidenav-item">
-                  <a href="page-layouts.html">
+                  <a href="<?php echo base_url();?>student/download">
                     <span class="sidenav-icon icon icon-file-pdf-o"></span>
-                    <span class="sidenav-label" >การยื่นคำร้อง</span>
+                    <span class="sidenav-label" >ดาวน์โหลดเอกสาร</span>
                   </a>
                 </li>
                 
