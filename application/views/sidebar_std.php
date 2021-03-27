@@ -16,6 +16,12 @@
                 </li>
                 <br>
                 <li class="sidenav-item">
+                  <a href="page-layouts.html">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label" >กำหนดการออกฝึกงาน</span>
+                  </a>
+                  </li>
+                <li class="sidenav-item">
                 <a href="<?php echo base_url();?>student/index_priv_std">
                     <span class="sidenav-icon icon icon-mortar-board"></span>
                     <span class="sidenav-label" >ข้อมูลส่วนตัว</span>
@@ -24,21 +30,16 @@
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>student/index">
                     <span class="sidenav-icon icon icon-industry"></span>
-                    <span class="sidenav-label" >เลือกดูสถานประการ</span>
+                    <span class="sidenav-label" >สถานประกอบการ</span>
                   </a>
                 </li>
                 <li class="sidenav-item">
                 <a href="<?php echo base_url();?>student/index3">
                     <span class="sidenav-icon icon icon-map-marker"></span>
-                    <span class="sidenav-label" >ดูสถานประกอบการที่คุณสมัคร</span>
+                    <span class="sidenav-label" >สถานประการที่สมัคร</span>
                   </a>
                 </li>
-                <li class="sidenav-item">
-                  <a href="page-layouts.html">
-                    <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label" >กำหนดการออกฝึกงาน</span>
-                  </a>
-                  </li>
+                
                   <li class="sidenav-item">
                   <a href="page-layouts.html">
                     <span class="sidenav-icon icon icon-file-pdf-o"></span>

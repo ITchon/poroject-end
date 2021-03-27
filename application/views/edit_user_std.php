@@ -25,7 +25,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อ</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">ชื่อจริง</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="std_fname" class="form-control" type="text" value="<?php echo $result[0]->std_fname ?>">
                                 </div>
@@ -43,7 +43,7 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">รหัสนักเรียน</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">รหัสประจำตัวนักเรียน</label>
                                 <div class="col-sm-9">
                                     <input id="form-control-1" name="std_code" class="form-control" type="text" value="<?php echo $result[0]->std_code ?>">
                                 </div>

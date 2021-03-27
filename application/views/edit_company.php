@@ -20,7 +20,7 @@
                                 </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่</label>
+                                <label class="col-sm-3 control-label" for="form-control-1">ที่อยู่สถานประกอบการ</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="cpn_add" class="form-control" type="text" value="<?php echo $result[0]->cpn_add ?>">
                                 </div>
@@ -38,13 +38,13 @@
                                 </div>
                                 </div>
                                 <div class="form-group">
-                            <label class="col-sm-3 control-label" for="form-control-9" >รูปบริษัท</label>
+                            <label class="col-sm-3 control-label" for="form-control-9" >รูปสถานประกอบการ</label>
                             <div class="col-sm-9">
                             <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $result[0]->cpn_img?>" style="width:20% ;hight:20%;">
                           <input type="file" name="cpn_img" class="form-control" id="cpn_img"  onchange="file()"  value="<?php echo $result[0]->cpn_img ?>" required> 
                                                                                   
                             <p class="help-block">
-                                <small>***กรุณาใส่รูปบริษัท***</small>
+                                <small>***กรุณาใส่รูปสถานประกอบการ***</small>
                             </p>
                             </div>
                             </div>  

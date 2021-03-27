@@ -5,7 +5,7 @@
   <br>
   
             <div class="col-xs-10">
-            <h2>นักเรียนทั้งหมดที่ได้รับอนุญาติให้ออกฝึกงาน</h2>
+            <h2>นักศึกษาที่ได้รับอนุญาติให้ออกฝึกงาน</h2>
             <?php echo $this->session->flashdata("success"); ?>
             <?php echo $this->session->flashdata("failed"); ?>
             <?php echo $this->session->flashdata("success_del"); ?>
@@ -30,15 +30,15 @@
                       <tr>
                         <!-- <th>รหัส</th> -->
                         <th>คำนำหน้า</th>
-                        <th>ชื่อ</th>
+                        <th>ชื่อจริง</th>
                         <th>นามสกุล</th>
                         
-                        <th>รหัสนักเรียน</th>
+                        <th>รหัสประจำตัวนักศึกษา</th>
                         <th>วันเกิด</th>
                         <th>อายุ</th>
                         <th>เพศ</th>
                         
-                        <th>แผนก</th>
+                        <th>แผนกวิชา</th>
                         <!-- <th>คุณครู</th> -->
                         <th>สถานะ</th>
                         

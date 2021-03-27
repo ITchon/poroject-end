@@ -39,7 +39,7 @@
                     </tr>
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อบริษัท</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อสถานประกอบการ</h4></th>
                                 <div class="col-sm-9">
                                 <td ><h5><?php echo $res->cpn_name ?></h5></td>
                                 </div>
@@ -47,7 +47,7 @@
                     </tr>
                       <tr>
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ที่อยู่</h4></th>
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ที่อยู่สถานประกอบการ</h4></th>
                                 <div class="col-sm-9">
                                 <td><h5><?php echo $res->cpn_add ?></h5></td>
                                 </div>
@@ -63,7 +63,7 @@
                       </tr> 
                       <tr> 
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">เบอร์โทรศัพท์</h4></th> 
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">เบอร์ติดต่อ</h4></th> 
                                 <div class="col-sm-9">
                                 <td><h5><?php echo $res->cpn_phnumber ?></h5></td>
                                 </div>
@@ -71,7 +71,7 @@
                       </tr> 
                       <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ต้องการนักศึกษา</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ความต้องการนักศึกษา</h4></th>
                                 <div class="col-sm-9">
                                 <td><h5><?php echo $res->req_number ?></h5></td>
                                 </div>

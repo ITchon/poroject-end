@@ -300,7 +300,7 @@
                   <span class="caret"></span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
-                  <li><a href="<?php echo base_url()."logout/index";?>">Sign out</a></li>
+                  <li><a href="<?php echo base_url()."logout/index";?>">ออกจากระบบ</a></li>
                 </ul>
               </li>
               

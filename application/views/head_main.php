@@ -75,7 +75,7 @@
               <li class="visible-xs-block">
                 <a href="login-1.html">
                   <span class="icon icon-power-off icon-lg icon-fw"></span>
-                  Sign out
+                  ออกจากระบบ
                 </a>
               </li>
             </ul>

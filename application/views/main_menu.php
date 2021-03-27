@@ -93,12 +93,12 @@
                     <thead>
                       <tr>
                         
-                        <th class="text-center">ชื่อบริษัท</th>
-                        <th class="text-center">ที่อยู่</th>
+                        <th class="text-center">ชื่อสถานประกอบการ</th>
+                        <th class="text-center">ที่อยู่สถานประกอบการ</th>
                         <th class="text-center">ต้องการเพศ</th>
                         <th class="text-center">ต้องการระดับชั้น</th>
-                        <th class="text-center">ต้องการนแผนก</th>
-                        <th class="text-center">รายระเอียดเพิ่มเติม</th>
+                        <th class="text-center">ต้องการแผนก</th>
+                        <th class="text-center">รายละเอียดเพิ่มเติม</th>
                         
                       </tr>
                     </thead>

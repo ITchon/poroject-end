@@ -15,7 +15,7 @@
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
-          <h2>ข้อมูลนักเรียน</h2>
+          <h2>ข้อมูลนักนักศึกษา</h2>
             
                 <br>
                 <div class="col-md-8">
@@ -54,7 +54,7 @@
                       </tr>
                       <tr>
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสบัติประชาชน</h4></th>
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสบัตรประชาชน</h4></th>
                                 <div class="col-sm-9">
                                     <td><h5><?php echo $res->std_idcard ?></h5></td>
                                 </div>

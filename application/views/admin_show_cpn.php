@@ -18,7 +18,7 @@
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                     
                   </div>
-                  <strong>Basic Table (+Bootstrap Responsive Table)</strong>
+                  <strong></strong>
                 </div>
                 
                 <div class="card-body">
@@ -30,10 +30,10 @@
                     <thead>
                     <tr>
                         
-                        <th>ชื่อบริษัท</th>
-                        <th>ที่อยู่</th>
+                        <th>ชื่อสถานประกอบการ</th>
+                        <th>ที่อยู่สถานประกอบการ</th>
                         <th>E-mail</th>
-                        <th>เบอร์โทรศัพท์</th>
+                        <th>เบอร์ติดต่อ</th>
                         <th>สถานะ</th>
                         <th>จัดการ</th>
                         

@@ -149,7 +149,7 @@
                       <h2 class="media-heading">
                       
                         <span class="fw-l"><?php echo $count_std?>/50</span>
-                        <small>จำนวนนักเรียน</small>
+                        <small>จำนวนนักศึกษา</small>
                       </h2>
                       
                       
