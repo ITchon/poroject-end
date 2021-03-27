@@ -30,7 +30,7 @@
                         <th>เบอร์โทรศัพท์</th>
                         <th>E-mail</th>
                         <th>รหัสประจำตัวประชาชน</th>
-                        <th>manage</th>
+                        <th>จัดการ</th>
                       </tr>
                     </thead>
                     <tbody>

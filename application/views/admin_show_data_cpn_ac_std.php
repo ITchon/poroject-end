@@ -69,7 +69,7 @@
 
                     <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อ</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ชื่อจริง</h4></th>
                                 <div class="col-sm-9">
                                 <td ><h5><?php echo $res->std_fname ?></h5></td>
                                 </div>
@@ -85,7 +85,7 @@
                       </tr>
                       <tr>
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสบัติประชาชน</h4></th>
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสบัตรประชาชน</h4></th>
                                 <div class="col-sm-9">
                                     <td><h5><?php echo $res->std_idcard ?></h5></td>
                                 </div>
@@ -93,7 +93,7 @@
                       </tr> 
                       <tr> 
                         <div class="form-group">
-                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสนักเรียน</h4></th> 
+                        <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">รหัสประจำตัวนักศึกษา</h4></th> 
                                 <div class="col-sm-9">
                                 <td><h5><?php echo $res->std_code ?></h5></td>
                                 </div>
@@ -117,7 +117,7 @@
                       </tr>
                       <tr>
                       <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ระดับชั้น</h4></th>
+                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">ปีการศึกษา</h4></th>
                                 <div class="col-sm-9">
                                 <td><h5><?php echo $res->cls_name ?></h5></td>
                                 </div>
