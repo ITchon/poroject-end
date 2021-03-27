@@ -27,6 +27,15 @@
                   <a href="<?php echo base_url();?>teacher/index">
                     <span class="sidenav-icon icon icon-columns"></span>
                     <span class="sidenav-label" >จัดนักเรียนของคุณ</span>
+<<<<<<< HEAD
+=======
+                  </a>
+                </li>
+                <li class="sidenav-item">
+                  <a href="page-layouts.html">
+                    <span class="sidenav-icon icon icon-columns"></span>
+                    <span class="sidenav-label">ข้อมูลวันเวลาออกฝึกงาน</span>
+>>>>>>> parent of f056650 (Merge branch 'master' of https://github.com/ITchon/project-end)
                   </a>
                 </li>
                 
