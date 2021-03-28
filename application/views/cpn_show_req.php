@@ -54,7 +54,7 @@
                             <td><?php echo $res->req_sex ?></td>
                             <td><?php echo $res->req_number?></td>
                             <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'company/index_show_cpn_req_data/' . $res->cpn_id;  ?>';"><label class='btn btn-success '>ดูข้อมูลเพิ่มเติม</label></a> 
+                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'company/index_show_cpn_req_data/' . $res->req_id;  ?>';"><label class='btn btn-success '>ดูข้อมูลเพิ่มเติม</label></a> 
                             &nbsp;<a class="btn btn-danger " data-toggle="modal" data-target="#warningModalAlert" >ลบ</a>
                             </td>
                             </tr>

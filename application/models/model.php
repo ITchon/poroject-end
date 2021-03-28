@@ -755,7 +755,18 @@ public function del_dpm_p($dpm_id)
   $sql="SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_add,company.cpn_email,company.cpn_phnumber,req.req_number
   
   FROM req
-  INNER JOIN company on company.cpn_id = req.cpn_id WHERE req.req_id = $id ";
+  LEFT JOIN company on company.cpn_id = req.cpn_id WHERE req.req_id = $id ";
+  $query = $this->db->query($sql); 
+  $data  = $query->result(); 
+
+  return $data;
+ }
+
+ public function select_main_data_cpn($req_id)
+ {
+  $sql="SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_add,company.cpn_email,company.cpn_phnumber,req.req_number
+  FROM req
+  INNER JOIN company on company.cpn_id = req.cpn_id WHERE req.req_id = $req_id";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
 

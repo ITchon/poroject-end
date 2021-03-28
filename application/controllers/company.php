@@ -177,8 +177,8 @@ public function delete_ac_f($ac_id)
       $this->load->view('cpn_show_cpn',$data);
    }
    public function index_show_cpn_req_data(){  
-      $id = $this->uri->segment('3');
-     $data['result'] = $this->model->select_main_data($id);
+      $req_id = $this->uri->segment('3');
+     $data['result'] = $this->model->select_main_data_cpn($req_id);
      $this->load->view('head_cpn');
       $this->load->view('cpn_sidebar');
    $this->load->view('cpn_req_data',$data);

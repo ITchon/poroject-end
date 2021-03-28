@@ -9,26 +9,7 @@
         <div class="layout-content-body">
           <div class="title-bar">
           </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="media">
-                    <div class="media-middle media-left">
-                      <div class="media-chart">
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#66FFFF", "#757575"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
-                      </div>
-                    </div>
-                    <div class="media-middle media-body">
-                      <h2 class="media-heading">
-                        <span class="fw-l">879</span>
-                        <small>Resolved</small>
-                      </h2>
-                      <small>More than 70% resolved issues</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+           
             
             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("success"); ?> 
             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("failed"); ?>   

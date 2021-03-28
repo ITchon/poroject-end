@@ -31,10 +31,10 @@
               </div>
             </div>
             
+            
+            <div class="col-xs-12">
             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("success"); ?> 
             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("failed"); ?>   
-            <div class="col-xs-12">
-              
               <div class="card">
                 
                 <div class="card-header">
