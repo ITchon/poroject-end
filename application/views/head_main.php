@@ -1,7 +1,7 @@
 <div class="layout-header">
       <div class="navbar navbar-default">
         <div class="navbar-header">
-        <a class="navbar-brand navbar-brand-center" href="index">
+        <a class="navbar-brand navbar-brand-center" href="<?php echo base_url()?>main/index">
             <label class="navbar-brand-logo"><H4>หน้าแรก</H4></label>
           </a>
           <br><br><br> 
@@ -51,7 +51,7 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   
-                  <li><a href="<?php echo base_url()?>">Sign out</a></li>
+                  <li><a href="<?php echo base_url()?>logout/index">Sign out</a></li>
                 </ul>
               </li>
 
@@ -181,7 +181,6 @@
                   </div>
                 </div>
               </li>
-<<<<<<< HEAD
               <!--<li class="dropdown">
                 <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">
                   <span class="icon-with-child hidden-xs">
@@ -193,12 +192,6 @@
                     <span class="badge badge-danger pull-right">7</span>
                     Notifications
                   </span>
-=======
-              <li class="visible-xs-block">
-                <a href="login-1.html">
-                  <span class="icon icon-power-off icon-lg icon-fw"></span>
-                  Sign out
->>>>>>> parent of a74e995 (แก้ภาษา)
                 </a>
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">
                   <div class="dropdown-header">

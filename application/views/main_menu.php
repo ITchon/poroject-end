@@ -9,49 +9,7 @@
         <div class="layout-content-body">
           <div class="title-bar">
           </div>
-          <div class="row gutter-xs">
-          <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="media">
-                    <div class="media-middle media-left">
-                      <div class="media-chart">
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#00FF00", "#757575"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
-                      </div>
-                    </div>
-                    <div class="media-middle media-body">
-                      <h2 class="media-heading">
-                        <span class="fw-l">879</span>
-                        <small>Resolved</small>
-                      </h2>
-                      <small>More than 70% resolved issues</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="media">
-                    <div class="media-middle media-left">
-                      <div class="media-chart">
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#66FFFF", "#757575"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
-                      </div>
-                    </div>
-                    <div class="media-middle media-body">
-                      <h2 class="media-heading">
-                        <span class="fw-l">879</span>
-                        <small>Resolved</small>
-                      </h2>
-                      <small>More than 70% resolved issues</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <br><br>
+
             <div class="col-xs-12">
               
               <div class="card">
@@ -75,18 +33,11 @@
                       <tr>
                         
                         <th class="text-center">ชื่อบริษัท</th>
-<<<<<<< HEAD
                         
                         <th class="text-center">ต้องการเพศ</th>
                         <th class="text-center">ต้องการระดับชั้น</th>
                         <th class="text-center">ต้องการนแผนก</th>
                         <th class="text-center">จำนวนที่ต้องการ</th>
-=======
-                        <th class="text-center">ที่อยู่</th>
-                        <th class="text-center">ต้องการเพศ</th>
-                        <th class="text-center">ต้องการระดับชั้น</th>
-                        <th class="text-center">ต้องการนแผนก</th>
->>>>>>> parent of a74e995 (แก้ภาษา)
                         <th class="text-center">รายระเอียดเพิ่มเติม</th>
                         
                       </tr>
