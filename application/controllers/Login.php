@@ -33,7 +33,9 @@ class Login extends CI_Controller {
 						<b> กรุณากรอกรหัสใหม่เพื่อเข้าสู่ระบบ !!</b> </span> 
 			</div>');
 			  redirect('login');  
-		}else{
+		}
+		
+		else{
 			$this->session->set_flashdata
 			('failed','<div class="alert alert-danger">
 									<span>  

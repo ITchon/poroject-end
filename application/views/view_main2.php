@@ -35,18 +35,19 @@
 
 							<?php echo form_open("login/save_new_pass", array('id'=>'login-form'));?>
 							<?php if ($this->session->flashdata('msg_error') != ''){ echo $this->session->flashdata('msg_error'); } ?>
+							<?php echo $this->session->flashdata("failed_p1"); ?>
 							<?php echo $this->session->flashdata("failed"); ?>
 												<fieldset>
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" name="password1" class="form-control" placeholder="Password" />
+															<input type="password" name="password1" minlength="6" class="form-control" placeholder="Password" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
 
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
-															<input type="password" name="password2" class="form-control" placeholder="ยืนยัน Password" />
+															<input type="password" name="password2" minlength="6" class="form-control" placeholder="ยืนยัน Password" />
 															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
