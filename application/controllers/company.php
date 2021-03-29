@@ -132,21 +132,62 @@ public function delete_ac_f($ac_id)
  
    public function registerindex(){
     
-    
+      
       $this->load->view('add_cpn');
       
       
    }
   
    public function registercpn(){
+      $config['upload_path']   = './uploads/pic'; 
+      $config['allowed_types'] = 'gif|jpg|png'; 
+      $config['max_size']      = 0; 
+      $config['max_width']     = 0; 
+      $config['max_height']    = 0;  
+      $config['overwrite']     = TRUE;
+
+      // $config['encrypt_name']  = true;
+
+      $this->load->library('upload', $config);
+      
+      $file = $_FILES['cpn_img']['name'];
+      
+      $this->load->library('upload', $config);
+      $this->upload->initialize($config);
+
+      if ( ! $this->upload->do_upload('cpn_img')) {
+         redirect('bilateral/insert_student_index'); 
+
+      }else{
       $cpn_name =  $this->input->post('cpn_name');
      $cpn_address=  $this->input->post('cpn_address');
      $cpn_email =  $this->input->post('cpn_email');
      $cpn_phnumber=  $this->input->post('cpn_phnumber');
       $cpn_img =  $this->input->post('cpn_img');
+      if(!empty($_FILES['cpn_img']['name'])) {
+                  
+         $tempFileLogo = $_FILES['cpn_img']['name'];
+         $fileNameLogo = iconv('UTF-8','TIS-620',$_FILES['cpn_img']['name']);
+         $arrStrLogo = explode(".", $fileNameLogo);
+         $fileNameLogo = $arrStrLogo[0].".".$arrStrLogo[1];
+
+
+         $fileNameLogo = preg_replace('/\s+/', '_', $fileNameLogo);
+         //$targetPathLogo = 'F:\inetpub\wwwroot\PICKING_SYSTEM\uploads\pic\\';
+         $targetPathLogo = 'C:\AppServ\www\project_end_1\uploads\pic';
+         // $targetPathLogo = APPPATH . 'upload/pic/';
+         $targetFileLogo = $targetPathLogo . $fileNameLogo ;
+         move_uploaded_file($tempFileLogo, $targetFileLogo);
+
+         // $p['pathlogo'] = "http://192.168.10.151/wifi_advertise/upload/pic/".$fileNameLogo;
+         $cpn_img = ''.$fileNameLogo;
+
+
+      }
       $id = $this->model->insert_registercpn($cpn_name,$cpn_address,$cpn_email,$cpn_phnumber,$cpn_img);
       $data = $this->model->insert_user($cpn_email,$cpn_phnumber,'company',$id);
       redirect('login');
+      }
    }
  
  

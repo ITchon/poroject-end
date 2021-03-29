@@ -18,6 +18,7 @@ class Bilateral extends CI_Controller {
         $this->load->view('head_brt');
         $this->load->view('btr_sidebar');
         $this->load->library('upload');
+        
     }
  
     public function index(){
@@ -351,6 +352,22 @@ public function insert_company()
       }
 	} 
 
+   public function show_std_rp(){
+   
+      $qry_inp =  "SELECT company.cpn_name,student.std_id,student.title,student.std_fname,student.std_lname,student.std_age,student.std_sex
+      ,department.dpm_name,accept_req.ac_status,accept_req.ac_id
+         FROM accept_req
+         left JOIN req on req.req_id = accept_req.req_id
+         left JOIN company on company.cpn_id = req.cpn_id
+         left JOIN student on student.std_id = accept_req.std_id
+         left JOIN class on class.cls_id = student.cls_id
+         left JOIN department on department.dpm_id = req.dpm_id ";
+      $query = $this->db->query($qry_inp); 
+      $data['result'] = $query->result();
+     
+      $this->load->view('btr_std_rp',$data);
+      
+   }
    
       
 

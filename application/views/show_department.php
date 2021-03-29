@@ -19,7 +19,7 @@
                 </div>
                 <div class="card-body">
         <div class="panel-body collapse in">      
-        
+        <a class="btn btn-success pull-lift " href="<?php echo base_url(); ?>admin/insert_department_index">เพิ่ม</a>
               <div class="table-responsive">
                 <div class="card-body ">
                 <table id="demo-datatables-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%">

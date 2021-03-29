@@ -13,11 +13,14 @@ class Student extends CI_Controller {
         $this->load->view('head_std');
         $this->load->view('sidebar_std');
         
+        
     }
  
  public function index(){
     
-    
+   $sql =  "SELECT req.`req_id`,count(ar.ac_id) as total FROM `req` left join accept_req ar on ar.req_id = req.req_id group by ar.req_id" ;
+   $query = $this->db->query($sql); 
+   $data['chk_acc'] = $query->result_array();
     $qry_inp =  "SELECT req.req_id,req.req_sex,req.req_glevel,company.cpn_id
     ,company.cpn_name,company.cpn_add,company.cpn_email,company.cpn_phnumber,department.dpm_name,req.req_number
     FROM req
@@ -25,13 +28,21 @@ class Student extends CI_Controller {
     INNER JOIN department on department.dpm_id = req.dpm_id" ;
     $query = $this->db->query($qry_inp); 
     $data['result'] = $query->result();
+
     $data['count_req'] = $this->model->count_req();
     $this->load->view('main_menu_std',$data);
  }
  public function index2(){  
          $id = $this->uri->segment('3');
-         $std_status = $this->session->userdata('std_status');
+         $data['count_req_max']  = $this->model->count_req_max($id);
          
+         $std_status = $this->session->userdata('std_status');
+         $qry_inp =  "SELECT std_id FROM accept_req where req_id ='$id'" ;
+         $query = $this->db->query($qry_inp); 
+         $data['total'] = $query->num_rows();
+         $qry_inp =  "SELECT std_id FROM accept_req " ;
+         $query = $this->db->query($qry_inp); 
+         $data['std_chk'] = $query->result_array();
         $data['result'] = $this->model->select_main_data($id);
       $this->load->view('main_data_std',$data,$std_status);
  }

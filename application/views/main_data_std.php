@@ -9,36 +9,16 @@
         <div class="layout-content-body">
           <div class="title-bar">
           </div>
-          <div class="row gutter-xs">
-          <div class="col-md-4">
-              <div class="card">
-                <div class="card-body">
-                  <div class="media">
-                    <div class="media-middle media-left">
-                      <div class="media-chart">
-                        <canvas data-chart="doughnut" data-animation="false" data-labels='["Resolved", "Unresolved"]' data-values='[{"backgroundColor": ["#00FF00", "#757575"], "data": [879, 377]}]' data-hide='["legend", "scalesX", "scalesY", "tooltips"]' height="64" width="64"></canvas>
-                      </div>
-                    </div>
-                    <div class="media-middle media-body">
-                      <h2 class="media-heading">
-                        <span class="fw-l">879</span>
-                        <small>Resolved</small>
-                      </h2>
-                      <small>More than 70% resolved issues</small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
+         
             
-            <br><br>
+
             <div class="col-xs-12">
             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("success"); ?> 
             &nbsp;&nbsp;&nbsp;&nbsp;<?php echo $this->session->flashdata("failed"); ?>    
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
-          <h2>ข้อมูลสถานประกอบการ</h2>
+          <h2>ข้อมูลสถานประกอบการ <?php  if($total >= $result[0]->req_number) echo "<span class='text-danger'>( เต็มแล้ว )</span>"?></h2>
             
                 <br>
                 <div class="col-md-8">
@@ -106,9 +86,21 @@
         </div>     
         <br>
         
-        <?php if($this->session->userdata('std_status') == 1){?>
-        &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'student/req/' . $res->req_id;  ?>';">สมัครเข้าฝึกงาน</a>
-        <?php } ?>
+        <?php
+        $std_id = $this->session->userdata('std_id');
+        if($total < $res->req_number){
+        if($this->session->userdata('std_status') == 1){
+          if(array_search($std_id, array_column($std_chk, 'std_id')) !== false){
+            echo ' <span class="color2">*** ถ้าต้องการเปลี่ยนบริษัทให้ทำการยกเลิกการสมัคที่หน้า |ดูข้อมูลสถานประกอบการที่คุณสมัคร| *** </span><br><br>'
+            ?>
+     <?php  }else{ ?> 
+              &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-success "onclick="javascript:window.location='<?php echo base_url() . 'student/req/' . $res->req_id;  ?>';">สมัครเข้าฝึกงาน</a>
+
+<?php
+       }
+      }
+    } 
+      ?>
         &nbsp;&nbsp;&nbsp;&nbsp;<a class="btn btn-danger " href="<?php echo base_url(); ?>student/index">กลับหน้าหลัก</a>
         
     </div>

@@ -40,7 +40,7 @@
           <div class="row">
             <div class="col-md-8">
               <div class="demo-form-wrapper">
-			  <form action="<?php echo base_url()?>company/registercpn" method="post" class='form-horizontal'>
+        <form class="form form-horizontal" action="<?php echo base_url(); ?>company/registercpn" method="POST" enctype="multipart/form-data">
                   <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-1">ชื่อบริษัท</label>
                     <div class="col-sm-9">

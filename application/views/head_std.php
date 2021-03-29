@@ -1,7 +1,7 @@
 <div class="layout-header">
       <div class="navbar navbar-default">
         <div class="navbar-header">
-        <a class="navbar-brand navbar-brand-center" href="index">
+        <a class="navbar-brand navbar-brand-center" href="<?php echo base_url()?>student/index_priv_std">
             <label class="navbar-brand-logo"><H4>นักเรียน</H4></label>
           </a>
           <br><br><br> 
@@ -51,7 +51,7 @@
                 </button>
                 <ul class="dropdown-menu dropdown-menu-right">
                   
-                  <li><a href="<?php echo base_url()?>">Sign out</a></li>
+                  <li><a href="<?php echo base_url()?>logout/index">Sign out</a></li>
                 </ul>
               </li>
 

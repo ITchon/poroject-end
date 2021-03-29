@@ -17,7 +17,7 @@
       <div class="card">
         <div class="layout-content">
           <div class="layout-content-body">
-          <h2>ข้อมูลสถานประกอบการ</h2>
+          <h2>อนุมัตินักศึกษาเข้าฝึกงาน</h2>
             
                 <br>
                 <div class="col-md-8">

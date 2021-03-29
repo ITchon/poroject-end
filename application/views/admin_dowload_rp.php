@@ -27,8 +27,8 @@
                     <table style="width:100%">
                     <tr>
                         <div class="form-group">
-                            <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">ใบสัญญา</h4></th>
-                            <td><a href="<?php echo base_url() ?>uploads/files/test.pdf">
+                            <th width=45%><h4 class="col-sm-9 control-label" for="form-control-1">ใบสัญญาและใบขออนุญาติผู้ปกครอง</h4></th>
+                            <td><a href="<?php echo base_url() ?>uploads/files/report.pdf">
                                 <button class="btn btn-danger btn-sm btn-labeled" type="button">
                             <span class="btn-label">
                                 <span class="icon icon-download icon-lg icon-fw"></span>
@@ -38,19 +38,7 @@
                           </div>
                     </tr>
 
-                    <tr>
-                          <div class="form-group">
-                            <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">ใบขออนุญาตผู้ปกครอง</h4></th>
-                            <td><a href="<?php echo base_url() ?>uploads/files/test.pdf">
-                                <button class="btn btn-danger btn-sm btn-labeled" type="button">
-                            <span class="btn-label">
-                                <span class="icon icon-download icon-lg icon-fw"></span>
-                            </span>
-                            Download | PDF
-                            </button></a></td>
-                          </div>
-                        
-                    </tr>
+                   
                     
                     
                     

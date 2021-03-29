@@ -44,6 +44,7 @@
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                     
                   </div>
+                  
                   <strong>รายการสถานประกอบการ</strong>
                 </div>
                 <div class="card-body">
@@ -72,7 +73,17 @@
                             <td><?php echo $res->req_glevel ?></td>
                             <td><?php echo $res->dpm_name ?></td>
                             <td><?php echo $res->req_sex ?></td>
-                            <td><?php echo $res->req_number?></td>
+                            <td><?php 
+                             if(array_search($res->req_id, array_column($chk_acc, 'req_id')) !== false){
+                              $key = array_search($res->req_id, array_column($chk_acc, 'req_id')) ;
+                               echo $chk_acc[$key]['total'];
+                              }else{
+                                echo 0 ;
+                              };
+                              echo "/".$res->req_number;
+                               ?>
+                               
+                               </td>
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'student/index2/' . $res->req_id;  ?>';"><label class='btn btn-success '>ดูข้อมูลเพิ่มเติม</label></a> 
                              

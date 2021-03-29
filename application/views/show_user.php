@@ -29,7 +29,7 @@
                             <td><?php echo $res->user_name ?></td>
                             <td><?php echo $res->user_pass ?></td>
                             <td><?php echo $res->user_group ?></td>
-                            <td><?php echo $res->status ?></td>
+                            <td><?php echo $res->user_status ?></td>
                             <td>
                             <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/edit_passwd/' . $res->user_id; ?>';"><i class='btn btn-warning'>แก้ไข</i></a> &nbsp 
                             &nbsp;<a class="btn btn-danger " data-toggle="modal" data-target="#warningModalAlert" >ลบ</a> 

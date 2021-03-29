@@ -110,14 +110,7 @@
                                 </div>
                         </div>
                       </tr>
-                      <tr>
-                      <div class="form-group">
-                      <th width=25%><h4 class="col-sm-9 control-label" for="form-control-1">สถานที่ฝึกงาน</h4></th>
-                                <div class="col-sm-9">
-                                <td><h5><?php echo $result['0']->cpn_name ?></h5></td>
-                                </div>
-                        </div>
-                      </tr>
+                      
                       <div class="form-group">
                             
                             

@@ -103,7 +103,7 @@
         <br>
         
         <?php if($res->ac_status == 0) {?>
-        <?php echo "<a type='button' href='".base_url()."student/delete_student_ac_std/".$res->ac_id."' onclick='return confirm(\"Confirm Delete Item\")' ><span class='btn btn-warning'>ยกเลิกการสมัคร</span></a>";?> 
+          &nbsp;<a class="btn btn-warning " data-toggle="modal" data-target="#warningModalAlert" >ยกเลิกการสมัคร</a>
         <?php  }else{
           echo '<span class="color"><h4>คุณได้รับการอนุมัติเข้าฝึกงานที่บริษัทนี้แล้ว</h4></span>
           <p class="help-block">
@@ -117,7 +117,25 @@
         <?php  } ?> 
         
     </div>
-    
+  
+    <div id="warningModalAlert" tabindex="-1" role="dialog" class="modal fade">
+      <div class="modal-dialog polaroid ">
+        <div class="modal-content">
+          <div class="modal-body ">
+            <div class="text-center">
+              <span class="text-warning icon icon-exclamation-triangle icon-5x"></span>
+              <h3 class="text-warning">คำเตือน</h3>
+              <h1>กรุณากด "ยืนยัน" เพื่อยกเลิกการสมัค</h1>
+              <div class="m-t-lg">
+              <?php echo "<a type='button' href='".base_url()."student/delete_student_ac_std/".$res->ac_id."' ' ><label class='btn btn-danger'>ยืนยัน</label></a>";?>
+                <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
     
 
   </body>

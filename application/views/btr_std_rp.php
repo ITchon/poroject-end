@@ -24,7 +24,7 @@
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                     
                   </div>
-                  <strong>รายการสถานประกอบการ</strong>
+                  <strong>รายชื่อเด็กนักเรียนที่ออกฝึกงาน</strong>
                 </div>
                 <div class="card-body">
         <div class="panel-body collapse in">      
@@ -41,9 +41,7 @@
                         <th class="text-center">อายุ</th>
                         <th class="text-center">เพศ</th>
                         <th class="text-center">แผนกวิชา</th>
-                        <th class="text-center">ชื่อสถานประกอบการที่สมัคร</th>
-                        <th class="text-center">สถานะ</th>
-                        <th class="text-center">จัดการ</th>
+                        
                         
                       </tr>
                     </thead>
@@ -56,19 +54,7 @@
                             <td><?php echo $res->std_age ?></td>
                             <td><?php echo $res->std_sex ?></td>
                             <td><?php echo $res->dpm_name?></td>
-                            <td><?php echo $res->cpn_name?></td>
-                            <td>
-                            <?php if( $res->ac_status == 1){
-                               echo '<span class="color">รับเข้าฝึกงานแล้ว</span>';
-                             }else{
-                               echo '<span class="color2">ยังไม่รับเข้าฝึกงาน</span>';
-                             }?>
-                            </td>
-                            <td>
-                            <a type ='button'   onclick="javascript:window.location='<?php echo base_url() . 'admin/show_cpn_ac_std2/' . $res->std_id;  ?>';"><i class='btn btn-success '>ดูข้อมูลเพิ่มเติม</i></a> 
-                            &nbsp;<a class="btn btn-danger " data-toggle="modal" data-target="#warningModalAlert" >ลบ</a>
                             
-                            </td>
                             </tr>
                             <?php  } ?> 
                            
@@ -94,7 +80,7 @@
               <h3 class="text-warning">คำเตือน</h3>
               <h1>กรุณากด "ยืนยัน" เพื่อลบ</h1>
               <div class="m-t-lg">
-              <?php echo "<a type='button' href='".base_url()."admin/del_cpn_ac_std/".$res->ac_id."' ' ><label class='btn btn-danger'>ยืนยัน</label></a>";?>
+              <?php echo "<a type='button' href='".base_url()."admin/delete_ac_f/".$res->ac_id."' ' ><label class='btn btn-danger'>ยืนยัน</label></a>";?>
                 <button class="btn btn-default" data-dismiss="modal" type="button">Cancel</button>
               </div>
             </div>

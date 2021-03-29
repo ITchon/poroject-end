@@ -41,7 +41,7 @@
                     <tr>
                           <div class="form-group">
                             <th width=30%><h4 class="col-sm-9 control-label" for="form-control-1">ใบขออนุญาตผู้ปกครอง</h4></th>
-                            <td><a href="<?php echo base_url() ?>uploads/files/test.pdf">
+                            <td><a href="<?php echo base_url() ?>uploads/files/gg.jpg">
                                 <button class="btn btn-danger btn-sm btn-labeled" type="button">
                             <span class="btn-label">
                                 <span class="icon icon-download icon-lg icon-fw"></span>

@@ -27,7 +27,12 @@
                     <span class="sidenav-label" >จัดการอนุมัติบริษัท</span>
                   </a>
                 </li>
-                
+                <li class="sidenav-item">
+                <a href="<?php echo base_url();?>bilateral/show_std_rp">
+                    <span class="sidenav-icon icon icon-tags"></span>
+                    <span class="sidenav-label">จำนวนนักเรียนที่ออกฝึกงาน</span>
+                  </a>
+                </li>
                 
             </nav>
           </div>

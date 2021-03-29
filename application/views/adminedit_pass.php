@@ -17,12 +17,13 @@
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="user_name" class="form-control" type="text" readonly value="<?php echo $result[0]->user_name ?>">
                                 </div>
+                                </div>
                                 <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">New password</label>
                                 <div class="col-sm-9">
                                 <input id="form-control-1" name="user_pass" class="form-control" type="text" value="<?php echo $result[0]->user_pass ?>">
                                 </div>
-
+                                </div>
 
                                 </div>       
                 </div> 

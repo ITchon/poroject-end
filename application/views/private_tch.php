@@ -130,4 +130,7 @@
 .color2 {
   color: red;
 }
+img {
+  border-radius: 50%;
+}
 </style>

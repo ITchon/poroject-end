@@ -82,9 +82,8 @@ class Model extends CI_Model
 
         public function edit_passwd($user_pass ,$user_id )
         {
-            $sql ="UPDATE `user` SET  
-                                         user_pass ='$user_pass' 
-                                          
+            $sql ="UPDATE user SET       user_pass ='$user_pass' ,
+                                         user_status ='1'
                                          
                                          
                                         
@@ -275,7 +274,7 @@ public function chk_sessionstudent() {
 }
 
   public function chk_sessioncpn() {  
-    if($this->session->userdata('cpn_id')=="") {
+    if($this->session->userdata('user_group')!="company") {
       echo "<script>alert('Please Login')</script>";
       redirect('login','refresh');
       return FALSE;
@@ -284,12 +283,20 @@ public function chk_sessionstudent() {
 }
 
   public function chk_sessiontch() {  
-    if($this->session->userdata('tch_id')=="") {
+    if($this->session->userdata('user_group')!="teacher") {
       echo "<script>alert('Please Login')</script>";
       redirect('login','refresh');
       return FALSE;
 
     }else{    return TRUE;    }
+}
+public function chk_sessionbtr() {  
+  if($this->session->userdata('user_group')!="bilateral") {
+    echo "<script>alert('Please Login')</script>";
+    redirect('login','refresh');
+    return FALSE;
+
+  }else{    return TRUE;    }
 }
 
 public function chk_username_registercpn($username) {  
@@ -359,7 +366,7 @@ if($query) {
 
 public function insert_user($user_name,$user_pass,$user_group,$id){ 
   // $pass = base64_encode(trim($pass));
-  $sql ="INSERT INTO `user`(`user_name`,`user_pass`,`user_group`,`status`,id) 
+  $sql ="INSERT INTO `user`(`user_name`,`user_pass`,`user_group`,`user_status`,id) 
   VALUES ('$user_name','$user_pass','$user_group','0','$id')";
 $query = $this->db->query($sql);
 if($query) {
@@ -567,10 +574,26 @@ public function del_ac_std_p($ac_id)
     
   }else{  return false; }
 }
+
 public function del_cpn_p($cpn_id)
 {
 
-  $sqlEdt = "DELETE FROM company WHERE cpn_id = '$cpn_id';";
+  $sqlEdt = "DELETE FROM company WHERE cpn_id = '$cpn_id  ';";
+
+
+  $exc_teacher = $this->db->query($sqlEdt);
+ 
+  if ($exc_teacher ){
+    
+    return true;  
+    
+  }else{  return false; }
+}
+
+public function del_cpn_ac_std_p($cpn_id)
+{
+
+  $sqlEdt = "DELETE FROM accept_req WHERE ac_id = '$cpn_id';";
 
 
   $exc_teacher = $this->db->query($sqlEdt);
@@ -776,15 +799,13 @@ public function del_dpm_p($dpm_id)
  public function select_main_data_std_cnp($std_id)
  {
   $sql="SELECT student.std_id,student.title,student.std_fname,student.std_lname,student.std_age,student.std_sex,student.std_status
-  ,department.dpm_name,accept_req.ac_status,accept_req.ac_id,company.cpn_name,student.std_img,c.cls_name,student.std_birthday,student.std_idcard,student.std_code
+  ,department.dpm_name,student.std_img,c.cls_name,student.std_birthday,student.std_idcard,student.std_code
   FROM student
-  LEFT JOIN class AS c on student.cls_id = c.cls_id
-  LEFT JOIN department on department.dpm_id = c.dpm_id
-  LEFT JOIN teacher on teacher.tch_id = c.tch_id
-  LEFT JOIN accept_req on accept_req.std_id = accept_req.std_id
-  LEFT JOIN req on req.req_id = accept_req.req_id
-  LEFT JOIN company on company.cpn_id = req.cpn_id
-  WHERE student.std_id = $std_id";
+  INNER JOIN class AS c on student.cls_id = c.cls_id
+  INNER JOIN department on department.dpm_id = c.dpm_id
+  INNER JOIN teacher on teacher.tch_id = c.tch_id
+  
+  WHERE student.std_id = $std_id  ";
   $query = $this->db->query($sql); 
   $data  = $query->result(); 
 
@@ -792,7 +813,7 @@ public function del_dpm_p($dpm_id)
  }
 
  public function save_new_pass($pass1,$id) {  
-  $sql ="update user set user_pass = '$pass1', status = 1 where user_id = '$id'";
+  $sql ="update user set user_pass = '$pass1', user_status = 1 where user_id = '$id'";
   $query = $this->db->query($sql);
   if($query) {
     return true;  
@@ -1106,6 +1127,13 @@ public function count_req()
 public function count_std_in_cls($data)
 {
           $sql ="SELECT  cls_id FROM student where cls_id = $data  ";
+          $res =$this->db->query($sql);
+          return $res->num_rows();
+}
+
+public function count_req_max($id)
+{
+          $sql ="SELECT req_id  FROM req where req_id = $id";
           $res =$this->db->query($sql);
           return $res->num_rows();
 }

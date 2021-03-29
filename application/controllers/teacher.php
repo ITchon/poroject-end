@@ -12,7 +12,7 @@ class Teacher extends CI_Controller {
        $this->load->model('model');
        $this->load->view('head_tch');
       $this->load->view('tch_sidebar');
-       
+      
        
    }
 

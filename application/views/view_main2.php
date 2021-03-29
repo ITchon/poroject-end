@@ -40,7 +40,7 @@
 													<label class="block clearfix">
 														<span class="block input-icon input-icon-right">
 															<input type="password" name="password1" class="form-control" placeholder="Password" />
-															<i class="ace-icon fa fa-user"></i>
+															<i class="ace-icon fa fa-lock"></i>
 														</span>
 													</label>
 

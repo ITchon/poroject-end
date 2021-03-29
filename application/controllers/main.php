@@ -17,7 +17,9 @@ public function __construct()
  
  public function index(){
     
-    
+    $sql =  "SELECT req.`req_id`,count(ar.ac_id) as total FROM `req` left join accept_req ar on ar.req_id = req.req_id group by ar.req_id" ;
+   $query = $this->db->query($sql); 
+   $data['chk_acc'] = $query->result_array();
     $qry_inp =  "SELECT req.req_id,company.cpn_id,company.cpn_name,company.cpn_img,company.cpn_add,company.cpn_email,company.cpn_phnumber,req.req_number
     ,req.req_sex,req.req_glevel,department.dpm_name
     FROM req

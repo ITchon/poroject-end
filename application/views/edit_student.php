@@ -81,7 +81,7 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">ชื่อห้อง</label>
                                 <div class="col-sm-9">
-                                <select id="std_id"name="cls_id" class="form-control">
+                                <select id="demo-select2-1"name="cls_id" class="form-control">
                                                
                                                 <?php foreach ($result_cls as $cl) {
                                                         echo " <option value=".$cl->cls_id."> ".$cl->cls_name."         |         ".$cl->cls_glevel."/".$cl->cls_group."         |         ".$cl->dpm_name."         |         "."  </option> ";
@@ -96,7 +96,7 @@
                             <label class="col-sm-3 control-label" for="form-control-9" >รูปรักเรียน</label>
                             <div class="col-sm-9">
                             <img  src="<?php echo base_url()?>./uploads/pic/<?php echo $result[0]->std_img?>" style="width:20% ;hight:20%;">
-                          <input type="file" name="std_img" class="form-control" id="std_img"  onchange="file()"  value="<?php echo $result[0]->std_img ?>" required> 
+                          <input type="file" name="std_img" class="form-control" id="std_img"  onchange="file()"  value="<?php echo $result[0]->std_img ?>" > 
                                                                                  
                             <p class="help-block">
                                 <small>***กรุณาใส่รูปรักเรียน***</small>

@@ -34,8 +34,8 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label" for="form-control-1">แผนกวิชา</label>
                                 <div class="col-sm-9">
-                                <select name="dpm_id" class="form-control">
-                                <option value="" selected="">--เลือกแผนกวิชา--</option> 
+                                <select id="demo-select2-1" class="form-control" multiple="multiple">
+                                
                                                 <?php foreach ($result_dpm as $res) {
                                                         echo " <option value=".$res->dpm_id."> ".$res->dpm_name."  </option> ";
                                                                                  }
@@ -62,11 +62,11 @@
                                 <div class="col-sm-9">
                                 <select name="cls_glevel" class="form-control">
                                         <option value="" selected="">--เลือกระดับชั้น--</option>
-                                          <option value="ปวช.3">ปวช.1</option>
-                                          <option value="ปวส.2">ปวช.2</option>
+                                          <option value="ปวช.1">ปวช.1</option>
+                                          <option value="ปวช.2">ปวช.2</option>
                                           <option value="ปวช.3">ปวช.3</option>
-                                          <option value="ปวส.2">ปวส.1</option>
-                                          <option value="ปวช.3">ปวส.2</option>
+                                          <option value="ปวส.1">ปวส.1</option>
+                                          <option value="ปวส.2">ปวส.2</option>
                                           
                                       </select>
                                 </div>

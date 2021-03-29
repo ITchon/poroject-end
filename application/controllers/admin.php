@@ -26,7 +26,7 @@ public function __construct()
  }
 
  public function show_user_index(){
-   $qry_inp =  "SELECT `user_id`,`user_name`, `user_pass`, `user_group`, `status`, `id` FROM `user`" ;
+   $qry_inp =  "SELECT `user_id`,`user_name`, `user_pass`, `user_group`, `user_status`, `id` FROM `user`" ;
    $query = $this->db->query($qry_inp); 
    $data['result'] = $query->result();
    $this->load->view('show_user',$data);
@@ -659,6 +659,9 @@ public function insert_student()
          $query = $this->db->query($qry_inp); 
          $data['result_tch'] = $query->result();
 
+         $qry_inp =  "SELECT * FROM class";
+         $query = $this->db->query($qry_inp); 
+         $data['result_cls'] = $query->result();
          $this->load->view('edit_class',$data);
    }
    public function edit_class_p()
@@ -753,6 +756,55 @@ if($data[0]->cpn_status == 0){
 }
  
 }
+public function delete_cpn_ac_std($ac_id)
+  {
+     
+     $result = $this->model->del_cpn_p($ac_id);
+     
+
+     
+
+     if($result!=FALSE)
+     {
+         $this->session->set_flashdata
+           ('success_del','<div class="alert alert-success">
+                             <span>  
+                    <b>ลบสำเร็จ</span> 
+           </div>');
+           redirect('admin/index2','refresh');
+     }
+     else
+     {
+         echo "<script>alert('Something wrong')</script>";
+          redirect('manage_student','refresh');
+     }
+  }
+
+
+  public function del_cpn_ac_std($ac_id)
+  {
+     
+     $result = $this->model->del_cpn_ac_std_p($ac_id);
+     
+
+     
+
+     if($result!=FALSE)
+     {
+         $this->session->set_flashdata
+           ('success_del','<div class="alert alert-success">
+                             <span>  
+                    <b>ลบสำเร็จ</span> 
+           </div>');
+           redirect('admin/show_cpn_ac_std','refresh');
+     }
+     else
+     {
+         echo "<script>alert('Something wrong')</script>";
+          redirect('manage_student','refresh');
+     }
+  }
+
 
 public function delete_cpn_f($ac_id)
   {
